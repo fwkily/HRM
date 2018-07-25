@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f8b2714a-7280-4402-ac43-d2ef33ee6fd9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM.war" afterPath="$PROJECT_DIR$/target/HRM.war" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/controller/UserController.class" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/controller/UserController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/dao/Recruit_InformationMapper.class" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/dao/Recruit_InformationMapper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/model/Recruit_Information.class" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/model/Recruit_Information.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/service/Recruit_InformationService.class" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/service/Recruit_InformationService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/service/impl/Recruit_InformationServiceImpl.class" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/service/impl/Recruit_InformationServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gwy/controller/UserController.class" afterPath="$PROJECT_DIR$/target/classes/com/gwy/controller/UserController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gwy/dao/Recruit_InformationMapper.class" afterPath="$PROJECT_DIR$/target/classes/com/gwy/dao/Recruit_InformationMapper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gwy/model/Recruit_Information.class" afterPath="$PROJECT_DIR$/target/classes/com/gwy/model/Recruit_Information.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gwy/service/Recruit_InformationService.class" afterPath="$PROJECT_DIR$/target/classes/com/gwy/service/Recruit_InformationService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gwy/service/impl/Recruit_InformationServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/gwy/service/impl/Recruit_InformationServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/dao/Recruit_InformationMapper.xml" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/dao/Recruit_InformationMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gwy/dao/Recruit_InformationMapper.xml" afterPath="$PROJECT_DIR$/target/classes/com/gwy/dao/Recruit_InformationMapper.xml" />
-    </list>
+    <list default="true" id="f8b2714a-7280-4402-ac43-d2ef33ee6fd9" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -1175,7 +1160,7 @@
       <workItem from="1532489740167" duration="3998000" />
       <workItem from="1532496490294" duration="19185000" />
       <workItem from="1532519492128" duration="2358000" />
-      <workItem from="1532523220335" duration="5192000" />
+      <workItem from="1532523220335" duration="6132000" />
     </task>
     <task id="LOCAL-00001" summary="再来一次">
       <created>1532499615920</created>
@@ -1223,7 +1208,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30733000" />
+    <option name="totallyTimeSpent" value="31673000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="0" />
@@ -1247,8 +1232,8 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5272727" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17613636" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.52613634" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29090908" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22854078" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
