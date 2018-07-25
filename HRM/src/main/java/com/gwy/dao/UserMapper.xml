@@ -7,7 +7,7 @@
         INSERT INTO HRM_USER VALUES(USER_SEQ.nextval,#{uname},#{upass})
     </insert>
 
-    <select id="getUser" resultMap="userMap">
+    <select id="getUserByNamePass" resultMap="userMap">
         SELECT * FROM HRM_USER WHERE UNAME=#{uname} and upass=#{upass}
     </select>
     <select id="getUserByName" resultMap="userMap">

@@ -9,4 +9,6 @@ public interface UserService {
     User getUserByName(User user);
 
     void addUser(User user);
+
+    User getUserByNamePass(User user);
 }

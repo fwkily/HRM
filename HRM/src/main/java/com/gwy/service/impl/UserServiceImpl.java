@@ -24,4 +24,9 @@ public class UserServiceImpl implements UserService{
     public void addUser(User user) {
         userMapper.addUser(user);
     }
+
+    @Override
+    public User getUserByNamePass(User user) {
+        return userMapper.getUserByNamePass(user);
+    }
 }

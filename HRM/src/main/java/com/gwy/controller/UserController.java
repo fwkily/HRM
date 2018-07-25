@@ -41,7 +41,7 @@ public class UserController {
         model.addAttribute("str","该用户名已存在");
         return "../../register";
     }
-    /*@RequestMapping("/login")
+    @RequestMapping("/login")
     public String login(User user, HttpSession session, Model model) throws Exception{
         User user1 = userService.getUserByNamePass(user);
         if (null!=user1){
@@ -51,6 +51,7 @@ public class UserController {
         model.addAttribute("str","用户名或密码错误");
         return "../../login";
     }
+    /*
     @RequestMapping("/user")
     public String user(@RequestParam(value = "currentPage",defaultValue = "1")int currentPage, HttpServletRequest request) throws Exception{
         int state = 1;
