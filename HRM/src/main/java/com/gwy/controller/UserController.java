@@ -1,6 +1,9 @@
 package com.gwy.controller;
 
 import com.gwy.model.User;
+import com.gwy.service.DepartmentService;
+import com.gwy.service.JobService;
+import com.gwy.service.Recruit_InformationService;
 import com.gwy.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +23,12 @@ import java.util.List;
 public class UserController {
     @Resource
     private UserService userService;
+    @Resource
+    private DepartmentService departmentService;
+    @Resource
+    private JobService jobService;
+    @Resource
+    private Recruit_InformationService recruit_informationService;
     @RequestMapping("/checkName")
     public void checkName(User user, HttpServletRequest request, HttpServletResponse response) throws Exception{
         System.out.println(user.getUname());
@@ -48,12 +57,15 @@ public class UserController {
             session.setAttribute("user",user1);
             return "redirect:user";
         }
+        int totalRows=recruit_informationService.getRecruit_InformationByRiState(1);
+        System.out.println(totalRows);
         model.addAttribute("str","用户名或密码错误");
         return "../../login";
     }
     @RequestMapping("/")
     public String index(HttpServletRequest request) throws Exception{
-
+        int totalRows=recruit_informationService.getRecruit_InformationByRiState(1);
+        System.out.println(totalRows);
         return "../../index";
     }
     /*

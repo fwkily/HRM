@@ -7,8 +7,8 @@ import java.io.Serializable;
  */
 public class User implements Serializable{
     private int uid;
-    private String uname;
-    private String upass;
+    private String uName;
+    private String uPass;
 
     public User() {
     }
@@ -17,8 +17,8 @@ public class User implements Serializable{
     public String toString() {
         return "User{" +
                 "uid=" + uid +
-                ", uname='" + uname + '\'' +
-                ", upass='" + upass + '\'' +
+                ", uName='" + uName + '\'' +
+                ", uPass='" + uPass + '\'' +
                 '}';
     }
 
@@ -31,18 +31,18 @@ public class User implements Serializable{
     }
 
     public String getUname() {
-        return uname;
+        return uName;
     }
 
-    public void setUname(String uname) {
-        this.uname = uname;
+    public void setUname(String uName) {
+        this.uName = uName;
     }
 
     public String getUpass() {
-        return upass;
+        return uPass;
     }
 
-    public void setUpass(String upass) {
-        this.upass = upass;
+    public void setUpass(String uPass) {
+        this.uPass = uPass;
     }
 }
