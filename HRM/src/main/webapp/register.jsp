@@ -79,7 +79,7 @@
                         type:"get",
                         url:"checkName",
                         data:{uname:$("#uname").val()},
-                        success:function (obj) {//鎴愬姛鍚庡洖璋冨嚱鏁�
+                        success:function (obj) {
                             $("#name").text(obj);
                         },
                         error:function (obj) {

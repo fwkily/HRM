@@ -24,23 +24,23 @@
             var flag2 = false;
             var flag3 = false;
             $("#uname").focus(function () {
-                $("#name").html("瀛楁瘝寮�澶达紝6-16浣嶅瓧姣嶃�佹暟瀛�");
+                $("#name").html("字母开头，6-16位字母、数字");
             })
             $("#pwd1").focus(function () {
-                $("#pass").html("6-16浣嶅瓧姣嶃�佹暟瀛�");
+                $("#pass").html("6-16位字母、数字");
             })
             $("#pwd2").focus(function () {
-                $("#pass1").html("璇峰啀娆¤緭鍏ヤ綘鐨勫瘑鐮�");
+                $("#pass1").html("请再次输入你的密码");
             })
             $("#pwd2").blur(function () {
                 p1 = $("#pwd1").val();
                 p2 = $("#pwd2").val();
                 if(p1==p2&&flag2){
-                    $("#pass1").html("瀵嗙爜鐩稿悓涓旂鍚堣姹�");
+                    $("#pass1").html("密码相同且符合要求");
                     flag3 = true;
                     ff();
                 }else{
-                    $("#pass1").html("瀵嗙爜涓嶇浉鍚屾垨涓嶇鍚堣姹�");
+                    $("#pass1").html("密码不相同或不符合要求");
                     flag3 = false;
                 }
             })
@@ -48,16 +48,16 @@
                 p1 = $("#pwd1").val();
                 var reg=/[A-z0-9]{6,16}/;
                 if (p1.length<6){
-                    $("#pass").html("瀵嗙爜灏忎簬6浣�");
+                    $("#pass").html("密码小于6位");
                     flag2 = false;
                 }else if(p1.length>16){
-                    $("#pass").html("瀵嗙爜澶т簬16浣�");
+                    $("#pass").html("密码大于16位");
                     flag2 = false;
                 }else if(!reg.test(p1)){
-                    $("#pass").html("瀵嗙爜璁剧疆涓嶇鍚堣姹�");
+                    $("#pass").html("密码设置不符合要求");
                     flag2 = false;
                 }else {
-                    $("#pass").html("瀵嗙爜鍛藉悕绗﹀悎瑕佹眰");
+                    $("#pass").html("密码命名符合要求");
                     flag2 = true;
                     ff();
                 }
@@ -66,20 +66,20 @@
                 uname = $("#uname").val();
                 var reg=/[A-z][A-z0-9]{5,15}/;
                 if (uname.length<6){
-                    $("#name").html("鐢ㄦ埛鍚嶅皬浜�6浣�");
+                    $("#name").html("用户名小于6位");
                     flag1 = false;
                 }else if(uname.length>16){
-                    $("#name").html("鐢ㄦ埛鍚嶅ぇ浜�16浣�");
+                    $("#name").html("用户名大于16位");
                     flag1 = false;
                 }else if(!reg.test(uname)){
-                    $("#name").html("鐢ㄦ埛鍚嶅懡鍚嶄笉绗﹀悎瑕佹眰");
+                    $("#name").html("用户名命名不符合要求");
                     flag1 = false;
                 }else {
                     $.ajax({
                         type:"get",
                         url:"checkName",
                         data:{uname:$("#uname").val()},
-                        success:function (obj) {//鎴愬姛鍚庡洖璋冨嚱鏁�
+                        success:function (obj) {
                             $("#name").text(obj);
                         },
                         error:function (obj) {
