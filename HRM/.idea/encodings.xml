@@ -15,15 +15,15 @@
     <file url="file://$PROJECT_DIR$/src/main/resources/db.properties" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/resources/dispatcher-servlet.xml" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/resources/log4j.properties" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/user.jsp" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/adminLogin.jsp" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/index.jsp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/begin.jsp" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/login.jsp" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/register.jsp" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/resources" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/resources/css/admin.css" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/resources/css/index.css" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/resources/css/login.css" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/resources/css/login.css" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/resources/css/myOrders.css" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/resources/css/myUserDetail.css" charset="UTF-8" />

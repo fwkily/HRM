@@ -63,6 +63,20 @@ public class UserController {
         return "../../login";
     }
     @RequestMapping("/")
+    public String begin(@RequestParam(value = "currentPage",defaultValue = "1")int currentPage,HttpServletRequest request) throws Exception{
+        int state = 1;
+        int pageSize = 10;
+        int totalRows=recruit_informationService.getRecruit_InformationByRiState(state);
+        int totalPages = DoPage.getTotalPages(totalRows,pageSize);
+        int begin = (currentPage-1)*pageSize+1;
+        int end = (currentPage-1)*pageSize+pageSize;
+        List<Recruit_Information> recruitInformations = recruit_informationService.queryCurrentPageRecruit_InformationByRiState(state,begin,end);
+        request.setAttribute("recruitInformations",recruitInformations);
+        request.setAttribute("currentPage",currentPage);
+        request.setAttribute("totalPages",totalPages);
+        return "../../begin";
+    }
+    @RequestMapping("/index")
     public String index(@RequestParam(value = "currentPage",defaultValue = "1")int currentPage,HttpServletRequest request) throws Exception{
         int state = 1;
         int pageSize = 10;
@@ -74,7 +88,21 @@ public class UserController {
         request.setAttribute("recruitInformations",recruitInformations);
         request.setAttribute("currentPage",currentPage);
         request.setAttribute("totalPages",totalPages);
-        return "../../index";
+        return "../../begin";
+    }
+    @RequestMapping("/user")
+    public String user(@RequestParam(value = "currentPage",defaultValue = "1")int currentPage, HttpServletRequest request) throws Exception{
+        int state = 1;
+        int pageSize = 10;
+        int totalRows=recruit_informationService.getRecruit_InformationByRiState(state);
+        int totalPages = DoPage.getTotalPages(totalRows,pageSize);
+        int begin = (currentPage-1)*pageSize+1;
+        int end = (currentPage-1)*pageSize+pageSize;
+        List<Recruit_Information> recruitInformations = recruit_informationService.queryCurrentPageRecruit_InformationByRiState(state,begin,end);
+        request.setAttribute("recruitInformations",recruitInformations);
+        request.setAttribute("currentPage",currentPage);
+        request.setAttribute("totalPages",totalPages);
+        return "user";
     }
     /*
     @RequestMapping("/user")

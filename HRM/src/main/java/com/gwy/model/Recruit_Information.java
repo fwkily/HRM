@@ -13,7 +13,7 @@ public class Recruit_Information implements Serializable{
     private int riNum;//人数
     private String riIntro;//简介
     private int riState;//状态0未发布，1发布，2失效
-    private Date riDate;//时间
+    private String riDate;//时间
 
     public int getRiid() {
         return riid;
@@ -63,11 +63,11 @@ public class Recruit_Information implements Serializable{
         this.riState = riState;
     }
 
-    public Date getRiDate() {
+    public String getRiDate() {
         return riDate;
     }
 
-    public void setRiDate(Date riDate) {
+    public void setRiDate(String riDate) {
         this.riDate = riDate;
     }
 
