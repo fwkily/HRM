@@ -7,4 +7,8 @@ import com.gwy.model.User;
  */
 public interface UserMapper {
     User getUser(User user);
+
+    User getUserByName(User user);
+
+    void addUser(User user);
 }

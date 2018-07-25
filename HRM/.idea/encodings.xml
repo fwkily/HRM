@@ -2,6 +2,7 @@
 <project version="4">
   <component name="Encoding" defaultCharsetForPropertiesFiles="GBK">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/gwy/controller/UserController.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/gwy/dao/UserMapper.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/gwy/dao/UserMapper.xml" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/resources/applicationContext.xml" charset="GBK" />
@@ -14,6 +15,23 @@
     <file url="file://$PROJECT_DIR$/src/main/webapp/login.jsp" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/register.jsp" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/resources" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/resources/css/admin.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/resources/css/index.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/resources/css/login.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/resources/css/login.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/resources/css/myOrders.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/resources/css/myUserDetail.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/resources/css/register.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/resources/css/user.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/resources/images/1.jpg" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/resources/images/2.jpg" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/resources/images/3.jpg" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/resources/images/4.jpg" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/resources/images/5.jpg" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/resources/images/6.jpg" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/resources/images/7.jpg" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/resources/images/8.jpg" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/resources/images/9.jpg" charset="UTF-8" />
     <file url="PROJECT" charset="GBK" />
   </component>
 </project>
