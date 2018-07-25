@@ -4,9 +4,9 @@
     <root id="1"/>
     <schema id="2" parent="1" name="HRM">
       <ObjectId>50</ObjectId>
-      <IntrospectionTimestamp>2018-07-25.11:36:19</IntrospectionTimestamp>
+      <IntrospectionTimestamp>2018-07-25.16:08:25</IntrospectionTimestamp>
       <CreatedTimestamp>2018-07-25.11:31:32</CreatedTimestamp>
-      <ModifiedTimestamp>2018-07-25.11:32:17</ModifiedTimestamp>
+      <ModifiedTimestamp>2018-07-25.16:06:20</ModifiedTimestamp>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -67,34 +67,191 @@
     <schema id="21" parent="1" name="XS$NULL">
       <ObjectId>2147483638</ObjectId>
     </schema>
-    <sequence id="22" parent="2" name="USER_SEQ">
+    <sequence id="22" parent="2" name="DEPARTMENT_SEQ">
+      <ObjectId>20406</ObjectId>
+      <CreatedTimestamp>2018-07-25.16:06:20</CreatedTimestamp>
+      <ModifiedTimestamp>2018-07-25.16:06:20</ModifiedTimestamp>
+      <SequenceIdentity>1..9999999999</SequenceIdentity>
+    </sequence>
+    <sequence id="23" parent="2" name="JOB_SEQ">
+      <ObjectId>20405</ObjectId>
+      <CreatedTimestamp>2018-07-25.16:03:44</CreatedTimestamp>
+      <ModifiedTimestamp>2018-07-25.16:03:44</ModifiedTimestamp>
+      <SequenceIdentity>1..9999999999</SequenceIdentity>
+    </sequence>
+    <sequence id="24" parent="2" name="RECRUIT_INFORMATION_SEQ">
+      <ObjectId>20400</ObjectId>
+      <CreatedTimestamp>2018-07-25.15:56:09</CreatedTimestamp>
+      <ModifiedTimestamp>2018-07-25.15:56:09</ModifiedTimestamp>
+      <SequenceIdentity>1..9999999999</SequenceIdentity>
+    </sequence>
+    <sequence id="25" parent="2" name="USER_SEQ">
       <ObjectId>20397</ObjectId>
       <CreatedTimestamp>2018-07-25.11:32:17</CreatedTimestamp>
       <ModifiedTimestamp>2018-07-25.11:32:17</ModifiedTimestamp>
       <SequenceIdentity>1..9999999999</SequenceIdentity>
     </sequence>
-    <table id="23" parent="2" name="HRM_USER">
+    <table id="26" parent="2" name="HRM_DEPARTMENT">
+      <ObjectId>20401</ObjectId>
+      <CreatedTimestamp>2018-07-25.15:59:31</CreatedTimestamp>
+      <ModifiedTimestamp>2018-07-25.15:59:31</ModifiedTimestamp>
+      <TemporaryPreserve>1</TemporaryPreserve>
+    </table>
+    <table id="27" parent="2" name="HRM_JOB">
+      <ObjectId>20403</ObjectId>
+      <CreatedTimestamp>2018-07-25.16:03:01</CreatedTimestamp>
+      <ModifiedTimestamp>2018-07-25.16:03:01</ModifiedTimestamp>
+      <TemporaryPreserve>1</TemporaryPreserve>
+    </table>
+    <table id="28" parent="2" name="HRM_RECRUIT_INFORMATION">
+      <ObjectId>20398</ObjectId>
+      <CreatedTimestamp>2018-07-25.15:55:19</CreatedTimestamp>
+      <ModifiedTimestamp>2018-07-25.15:55:19</ModifiedTimestamp>
+      <TemporaryPreserve>1</TemporaryPreserve>
+    </table>
+    <table id="29" parent="2" name="HRM_USER">
       <ObjectId>20395</ObjectId>
       <CreatedTimestamp>2018-07-25.11:31:32</CreatedTimestamp>
       <ModifiedTimestamp>2018-07-25.11:31:32</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
-    <column id="24" parent="23" name="UID">
+    <column id="30" parent="26" name="DID">
       <Position>1</Position>
       <DataType>NUMBER(10)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="25" parent="23" name="UNAME">
+    <column id="31" parent="26" name="DNAME">
       <Position>2</Position>
       <DataType>VARCHAR2(40)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="26" parent="23" name="UPASS">
+    <column id="32" parent="26" name="DDATE">
+      <Position>3</Position>
+      <DataType>DATE|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="33" parent="26" name="SYS_C007153">
+      <ObjectId>20402</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-07-25.15:59:31</CreatedTimestamp>
+      <ModifiedTimestamp>2018-07-25.15:59:31</ModifiedTimestamp>
+      <TablespaceName>SYSTEM</TablespaceName>
+      <ColNames>DID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="34" parent="26" name="SYS_C007153">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-07-25.15:59:31</ModifiedTimestamp>
+      <ColNames>DID</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SYS_C007153</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="35" parent="27" name="JID">
+      <Position>1</Position>
+      <DataType>NUMBER(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="36" parent="27" name="JNAME">
+      <Position>2</Position>
+      <DataType>VARCHAR2(40)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="37" parent="27" name="DID">
+      <Position>3</Position>
+      <DataType>NUMBER(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="38" parent="27" name="JSALARY">
+      <Position>4</Position>
+      <DataType>NUMBER(7,1)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="39" parent="27" name="SYS_C007158">
+      <ObjectId>20404</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-07-25.16:03:01</CreatedTimestamp>
+      <ModifiedTimestamp>2018-07-25.16:03:01</ModifiedTimestamp>
+      <TablespaceName>SYSTEM</TablespaceName>
+      <ColNames>JID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="40" parent="27" name="SYS_C007158">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-07-25.16:03:01</ModifiedTimestamp>
+      <ColNames>JID</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SYS_C007158</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="41" parent="28" name="RIID">
+      <Position>1</Position>
+      <DataType>NUMBER(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="42" parent="28" name="DID">
+      <Position>2</Position>
+      <DataType>NUMBER(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="43" parent="28" name="JID">
+      <Position>3</Position>
+      <DataType>NUMBER(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="44" parent="28" name="RINUM">
+      <Position>4</Position>
+      <DataType>NUMBER(3)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="45" parent="28" name="RIINTRO">
+      <Position>5</Position>
+      <DataType>VARCHAR2(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="46" parent="28" name="RISTATE">
+      <Position>6</Position>
+      <DataType>NUMBER(1)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="47" parent="28" name="RIDAYE">
+      <Position>7</Position>
+      <DataType>DATE|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="48" parent="28" name="SYS_C007149">
+      <ObjectId>20399</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-07-25.15:55:19</CreatedTimestamp>
+      <ModifiedTimestamp>2018-07-25.15:55:19</ModifiedTimestamp>
+      <TablespaceName>SYSTEM</TablespaceName>
+      <ColNames>RIID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="49" parent="28" name="SYS_C007149">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-07-25.15:55:19</ModifiedTimestamp>
+      <ColNames>RIID</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SYS_C007149</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="50" parent="29" name="UID">
+      <Position>1</Position>
+      <DataType>NUMBER(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="51" parent="29" name="UNAME">
+      <Position>2</Position>
+      <DataType>VARCHAR2(40)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="52" parent="29" name="UPASS">
       <Position>3</Position>
       <DataType>VARCHAR2(40)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="27" parent="23" name="SYS_C007141">
+    <index id="53" parent="29" name="SYS_C007141">
       <ObjectId>20396</ObjectId>
       <NameSurrogate>1</NameSurrogate>
       <CreatedTimestamp>2018-07-25.11:31:32</CreatedTimestamp>
@@ -103,7 +260,7 @@
       <ColNames>UID</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="28" parent="23" name="SYS_C007141">
+    <key id="54" parent="29" name="SYS_C007141">
       <NameSurrogate>1</NameSurrogate>
       <ModifiedTimestamp>2018-07-25.11:31:32</ModifiedTimestamp>
       <ColNames>UID</ColNames>
