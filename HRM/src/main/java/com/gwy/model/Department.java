@@ -8,8 +8,8 @@ import java.util.Date;
  */
 public class Department implements Serializable{
     private int did;
-    private String dName;
-    private Date dDate;
+    private String dname;
+    private Date ddate;
 
     public int getDid() {
         return did;
@@ -19,28 +19,28 @@ public class Department implements Serializable{
         this.did = did;
     }
 
-    public String getdName() {
-        return dName;
+    public String getdname() {
+        return dname;
     }
 
-    public void setdName(String dName) {
-        this.dName = dName;
+    public void setdname(String dname) {
+        this.dname = dname;
     }
 
-    public Date getdDate() {
-        return dDate;
+    public Date getddate() {
+        return ddate;
     }
 
-    public void setdDate(Date dDate) {
-        this.dDate = dDate;
+    public void setddate(Date ddate) {
+        this.ddate = ddate;
     }
 
     @Override
     public String toString() {
         return "Department{" +
                 "did=" + did +
-                ", dName='" + dName + '\'' +
-                ", dDate=" + dDate +
+                ", dname='" + dname + '\'' +
+                ", ddate=" + ddate +
                 '}';
     }
 

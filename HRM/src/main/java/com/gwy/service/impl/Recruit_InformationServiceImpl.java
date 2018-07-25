@@ -1,10 +1,12 @@
 package com.gwy.service.impl;
 
 import com.gwy.dao.Recruit_InformationMapper;
+import com.gwy.model.Recruit_Information;
 import com.gwy.service.Recruit_InformationService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * Created by destiny on 2018/7/25/0025.
@@ -17,5 +19,10 @@ public class Recruit_InformationServiceImpl implements Recruit_InformationServic
     @Override
     public int getRecruit_InformationByRiState(int i) {
         return recruit_informationMapper.getRecruit_InformationByRiState(i);
+    }
+
+    @Override
+    public List<Recruit_Information> queryCurrentPageRecruit_InformationByRiState(int state, int begin, int end) {
+        return recruit_informationMapper.queryCurrentPageRecruit_InformationByRiState(state,begin,end);
     }
 }

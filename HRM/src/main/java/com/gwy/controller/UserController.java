@@ -1,10 +1,12 @@
 package com.gwy.controller;
 
+import com.gwy.model.Recruit_Information;
 import com.gwy.model.User;
 import com.gwy.service.DepartmentService;
 import com.gwy.service.JobService;
 import com.gwy.service.Recruit_InformationService;
 import com.gwy.service.UserService;
+import com.gwy.util.DoPage;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -57,15 +59,21 @@ public class UserController {
             session.setAttribute("user",user1);
             return "redirect:user";
         }
-        int totalRows=recruit_informationService.getRecruit_InformationByRiState(1);
-        System.out.println(totalRows);
         model.addAttribute("str","用户名或密码错误");
         return "../../login";
     }
     @RequestMapping("/")
-    public String index(HttpServletRequest request) throws Exception{
-        int totalRows=recruit_informationService.getRecruit_InformationByRiState(1);
-        System.out.println(totalRows);
+    public String index(@RequestParam(value = "currentPage",defaultValue = "1")int currentPage,HttpServletRequest request) throws Exception{
+        int state = 1;
+        int pageSize = 10;
+        int totalRows=recruit_informationService.getRecruit_InformationByRiState(state);
+        int totalPages = DoPage.getTotalPages(totalRows,pageSize);
+        int begin = (currentPage-1)*pageSize+1;
+        int end = (currentPage-1)*pageSize+pageSize;
+        List<Recruit_Information> recruitInformations = recruit_informationService.queryCurrentPageRecruit_InformationByRiState(state,begin,end);
+        request.setAttribute("recruitInformations",recruitInformations);
+        request.setAttribute("currentPage",currentPage);
+        request.setAttribute("totalPages",totalPages);
         return "../../index";
     }
     /*

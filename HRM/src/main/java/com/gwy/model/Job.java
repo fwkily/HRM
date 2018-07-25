@@ -8,9 +8,9 @@ import java.util.Date;
  */
 public class Job implements Serializable{
     private int jid;
-    private String jName;
+    private String jname;
     private Department department;
-    private double jSalary;
+    private double jsalary;
 
     public int getJid() {
         return jid;
@@ -20,12 +20,12 @@ public class Job implements Serializable{
         this.jid = jid;
     }
 
-    public String getjName() {
-        return jName;
+    public String getjname() {
+        return jname;
     }
 
-    public void setjName(String jName) {
-        this.jName = jName;
+    public void setjname(String jname) {
+        this.jname = jname;
     }
 
     public Department getDepartment() {
@@ -36,21 +36,21 @@ public class Job implements Serializable{
         this.department = department;
     }
 
-    public double getjSalary() {
-        return jSalary;
+    public double getjsalary() {
+        return jsalary;
     }
 
-    public void setjSalary(double jSalary) {
-        this.jSalary = jSalary;
+    public void setjsalary(double jsalary) {
+        this.jsalary = jsalary;
     }
 
     @Override
     public String toString() {
         return "Job{" +
                 "jid=" + jid +
-                ", jName='" + jName + '\'' +
+                ", jname='" + jname + '\'' +
                 ", department=" + department +
-                ", jSalary=" + jSalary +
+                ", jsalary=" + jsalary +
                 '}';
     }
 
