@@ -5,10 +5,16 @@ import java.io.Serializable;
 /**
  * Created by destiny on 2018/7/25/0025.
  */
+
 public class User implements Serializable{
     private int uid;
     private String uName;
     private String uPass;
+
+    public User(String uName, String uPass) {
+        this.uName = uName;
+        this.uPass = uPass;
+    }
 
     public User() {
     }

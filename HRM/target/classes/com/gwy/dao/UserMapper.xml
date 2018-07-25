@@ -8,7 +8,7 @@
     </insert>
 
     <select id="getUserByNamePass" resultMap="userMap">
-        SELECT * FROM HRM_USER WHERE UNAME=#{uName} and upass=#{uPass}
+        SELECT * FROM HRM_USER WHERE UNAME=#{uName} and UPASS=#{uPass}
     </select>
     <select id="getUserByName" resultMap="userMap">
         SELECT * FROM HRM_USER where UNAME=#{uName}
