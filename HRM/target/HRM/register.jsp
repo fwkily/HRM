@@ -122,20 +122,17 @@
             <div id="d21">
                 <form method="post" action="register">
                     <div>
-                        <span >姓名</span><input type="text" name="uname" style="height:40px;width:200px " id="uname"/><span id="name" style="width: 300px;text-align: left;color: red">${error}</span>
+                        <span >用户</span><input type="text" name="uname" style="height:40px;width:200px " id="uname"/><span id="name" style="width: 300px;text-align: left;color: red">${error}</span>
                     </div>
                     <div>
-                        <span >鐢ㄦ埛瀵嗙爜</span><input type="password" name="upass" style="height:40px;width:200px " id="pwd1"/><span id="pass" style="width: 300px;text-align: left;color: red"></span>
+                        <span >密码</span><input type="password" name="upass" style="height:40px;width:200px " id="pwd1"/><span id="pass" style="width: 300px;text-align: left;color: red"></span>
                     </div>
                     <div>
-                        <span >纭瀵嗙爜</span><input type="password" name="pass1" style="height:40px;width:200px " id="pwd2"/><span id="pass1" style="width: 300px;text-align: left;color: red"></span>
-                    </div>
-                    <div style="margin-left: 0px">
-                        <span >鎬у埆</span><input type="radio" style="width: 10px" name="sex" checked="checked" value="鐢�"/>鐢�<input type="radio" style="width: 10px" name="sex" value="濂�"/>濂�
+                        <span >重复</span><input type="password" name="pass1" style="height:40px;width:200px " id="pwd2"/><span id="pass1" style="width: 300px;text-align: left;color: red"></span>
                     </div>
                     <div style="text-align: left;margin-top: 25px">
-                        <input disabled="true" id="register" type="submit" value="鎻愪氦" style="background-color: orangered;height:40px;width:80px;margin-left: 100px;color: white"/>
-                        <input id="rt" type="reset" value="閲嶇疆" style="background-color: orangered;height:40px;width: 80px;margin-left: 30px;color: white"/>
+                        <input disabled="true" id="register" type="submit" value="注册" style="background-color: orangered;height:40px;width:80px;margin-left: 100px;color: white"/>
+                        <input id="rt" type="reset" value="重置" style="background-color: orangered;height:40px;width: 80px;margin-left: 30px;color: white"/>
                     </div>
                     <span style="color: red;float: left">
                         ${str}</span>
