@@ -51,6 +51,16 @@ public class UserController {
         model.addAttribute("str","用户名或密码错误");
         return "../../login";
     }
+    @RequestMapping("/")
+    public String index(User user, HttpSession session, Model model) throws Exception{
+        User user1 = userService.getUserByNamePass(user);
+        if (null!=user1){
+            session.setAttribute("user",user1);
+            return "redirect:user";
+        }
+        model.addAttribute("str","用户名或密码错误");
+        return "../../login";
+    }
     /*
     @RequestMapping("/user")
     public String user(@RequestParam(value = "currentPage",defaultValue = "1")int currentPage, HttpServletRequest request) throws Exception{

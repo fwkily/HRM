@@ -33,9 +33,8 @@
             <a href="register.jsp">&emsp;免费注册</a>
         </div>
         <div id="d12">
-            <a href="index">淘宝网首页&emsp;</a>
-            <a href="#" class="a1">我的淘宝&emsp;</a>
-            <a href="#" class="a1">购物车&emsp;</a>
+            <a href="staffLogin.jsp" >员工登录&emsp;</a>
+            <a href="adminLogin.jsp" class="a1">管理员登录&emsp;</a>
         </div>
     </div>
     <div id="d2">
