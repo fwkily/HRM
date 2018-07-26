@@ -31,4 +31,19 @@ public class ResumeServiceImpl implements ResumeService{
     public int addResume(Resume resume) {
         return resumeMapper.addResume(resume);
     }
+
+    @Override
+    public Resume getResumeByReid(int reid) {
+        return resumeMapper.getResumeByReid(reid);
+    }
+
+    @Override
+    public int updateResume(Resume resume) {
+        return resumeMapper.updateResume(resume);
+    }
+
+    @Override
+    public int deleteResume(Resume resume) {
+        return resumeMapper.deleteResume(resume);
+    }
 }

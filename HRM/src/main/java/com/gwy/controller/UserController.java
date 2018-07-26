@@ -127,7 +127,28 @@ public class UserController {
         User user = (User) session.getAttribute("user");
         resume.setUser(user);
         resumeService.addResume(resume);
-        return "myResume";
+        return "redirect:myResume";
+    }
+    @RequestMapping("/updateresume")
+    public String updateresume(int reid,HttpSession session,HttpServletRequest request) throws Exception{
+        Resume resume=resumeService.getResumeByReid(reid);
+        request.setAttribute("resume",resume);
+        return "updateResume";
+    }
+    @RequestMapping("/updateResume")
+    public String updateResume(Resume resume) throws Exception{
+        resumeService.updateResume(resume);
+        return "redirect:myResume";
+    }
+    @RequestMapping("/deleteResume")
+    public String deleteResume(Resume resume) throws Exception{
+        resumeService.deleteResume(resume);
+        return "redirect:myResume";
+    }
+    @RequestMapping("/checkResume")
+    public String checkResume(Resume resume) throws Exception{
+        resumeService.deleteResume(resume);
+        return "redirect:myResume";
     }
     /*
     @RequestMapping("/user")

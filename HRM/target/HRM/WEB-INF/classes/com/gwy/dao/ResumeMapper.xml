@@ -7,6 +7,57 @@
         INSERT INTO HRM_RESUME VALUES(RESUME_SEQ.nextval,#{resumename},#{user.uid},#{rename},#{resex},#{reidcardno},#{rebirthday},
         #{rephone},#{reemail},#{readdress},#{repost},#{reeducation},#{recollege},#{remajor},#{regraduate},#{reintro})
     </insert>
+    <update id="updateResume">
+        UPDATE HRM_RESUME
+        <set>
+            <if test="resumename!=null">
+                RESUMENAME=#{resumename},
+            </if>
+            <if test="rename!=null">
+                "RENAME"=#{rename},
+            </if>
+            <if test="resex!=null">
+                RESEX=#{resex},
+            </if>
+            <if test="reidcardno!=null">
+                REIDCARDNO=#{reidcardno},
+            </if>
+            <if test="rebirthday!=null">
+                REBIRTHDAY=#{rebirthday},
+            </if>
+            <if test="rephone!=null">
+                REPHONE=#{rephone},
+            </if>
+            <if test="reemail!=null">
+                REEMAIL=#{reemail},
+            </if>
+            <if test="readdress!=null">
+                READDRESS=#{readdress},
+            </if>
+            <if test="repost!=null">
+                REPOST=#{repost},
+            </if>
+            <if test="reeducation!=null">
+                REEDUCATION=#{reeducation},
+            </if>
+            <if test="recollege!=null">
+                RECOLLEGE=#{recollege},
+            </if>
+            <if test="remajor!=null">
+                REMAJOR=#{remajor},
+            </if>
+            <if test="regraduate!=null">
+                REGRADUATE=#{regraduate},
+            </if>
+            <if test="reintro!=null">
+                REINTRO=#{reintro}
+            </if>
+        </set>
+        where REID=#{reid}
+    </update>
+    <delete id="deleteResume">
+        DELETE FROM HRM_RESUME WHERE REID=#{reid}
+    </delete>
 
     <select id="getResumeByUser" resultType="java.lang.Integer">
         SELECT COUNT (*) FROM HRM_RESUME WHERE "UID"=#{uid}
@@ -16,6 +67,9 @@
         WHERE HRM_RESUME."UID"=#{0}) RE,HRM_USER
         WHERE RE."UID"=HRM_USER."UID"
         and rn between #{1} and #{2}
+    </select>
+    <select id="getResumeByReid" resultType="com.gwy.model.Resume">
+        SELECT * from HRM_RESUME where REID=#{reid}
     </select>
     <resultMap id="resumeMap" type="com.gwy.model.Resume">
         <id property="reid" column="REID"/>

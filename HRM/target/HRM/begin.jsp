@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.gwy.util.DateAndString" %><%--
   Created by IntelliJ IDEA.
   User: destiny
   Date: 2018/6/24/0024
@@ -59,7 +59,7 @@
                             <td>${recruitInformation.job.jsalary}</td>
                             <td>${recruitInformation.riNum}</td>
                             <td>${recruitInformation.riIntro}</td>
-                            <td>${recruitInformation.riDate}</td>
+                            <td>${DateAndString.dateToStringTime(recruitInformation.riDate)}</td>
                             <td><input style="width: 80px" class="a1" type="button" value="投递简历"></td>
                     </tr>
                 </c:forEach>

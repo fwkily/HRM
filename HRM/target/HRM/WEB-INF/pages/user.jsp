@@ -1,3 +1,4 @@
+<%@ page import="com.gwy.util.DateAndString" %>
 <%--
   Created by IntelliJ IDEA.
   User: destiny
@@ -18,6 +19,15 @@
     <link rel="stylesheet" href="resources/css/index.css" type="text/css"/>
     <script type="text/javascript" src="resources/js/index.js"></script>
     <script src="resources/js/jquery.js"></script>
+    <script>
+        $(function () {
+            $("#send").click(function () {
+                var hh=$(this).prev().val();
+                alert(hh);
+                return false;
+            })
+        })
+    </script>
 </head>
 <body>
 <div id="d">
@@ -51,8 +61,10 @@
                             <td>${recruitInformation.job.jsalary}</td>
                             <td>${recruitInformation.riNum}</td>
                             <td>${recruitInformation.riIntro}</td>
-                            <td>${recruitInformation.riDate}</td>
-                            <td><input style="width: 80px" class="a1" type="button" value="投递简历"></td>
+                            <td>${DateAndString.dateToStringTime(recruitInformation.riDate)}</td>
+                            <td><input type="hidden" name="riid" value="${recruitInformation.riid}" id="riid">
+                                <a href="sendResume?reid=${resume.reid}" id="send">投递简历&emsp;</a>
+                                </td>
                     </tr>
                 </c:forEach>
             </table>

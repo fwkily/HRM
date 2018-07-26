@@ -32,7 +32,6 @@
     </div>
     <div id="d3" style="font-size: 24px">
         <div id="d31">
-            <a href="addresume">添加&emsp;</a><a href="updateResume">修改&emsp;</a><a href="deleteResume">删除&emsp;</a>
             <form action="addResume1" method="post">
                 <table >
                     <tr><th colspan="4"><input type="text" name="resumename" value="简历名"></th></tr>

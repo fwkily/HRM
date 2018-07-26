@@ -1,5 +1,7 @@
 package com.gwy.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -14,7 +16,8 @@ public class Recruit_Information implements Serializable{
     private int riNum;//人数
     private String riIntro;//简介
     private int riState;//状态0未发布，1发布，2失效
-    private String riDate;//时间
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    private Date riDate;//时间
 
     public int getRiid() {
         return riid;
@@ -64,11 +67,11 @@ public class Recruit_Information implements Serializable{
         this.riState = riState;
     }
 
-    public String getRiDate() {
+    public Date getRiDate() {
         return riDate;
     }
 
-    public void setRiDate(String riDate) {
+    public void setRiDate(Date riDate) {
         this.riDate = riDate;
     }
 

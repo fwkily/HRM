@@ -16,4 +16,10 @@ public interface ResumeMapper {
     List<Resume> queryCurrentResumeByUser(int uid, int begin, int end);
 
     int addResume(Resume resume);
+
+    Resume getResumeByReid(int reid);
+
+    int updateResume(Resume resume);
+
+    int deleteResume(Resume resume);
 }

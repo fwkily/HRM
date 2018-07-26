@@ -1,4 +1,7 @@
-<%--
+<%@ page import="java.util.Date" %>
+<%@ page import="com.gwy.model.Resume" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.gwy.util.DateAndString" %><%--
   Created by IntelliJ IDEA.
   User: destiny
   Date: 2018/6/24/0024
@@ -18,6 +21,13 @@
     <link rel="stylesheet" href="resources/css/index.css" type="text/css"/>
     <script type="text/javascript" src="resources/js/index.js"></script>
     <script src="resources/js/jquery.js"></script>
+    <script>
+        $(function () {
+            $("#del").click(function () {
+                return confirm("是否删除简历"+$("#resumename").text());
+            })
+        })
+    </script>
 </head>
 <body>
 <div id="d">
@@ -32,10 +42,12 @@
     </div>
     <div id="d3" style="font-size: 24px">
         <div id="d31">
-            <a href="addresume">添加&emsp;</a><a href="updateResume">修改&emsp;</a><a href="deleteResume">删除&emsp;</a>
+            <a href="addresume">添加&emsp;</a>
             <c:forEach items="${resumes}" var="resume" varStatus="loop">
+                <a href="updateresume?reid=${resume.reid}">修改&emsp;</a><a href="deleteResume?reid=${resume.reid}" id="del">删除&emsp;</a>
             <table >
-                <tr><th colspan="4">${resume.resumename}</th></tr>
+                <tr><th colspan="4" id="resumename">
+                        ${resume.resumename}</th></tr>
                 <tr><td colspan="4">个人信息</td></tr>
                 <tr>
                     <td>姓名</td><td>${resume.rename}</td>
@@ -43,7 +55,7 @@
                 </tr>
                 <tr>
                     <td>身份证号</td><td>${resume.reidcardno}</td>
-                    <td>出生时间</td><td>${resume.rebirthday}</td>
+                    <td>出生时间</td><td>${DateAndString.dateToString(resume.rebirthday)}</td>
                 </tr>
                 <tr><td colspan="4">教育情况</td></tr>
                 <tr>
@@ -52,7 +64,7 @@
                 </tr>
                 <tr>
                     <td>专业</td><td>${resume.remajor}</td>
-                    <td>毕业时间</td><td>${resume.regraduate}</td>
+                    <td>毕业时间</td><td>${DateAndString.dateToString(resume.regraduate)}</td>
                 </tr>
                 <tr><td colspan="4">联系方式</td></tr>
                 <tr>
