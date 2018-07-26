@@ -26,36 +26,21 @@
             <a href="login.jsp">&emsp;${user.uname}</a>
         </div>
         <div id="d12">
-            <a href="myResume" >我的简历&emsp;</a>
+            <a href="myResume" STYLE="color: red">我的简历&emsp;</a>
             <a href="myInterview">面试管理&emsp;</a>
         </div>
     </div>
     <div id="d3" style="font-size: 24px">
         <div id="d31">
+            <c:forEach items="${recruitInformations}" var="recruitInformation" varStatus="loop">
             <table >
-                <tr style="background-color: #faebd7">
-                    <th width="40px">ID</th>
-                    <th width="80px">部门</th>
-                    <th width="120px">职位</th>
-                    <th width="100px">基本工资</th>
-                    <th width="60px">人数</th>
-                    <th width="150px">简介</th>
-                    <th width="200px">发布时间</th>
-                    <th width="80px">投递简历</th>
+                <tr><td colspan="2">1</td></tr>
+                <tr>
+                    <td>1</td>
+                    <td>1</td>
                 </tr>
-                <c:forEach items="${recruitInformations}" var="recruitInformation" varStatus="loop">
-                    <tr >
-                            <td>${recruitInformation.riid}</td>
-                            <td>${recruitInformation.department.dname}</td>
-                            <td>${recruitInformation.job.jname}</td>
-                            <td>${recruitInformation.job.jsalary}</td>
-                            <td>${recruitInformation.riNum}</td>
-                            <td>${recruitInformation.riIntro}</td>
-                            <td>${recruitInformation.riDate}</td>
-                            <td><input style="width: 80px" class="a1" type="button" value="投递简历"></td>
-                    </tr>
-                </c:forEach>
             </table>
+            </c:forEach>
         </div>
         <div id="d32" >
             <a href="user?currentPage=${currentPage-1==0?currentPage:currentPage-1}">上一页</a>
