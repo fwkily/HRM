@@ -6,6 +6,7 @@ import java.util.Date;
 /**
  * Created by destiny on 2018/7/25/0025.
  */
+//招聘信息表
 public class Recruit_Information implements Serializable{
     private int riid;//招聘信息表ID
     private Department department;//部门

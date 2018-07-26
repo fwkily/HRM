@@ -9,12 +9,15 @@
     <file url="file://$PROJECT_DIR$/src/main/java/com/gwy/dao/JobMapper.xml" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/gwy/dao/Recruit_InformationMapper.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/gwy/dao/Recruit_InformationMapper.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/gwy/dao/ResumeMapper.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/gwy/dao/ResumeMapper.xml" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/gwy/dao/UserMapper.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/gwy/dao/UserMapper.xml" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/resources/applicationContext.xml" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/resources/db.properties" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/resources/dispatcher-servlet.xml" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/resources/log4j.properties" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/addResume.jsp" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/myResume.jsp" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/user.jsp" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" charset="GBK" />

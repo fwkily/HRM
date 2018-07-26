@@ -1,0 +1,34 @@
+package com.gwy.service.impl;
+
+import com.gwy.dao.ResumeMapper;
+import com.gwy.model.Resume;
+import com.gwy.model.User;
+import com.gwy.service.ResumeService;
+import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
+import java.util.List;
+
+/**
+ * Created by destiny on 2018/7/25/0025.
+ */
+@Service
+public class ResumeServiceImpl implements ResumeService{
+    @Resource
+    private ResumeMapper resumeMapper;
+
+    @Override
+    public int getResumeByUser(User user) {
+        return resumeMapper.getResumeByUser(user);
+    }
+
+    @Override
+    public List<Resume> queryCurrentResumeByUser(int uid, int begin, int end) {
+        return resumeMapper.queryCurrentResumeByUser(uid,begin,end);
+    }
+
+    @Override
+    public int addResume(Resume resume) {
+        return resumeMapper.addResume(resume);
+    }
+}

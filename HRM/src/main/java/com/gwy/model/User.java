@@ -5,11 +5,11 @@ import java.io.Serializable;
 /**
  * Created by destiny on 2018/7/25/0025.
  */
-
+//用户表
 public class User implements Serializable{
-    private int uid;
-    private String uname;
-    private String upass;
+    private int uid;//用户ID
+    private String uname;//用户名
+    private String upass;//用户密码
 
     public User(String uname, String upass) {
         this.uname = uname;

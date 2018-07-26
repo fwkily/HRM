@@ -32,22 +32,50 @@
     </div>
     <div id="d3" style="font-size: 24px">
         <div id="d31">
-            <c:forEach items="${recruitInformations}" var="recruitInformation" varStatus="loop">
+            <a href="addresume">添加&emsp;</a><a href="updateResume">修改&emsp;</a><a href="deleteResume">删除&emsp;</a>
+            <c:forEach items="${resumes}" var="resume" varStatus="loop">
             <table >
-                <tr><td colspan="2">1</td></tr>
+                <tr><th colspan="4">${resume.resumename}</th></tr>
+                <tr><td colspan="4">个人信息</td></tr>
                 <tr>
-                    <td>1</td>
-                    <td>1</td>
+                    <td>姓名</td><td>${resume.rename}</td>
+                    <td>性别</td><td>${resume.resex}</td>
+                </tr>
+                <tr>
+                    <td>身份证号</td><td>${resume.reidcardno}</td>
+                    <td>出生时间</td><td>${resume.rebirthday}</td>
+                </tr>
+                <tr><td colspan="4">教育情况</td></tr>
+                <tr>
+                    <td>学历</td><td>${resume.reeducation}</td>
+                    <td>毕业院校</td><td>${resume.recollege}</td>
+                </tr>
+                <tr>
+                    <td>专业</td><td>${resume.remajor}</td>
+                    <td>毕业时间</td><td>${resume.regraduate}</td>
+                </tr>
+                <tr><td colspan="4">联系方式</td></tr>
+                <tr>
+                    <td>手机</td><td>${resume.rephone}</td>
+                    <td>电子邮箱</td><td>${resume.reemail}</td>
+                </tr>
+                <tr>
+                    <td>地址</td><td>${resume.readdress}</td>
+                    <td>邮编</td><td>${resume.repost}</td>
+                </tr>
+                <tr><td colspan="4">简介</td></tr>
+                <tr>
+                    <td colspan="4">${resume.reintro}</td>
                 </tr>
             </table>
             </c:forEach>
         </div>
         <div id="d32" >
-            <a href="user?currentPage=${currentPage-1==0?currentPage:currentPage-1}">上一页</a>
-            <a href="user?currentPage=${currentPage}">第${currentPage}页</a>
+            <a href="myResume?currentPage=${currentPage-1==0?currentPage:currentPage-1}">上一页</a>
+            <a href="myResume?currentPage=${currentPage}">第${currentPage}页</a>
             共${totalPages}页
-            <a href="user?currentPage=${currentPage+1>totalPages?currentPage:currentPage+1}">下一页</a>
-            <form action="user" method="post">
+            <a href="myResume?currentPage=${currentPage+1>totalPages?currentPage:currentPage+1}">下一页</a>
+            <form action="myResume" method="post">
                 <input style="width: 30px" type="number" min="1" max="${totalPages}" value="${currentPage}" name="currentPage">
                 <input type="submit" value="跳转">
             </form>

@@ -6,10 +6,11 @@ import java.util.Date;
 /**
  * Created by destiny on 2018/7/25/0025.
  */
+//部门表
 public class Department implements Serializable{
-    private int did;
-    private String dname;
-    private Date ddate;
+    private int did;//部门ID
+    private String dname;//部门名
+    private Date ddate;//创建日期
 
     public int getDid() {
         return did;

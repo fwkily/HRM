@@ -1,11 +1,9 @@
 package com.gwy.controller;
 
 import com.gwy.model.Recruit_Information;
+import com.gwy.model.Resume;
 import com.gwy.model.User;
-import com.gwy.service.DepartmentService;
-import com.gwy.service.JobService;
-import com.gwy.service.Recruit_InformationService;
-import com.gwy.service.UserService;
+import com.gwy.service.*;
 import com.gwy.util.DoPage;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,6 +27,8 @@ public class UserController {
     private DepartmentService departmentService;
     @Resource
     private JobService jobService;
+    @Resource
+    private ResumeService resumeService;
     @Resource
     private Recruit_InformationService recruit_informationService;
     @RequestMapping("/checkName")
@@ -103,6 +103,31 @@ public class UserController {
         request.setAttribute("currentPage",currentPage);
         request.setAttribute("totalPages",totalPages);
         return "user";
+    }
+    @RequestMapping("/myResume")
+    public String myResume(@RequestParam(value = "currentPage",defaultValue = "1")int currentPage, HttpServletRequest request,HttpSession session) throws Exception{
+        User user = (User) session.getAttribute("user");
+        int pageSize = 1;
+        int totalRows=resumeService.getResumeByUser(user);
+        int totalPages = DoPage.getTotalPages(totalRows,pageSize);
+        int begin = (currentPage-1)*pageSize+1;
+        int end = (currentPage-1)*pageSize+pageSize;
+        List<Resume> resumes = resumeService.queryCurrentResumeByUser(user.getUid(),begin,end);
+        request.setAttribute("resumes",resumes);
+        request.setAttribute("currentPage",currentPage);
+        request.setAttribute("totalPages",totalPages);
+        return "myResume";
+    }
+    @RequestMapping("/addresume")
+    public String addresume() throws Exception{
+        return "addResume";
+    }
+    @RequestMapping("/addResume1")
+    public String addResume(Resume resume,HttpSession session) throws Exception{
+        User user = (User) session.getAttribute("user");
+        resume.setUser(user);
+        resumeService.addResume(resume);
+        return "myResume";
     }
     /*
     @RequestMapping("/user")

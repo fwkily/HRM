@@ -6,11 +6,12 @@ import java.util.Date;
 /**
  * Created by destiny on 2018/7/25/0025.
  */
+//职位表
 public class Job implements Serializable{
-    private int jid;
-    private String jname;
-    private Department department;
-    private double jsalary;
+    private int jid;//职位ID
+    private String jname;//职位名
+    private Department department;//部门
+    private double jsalary;//基本工资
 
     public int getJid() {
         return jid;
