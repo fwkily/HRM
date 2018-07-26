@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gwy.dao.ResumeMapper" >
+    <insert id="addResume">
+        INSERT INTO HRM_RESUME VALUES(RESUME_SEQ.nextval,#{resumename},#{user.uid},#{rename},#{resex},#{reidcardno},#{rebirthday},
+        #{rephone},#{reemail},#{readdress},#{repost},#{reeducation},#{recollege},#{remajor},#{regraduate},#{reintro})
+    </insert>
+
+    <select id="getResumeByUser" resultType="java.lang.Integer">
+        SELECT COUNT (*) FROM HRM_RESUME WHERE "UID"=#{uid}
+    </select>
+    <select id="queryCurrentResumeByUser" resultMap="resumeMap1">
+        SELECT * FROM (SELECT HRM_RESUME.*,rownum rn FROM HRM_RESUME
+        WHERE HRM_RESUME."UID"=#{0}) RE,HRM_USER
+        WHERE RE."UID"=HRM_USER."UID"
+        and rn between #{1} and #{2}
+    </select>
+    <resultMap id="resumeMap" type="com.gwy.model.Resume">
+        <id property="reid" column="REID"/>
+        <result property="resumename" column="RESUMENAME"/>
+        <result property="rename" column="RENAME"/>
+        <result property="resex" column="RESEX"/>
+        <result property="reidcardno" column="REIDCARDNO"/>
+        <result property="rebirthday" column="REBIRTHDAY"/>
+        <result property="rephone" column="REPHONE"/>
+        <result property="reemail" column="REEMAIL"/>
+        <result property="readdress" column="READDRESS"/>
+        <result property="repost" column="REPOST"/>
+        <result property="reeducation" column="REEDUCATION"/>
+        <result property="recollege" column="RECOLLEGE"/>
+        <result property="remajor" column="REMAJOR"/>
+        <result property="regraduate" column="REGRADUATE"/>
+        <result property="reintro" column="REINTRO"/>
+    </resultMap>
+    <resultMap id="resumeMap1" type="com.gwy.model.Resume" extends="resumeMap">
+        <association property="user" javaType="com.gwy.model.User">
+            <id property="uid" column="UID"/>
+            <result property="uname" column="UNAME"/>
+            <result property="upass" column="UPASS"/>
+        </association>
+    </resultMap>
+</mapper>

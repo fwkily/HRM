@@ -2,35 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8b2714a-7280-4402-ac43-d2ef33ee6fd9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__joda_time_joda_time_2_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/gwy/dao/ResumeMapper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/gwy/dao/ResumeMapper.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/gwy/model/Resume.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/gwy/service/ResumeService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/gwy/service/impl/ResumeServiceImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/addResume.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM.war" afterPath="$PROJECT_DIR$/target/HRM.war" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/controller/UserController.class" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/controller/UserController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/model/Department.class" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/model/Department.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/model/Job.class" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/model/Job.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/model/Recruit_Information.class" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/model/Recruit_Information.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gwy/controller/UserController.class" afterPath="$PROJECT_DIR$/target/classes/com/gwy/controller/UserController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gwy/model/Department.class" afterPath="$PROJECT_DIR$/target/classes/com/gwy/model/Department.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gwy/model/Job.class" afterPath="$PROJECT_DIR$/target/classes/com/gwy/model/Job.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gwy/model/Recruit_Information.class" afterPath="$PROJECT_DIR$/target/classes/com/gwy/model/Recruit_Information.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/HRM_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/HRM_war_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/f4260e13-80b6-4aa9-88ce-22b009c8e4da.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/f4260e13-80b6-4aa9-88ce-22b009c8e4da.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/dao/ResumeMapper.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/model/Resume.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/service/ResumeService.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/service/impl/ResumeServiceImpl.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/lib/joda-time-2.3.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/com/gwy/dao/ResumeMapper.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/com/gwy/model/Resume.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/com/gwy/service/ResumeService.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/com/gwy/service/impl/ResumeServiceImpl.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/dao/ResumeMapper.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/pages/addResume.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/pages/myResume.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/com/gwy/dao/ResumeMapper.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HRM.iml" afterPath="$PROJECT_DIR$/HRM.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gwy/controller/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/com/gwy/controller/UserController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gwy/model/Department.java" afterPath="$PROJECT_DIR$/src/main/java/com/gwy/model/Department.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gwy/model/Job.java" afterPath="$PROJECT_DIR$/src/main/java/com/gwy/model/Job.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gwy/model/Recruit_Information.java" afterPath="$PROJECT_DIR$/src/main/java/com/gwy/model/Recruit_Information.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gwy/model/User.java" afterPath="$PROJECT_DIR$/src/main/java/com/gwy/model/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/myResume.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/myResume.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM/WEB-INF/pages/user.jsp" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/pages/user.jsp" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -1207,7 +1192,7 @@
       <workItem from="1532489740167" duration="3998000" />
       <workItem from="1532496490294" duration="19185000" />
       <workItem from="1532519492128" duration="2358000" />
-      <workItem from="1532523220335" duration="22512000" />
+      <workItem from="1532523220335" duration="22723000" />
     </task>
     <task id="LOCAL-00001" summary="再来一次">
       <created>1532499615920</created>
@@ -1258,11 +1243,18 @@
       <option name="project" value="LOCAL" />
       <updated>1532566689998</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="简历新增显示写完，正在写修改，打算今天写完用户简历部分，接下来写面试管理和投递简历">
+      <created>1532592335001</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1532592335001</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48053000" />
+    <option name="totallyTimeSpent" value="48264000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -1374,7 +1366,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="再来一次" />
     <MESSAGE value="7.25" />
-    <option name="LAST_COMMIT_MESSAGE" value="7.25" />
+    <MESSAGE value="简历新增显示写完，正在写修改，打算今天写完用户简历部分，接下来写面试管理和投递简历" />
+    <option name="LAST_COMMIT_MESSAGE" value="简历新增显示写完，正在写修改，打算今天写完用户简历部分，接下来写面试管理和投递简历" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
