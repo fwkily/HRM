@@ -16,10 +16,10 @@
     </select>
     <resultMap id="recruit_InformationMap" type="com.gwy.model.Recruit_Information">
         <id property="ri_id" column="RI_ID"/>
-        <result property="ri_Num" column="RI_NUM"/>
-        <result property="ri_Intro" column="RI_INTRO"/>
-        <result property="ri_State" column="RI_STATE"/>
-        <result property="ri_Date" column="RI_DATE"/>
+        <result property="ri_num" column="RI_NUM"/>
+        <result property="ri_intro" column="RI_INTRO"/>
+        <result property="ri_state" column="RI_STATE"/>
+        <result property="ri_date" column="RI_DATE"/>
     </resultMap>
     <resultMap id="recruit_InformationMap1" type="com.gwy.model.Recruit_Information" extends="recruit_InformationMap">
         <association property="department" javaType="com.gwy.model.Department">

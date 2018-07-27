@@ -34,7 +34,6 @@
                     url:"sendResume",
                     data:{ri_id:ri_id,re_id:re_id},
                     success:function (obj) {//成功后回调函数
-                        alert(obj);
                         $("#str").text(obj);
                     },
                     error:function (obj) {
