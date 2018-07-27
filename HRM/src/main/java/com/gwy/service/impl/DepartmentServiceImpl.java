@@ -1,9 +1,7 @@
 package com.gwy.service.impl;
 
 import com.gwy.dao.DepartmentMapper;
-import com.gwy.dao.JobMapper;
 import com.gwy.service.DepartmentService;
-import com.gwy.service.JobService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
