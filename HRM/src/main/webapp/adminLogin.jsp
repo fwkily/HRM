@@ -39,7 +39,7 @@
                         <input type="submit" value="登录" style="background-color: orangered;height:40px;margin-top: 15px;width: 240px;margin-bottom: 15px"/>
                     </div>
                     <div style="text-align: right;margin-right: 30px">
-                    <span style="color: red;float: left">${error}</span>
+                    <span style="color: red;float: left">${str}</span>
                     </div>
                 </form>
             </div>

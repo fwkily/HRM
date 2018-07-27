@@ -40,7 +40,7 @@
                 </div>
                 <div style="text-align: right;margin-right: 30px">
                     <span style="color: red;float: left">
-                    ${str}</span><a href="register.jsp" style="text-decoration: none;height:45px">用户注册</a>
+                    ${str}</span>
                 </div>
             </form>
             </div>

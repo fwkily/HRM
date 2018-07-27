@@ -1,9 +1,6 @@
 package com.gwy.controller;
 
-import com.gwy.model.Admin;
-import com.gwy.model.Recruit_Information;
-import com.gwy.model.Resume;
-import com.gwy.model.User;
+import com.gwy.model.*;
 import com.gwy.service.*;
 import com.gwy.util.DoPage;
 import org.springframework.stereotype.Controller;
@@ -33,6 +30,8 @@ public class AdminController {
     @Resource
     private ResumeService resumeService;
     @Resource
+    private StaffService staffService;
+    @Resource
     private Recruit_InformationService recruit_informationService;
     @RequestMapping("/adminLogin")
     public String adminLogin(Admin admin, HttpSession session, Model model) throws Exception{
@@ -43,5 +42,22 @@ public class AdminController {
         }
         model.addAttribute("str","用户名或密码错误");
         return "../../adminLogin";
+    }
+    @RequestMapping("/admin")
+    public String admin(@RequestParam(value = "d_id",defaultValue = "0")int d_id,@RequestParam(value = "j_id",defaultValue = "0")int j_id,@RequestParam(value = "currentPage",defaultValue = "1")int currentPage, HttpServletRequest request,HttpSession session) throws Exception{
+        List<Department> departments = departmentService.getDepartment();
+        List<Job> jobs = jobService.getJob();
+        int state = 1;
+        int pageSize = 10;
+        int totalRows=staffService.getStaffByDidState(d_id,j_id,state);
+        int totalPages = DoPage.getTotalPages(totalRows,pageSize);
+        int begin = (currentPage-1)*pageSize+1;
+        int end = (currentPage-1)*pageSize+pageSize;
+        List<Recruit_Information> recruitInformations = recruit_informationService.queryCurrentPageRecruit_InformationByRiState(state,begin,end);
+
+        request.setAttribute("recruitInformations",recruitInformations);
+        request.setAttribute("currentPage",currentPage);
+        request.setAttribute("totalPages",totalPages);
+        return "admin";
     }
 }

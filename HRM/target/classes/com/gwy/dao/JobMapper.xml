@@ -4,4 +4,15 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gwy.dao.JobMapper" >
 
+    <select id="getJob" resultType="com.gwy.model.Job">
+
+    </select>
+    <resultMap id="jobMap" type="com.gwy.model.Job">
+        <id property="j_id" column="J_ID"/>
+        <result property="j_name" column="J_NAME"/>
+        <result property="j_salary" column="J_SALARY"/>
+    </resultMap>
+    <resultMap id="jobMap1" type="com.gwy.model.Job" extends="jobMap">
+        <association property="department" resultMap="com.gwy.dao.DepartmentMapper.departmentMap"/>
+    </resultMap>
 </mapper>

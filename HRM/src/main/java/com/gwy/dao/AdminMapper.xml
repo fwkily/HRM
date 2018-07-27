@@ -15,25 +15,6 @@
         <result property="ad_pass" column="AD_PASS"/>
     </resultMap>
     <resultMap id="adminMap1" type="com.gwy.model.Admin" extends="adminMap">
-        <association property="staff" javaType="com.gwy.model.Staff" column="S_ID">
-            <id property="s_id" column="S_ID"/>
-            <result property="s_username" column="S_USERNAME"/>
-            <result property="s_pass" column="S_PASS"/>
-            <result property="s_state" column="S_STATE"/>
-            <result property="s_name" column="S_NAME"/>
-            <result property="s_sex" column="S_SEX"/>
-            <result property="s_idcardno" column="S_IDCARDNO"/>
-            <result property="s_birthday" column="S_BIRTHDAY"/>
-            <result property="s_phone" column="S_PHONE"/>
-            <result property="s_email" column="S_EMAIL"/>
-            <result property="s_address" column="S_ADDRESS"/>
-            <result property="s_post" column="S_POST"/>
-            <result property="s_education" column="S_EDUCATION"/>
-            <result property="s_college" column="S_COLLEGE"/>
-            <result property="s_major" column="S_MAJOR"/>
-            <result property="s_graduate" column="S_GRADUATE"/>
-            <result property="s_intro" column="S_INTRO"/>
-            <result property="s_entrydate" column="S_ENTRYDATE"/>
-        </association>
+        <association property="staff" resultMap="com.gwy.dao.StaffMapper.staffMap" />
     </resultMap>
 </mapper>

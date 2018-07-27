@@ -4,4 +4,12 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gwy.dao.DepartmentMapper" >
 
+    <select id="getDepartment" resultMap="departmentMap">
+        SELECT * FROM HRM_DEPARTMENT
+    </select>
+    <resultMap id="departmentMap" type="com.gwy.model.Department">
+        <id property="d_id" column="D_ID"/>
+        <result property="d_name" column="D_NAME"/>
+        <result property="d_date" column="D_DATE"/>
+    </resultMap>
 </mapper>

@@ -9,7 +9,7 @@ import java.util.Date;
 //考勤表
 public class Attendance implements Serializable{
     private int a_id;//ID
-    private Staff staff;//用户
+    private Staff staff;//员工
     private Date a_date;//当前日期
     private Date on_time;//上班
     private Date off_time;//下班
