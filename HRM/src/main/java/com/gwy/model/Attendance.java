@@ -11,8 +11,8 @@ public class Attendance implements Serializable{
     private int a_id;//ID
     private Staff staff;//用户
     private Date a_date;//当前日期
-    private Date on_date;//上班
-    private Date up_date;//下班
+    private Date on_time;//上班
+    private Date off_time;//下班
     private int a_state;//状态
 
     public Attendance() {
@@ -42,20 +42,20 @@ public class Attendance implements Serializable{
         this.a_date = a_date;
     }
 
-    public Date getOn_date() {
-        return on_date;
+    public Date getOn_time() {
+        return on_time;
     }
 
-    public void setOn_date(Date on_date) {
-        this.on_date = on_date;
+    public void setOn_time(Date on_time) {
+        this.on_time = on_time;
     }
 
-    public Date getUp_date() {
-        return up_date;
+    public Date getOff_time() {
+        return off_time;
     }
 
-    public void setUp_date(Date up_date) {
-        this.up_date = up_date;
+    public void setOff_time(Date off_time) {
+        this.off_time = off_time;
     }
 
     public int getA_state() {
@@ -72,8 +72,8 @@ public class Attendance implements Serializable{
                 "a_id=" + a_id +
                 ", staff=" + staff +
                 ", a_date=" + a_date +
-                ", on_date=" + on_date +
-                ", up_date=" + up_date +
+                ", on_time=" + on_time +
+                ", off_time=" + off_time +
                 ", a_state=" + a_state +
                 '}';
     }

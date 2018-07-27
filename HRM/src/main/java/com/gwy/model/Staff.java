@@ -9,7 +9,7 @@ import java.util.Date;
 //员工表
 public class Staff implements Serializable{
     private int s_id;//ID
-    private String susername;//用户名
+    private String s_username;//用户名
     private String s_pass;//密码
     private Department department;//部门
     private Job job;//职位
@@ -40,12 +40,12 @@ public class Staff implements Serializable{
         this.s_id = s_id;
     }
 
-    public String getSusername() {
-        return susername;
+    public String getS_username() {
+        return s_username;
     }
 
-    public void setSusername(String susername) {
-        this.susername = susername;
+    public void setS_username(String s_username) {
+        this.s_username = s_username;
     }
 
     public String getS_pass() {
@@ -196,7 +196,7 @@ public class Staff implements Serializable{
     public String toString() {
         return "Staff{" +
                 "s_id=" + s_id +
-                ", susername='" + susername + '\'' +
+                ", s_username='" + s_username + '\'' +
                 ", s_pass='" + s_pass + '\'' +
                 ", department=" + department +
                 ", job=" + job +

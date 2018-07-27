@@ -1,5 +1,6 @@
 package com.gwy.controller;
 
+import com.gwy.model.Admin;
 import com.gwy.model.Recruit_Information;
 import com.gwy.model.Resume;
 import com.gwy.model.User;
@@ -22,6 +23,8 @@ import java.util.List;
 @Controller
 public class AdminController {
     @Resource
+    private AdminService adminService;
+    @Resource
     private UserService userService;
     @Resource
     private DepartmentService departmentService;
@@ -31,5 +34,14 @@ public class AdminController {
     private ResumeService resumeService;
     @Resource
     private Recruit_InformationService recruit_informationService;
-
+    @RequestMapping("/adminLogin")
+    public String adminLogin(Admin admin, HttpSession session, Model model) throws Exception{
+        admin = adminService.getAdminByNamePass(admin);
+        if (null!=admin){
+            session.setAttribute("admin",admin);
+            return "redirect:admin";
+        }
+        model.addAttribute("str","用户名或密码错误");
+        return "../../adminLogin";
+    }
 }

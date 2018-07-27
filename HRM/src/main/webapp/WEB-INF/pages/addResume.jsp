@@ -26,6 +26,7 @@
             <a href="login.jsp">&emsp;${user.u_name}</a>
         </div>
         <div id="d12">
+            <a href="user" >首页&emsp;</a>
             <a href="myResume" STYLE="color: red">我的简历&emsp;</a>
             <a href="myInterview">面试管理&emsp;</a>
         </div>
