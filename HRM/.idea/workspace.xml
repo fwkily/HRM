@@ -1,37 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f8b2714a-7280-4402-ac43-d2ef33ee6fd9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM.war" afterPath="$PROJECT_DIR$/target/HRM.war" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/controller/UserController.class" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/controller/UserController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/model/Department.class" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/model/Department.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/model/Job.class" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/model/Job.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/model/Recruit_Information.class" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/model/Recruit_Information.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/model/Resume.class" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/model/Resume.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/model/User.class" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/model/User.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gwy/controller/UserController.class" afterPath="$PROJECT_DIR$/target/classes/com/gwy/controller/UserController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gwy/model/Department.class" afterPath="$PROJECT_DIR$/target/classes/com/gwy/model/Department.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gwy/model/Job.class" afterPath="$PROJECT_DIR$/target/classes/com/gwy/model/Job.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gwy/model/Recruit_Information.class" afterPath="$PROJECT_DIR$/target/classes/com/gwy/model/Recruit_Information.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gwy/model/Resume.class" afterPath="$PROJECT_DIR$/target/classes/com/gwy/model/Resume.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gwy/model/User.class" afterPath="$PROJECT_DIR$/target/classes/com/gwy/model/User.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/dao/Recruit_InformationMapper.xml" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/dao/Recruit_InformationMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/dao/ResumeMapper.xml" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/dao/ResumeMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/dao/UserMapper.xml" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/dao/UserMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM/WEB-INF/pages/addResume.jsp" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/pages/addResume.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM/WEB-INF/pages/myResume.jsp" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/pages/myResume.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM/WEB-INF/pages/updateResume.jsp" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/pages/updateResume.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM/WEB-INF/pages/user.jsp" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/pages/user.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM/adminLogin.jsp" afterPath="$PROJECT_DIR$/target/HRM/adminLogin.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM/begin.jsp" afterPath="$PROJECT_DIR$/target/HRM/begin.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM/login.jsp" afterPath="$PROJECT_DIR$/target/HRM/login.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM/register.jsp" afterPath="$PROJECT_DIR$/target/HRM/register.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM/staffLogin.jsp" afterPath="$PROJECT_DIR$/target/HRM/staffLogin.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gwy/dao/Recruit_InformationMapper.xml" afterPath="$PROJECT_DIR$/target/classes/com/gwy/dao/Recruit_InformationMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gwy/dao/ResumeMapper.xml" afterPath="$PROJECT_DIR$/target/classes/com/gwy/dao/ResumeMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gwy/dao/UserMapper.xml" afterPath="$PROJECT_DIR$/target/classes/com/gwy/dao/UserMapper.xml" />
-    </list>
+    <list default="true" id="f8b2714a-7280-4402-ac43-d2ef33ee6fd9" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -1258,7 +1228,7 @@
       <workItem from="1532519492128" duration="2358000" />
       <workItem from="1532523220335" duration="23142000" />
       <workItem from="1532593099267" duration="3108000" />
-      <workItem from="1532604319262" duration="25465000" />
+      <workItem from="1532604319262" duration="25911000" />
     </task>
     <task id="LOCAL-00001" summary="再来一次">
       <created>1532499615920</created>
@@ -1334,7 +1304,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77256000" />
+    <option name="totallyTimeSpent" value="77702000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
