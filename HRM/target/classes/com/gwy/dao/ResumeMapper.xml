@@ -92,10 +92,6 @@
         <result property="re_intro" column="RE_INTRO"/>
     </resultMap>
     <resultMap id="resumeMap1" type="com.gwy.model.Resume" extends="resumeMap">
-        <association property="user" javaType="com.gwy.model.User">
-            <id property="u_id" column="U_ID"/>
-            <result property="u_name" column="U_NAME"/>
-            <result property="u_pass" column="U_PASS"/>
-        </association>
+        <association property="user" resultMap="com.gwy.dao.UserMapper.userMap" />
     </resultMap>
 </mapper>

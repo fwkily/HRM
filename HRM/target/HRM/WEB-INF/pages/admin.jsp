@@ -48,7 +48,7 @@
 <div id="d">
     <div id="d1">
         <div id="d11">
-            <a href="adminLogin.jsp">&emsp;${admin.ad_name}</a>
+            <a href="login.jsp">&emsp;${user.u_name}</a>
         </div>
         <div id="d12">
             <a href="user" >首页&emsp;</a>
@@ -71,26 +71,26 @@
                 </tr>
                 <c:forEach items="${recruitInformations}" var="recruitInformation" varStatus="loop">
                     <tr >
-                            <td>${recruitInformation.ri_id}</td>
-                            <td>${recruitInformation.department.d_name}</td>
-                            <td>${recruitInformation.job.j_name}</td>
-                            <td>${recruitInformation.job.j_salary}</td>
-                            <td>${recruitInformation.ri_Num}</td>
-                            <td>${recruitInformation.ri_Intro}</td>
-                            <td>${DateAndString.dateToStringTime(recruitInformation.ri_Date)}</td>
-                            <td><input type="hidden" name="ri_id" value="${recruitInformation.ri_id}" id="ri_id">
-                                <input type="button" value="投递简历" class="send">
-                                </td>
+                        <td>${recruitInformation.ri_id}</td>
+                        <td>${recruitInformation.department.d_name}</td>
+                        <td>${recruitInformation.job.j_name}</td>
+                        <td>${recruitInformation.job.j_salary}</td>
+                        <td>${recruitInformation.ri_Num}</td>
+                        <td>${recruitInformation.ri_Intro}</td>
+                        <td>${DateAndString.dateToStringTime(recruitInformation.ri_Date)}</td>
+                        <td><input type="hidden" name="ri_id" value="${recruitInformation.ri_id}" id="ri_id">
+                            <input type="button" value="投递简历" class="send">
+                        </td>
                     </tr>
                 </c:forEach>
-                    <tr><td colspan="6">
-                        <select name="re_id" id="resume">
+                <tr><td colspan="6">
+                    <select name="re_id" id="resume">
                         <c:forEach items="${resumes}" var="resume">
-                            <option value="${resume.re_id}">简历ID:${resume.re_id}收货人:${resume.resumename}</option>
+                        <option value="${resume.re_id}">简历ID:${resume.re_id}收货人:${resume.resumename}</option>
                         </c:forEach>
-                    </td>
+                </td>
                     <td colspan="2" id="str" style="color: red"></td>
-                    </tr>
+                </tr>
             </table>
         </div>
         <div id="d32" >

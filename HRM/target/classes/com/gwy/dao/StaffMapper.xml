@@ -24,15 +24,7 @@
         <result property="s_entrydate" column="S_ENTRYDATE"/>
     </resultMap>
     <resultMap id="staffMap1" type="com.gwy.model.Staff" extends="staffMap">
-        <association property="department" javaType="com.gwy.model.Department" column="D_ID">
-            <id property="d_id" column="D_ID"/>
-            <result property="d_name" column="D_NAME"/>
-            <result property="d_date" column="D_DATE"/>
-        </association>
-        <association property="job" javaType="com.gwy.model.Job" column="J_ID">
-            <id property="j_id" column="J_ID"/>
-            <result property="j_name" column="J_NAME"/>
-            <result property="j_salary" column="J_SALARY"/>
-        </association>
+        <association property="department" resultMap="com.gwy.dao.DepartmentMapper.departmentMap"/>
+        <association property="job" resultMap="com.gwy.dao.JobMapper.jobMap"/>
     </resultMap>
 </mapper>
