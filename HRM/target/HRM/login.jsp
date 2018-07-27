@@ -30,10 +30,10 @@
             <form method="post" action="login">
                 <div id="d2211"><h3 style="height:40px;margin-top:20px">用户密码登录</h3></div>
                 <div>
-                    <img src="resources/images/4.jpg" style="height:40px "/><input type="text" name="uname" style="height:40px;width:200px "/>
+                    <img src="resources/images/4.jpg" style="height:40px "/><input type="text" name="u_name" style="height:40px;width:200px "/>
                 </div>
                 <div>
-                    <img src="resources/images/5.jpg" style="height:40px "/><input type="password" name="upass" style="height:40px;width:200px "/>
+                    <img src="resources/images/5.jpg" style="height:40px "/><input type="password" name="u_pass" style="height:40px;width:200px "/>
                 </div>
                 <div>
                     <input type="submit" value="登录" style="background-color: orangered;height:40px;margin-top: 15px;width: 240px;margin-bottom: 15px"/>

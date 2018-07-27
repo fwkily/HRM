@@ -33,7 +33,7 @@ public class UserController {
     private Recruit_InformationService recruit_informationService;
     @RequestMapping("/checkName")
     public void checkName(User user, HttpServletRequest request, HttpServletResponse response) throws Exception{
-        System.out.println(user.getUname());
+        System.out.println(user.getU_name());
         response.setContentType("text/html;charset=utf-8");
         User user1 = userService.getUserByName(user);
         if (user1==null){
@@ -112,7 +112,7 @@ public class UserController {
         int totalPages = DoPage.getTotalPages(totalRows,pageSize);
         int begin = (currentPage-1)*pageSize+1;
         int end = (currentPage-1)*pageSize+pageSize;
-        List<Resume> resumes = resumeService.queryCurrentResumeByUser(user.getUid(),begin,end);
+        List<Resume> resumes = resumeService.queryCurrentResumeByUser(user.getU_id(),begin,end);
         request.setAttribute("resumes",resumes);
         request.setAttribute("currentPage",currentPage);
         request.setAttribute("totalPages",totalPages);
@@ -130,8 +130,8 @@ public class UserController {
         return "redirect:myResume";
     }
     @RequestMapping("/updateresume")
-    public String updateresume(int reid,HttpSession session,HttpServletRequest request) throws Exception{
-        Resume resume=resumeService.getResumeByReid(reid);
+    public String updateresume(int re_id,HttpSession session,HttpServletRequest request) throws Exception{
+        Resume resume=resumeService.getResumeByReid(re_id);
         request.setAttribute("resume",resume);
         return "updateResume";
     }

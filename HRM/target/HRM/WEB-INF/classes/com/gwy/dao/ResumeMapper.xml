@@ -4,8 +4,8 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gwy.dao.ResumeMapper" >
     <insert id="addResume">
-        INSERT INTO HRM_RESUME VALUES(RESUME_SEQ.nextval,#{resumename},#{user.uid},#{rename},#{resex},#{reidcardno},#{rebirthday},
-        #{rephone},#{reemail},#{readdress},#{repost},#{reeducation},#{recollege},#{remajor},#{regraduate},#{reintro})
+        INSERT INTO HRM_RESUME VALUES(RESUME_SEQ.nextval,#{resumename},#{user.u_id},#{re_name},#{re_sex},#{re_idcardno},#{re_birthday},
+        #{re_phone},#{re_email},#{re_address},#{re_post},#{re_education},#{re_college},#{re_major},#{re_graduate},#{re_intro})
     </insert>
     <update id="updateResume">
         UPDATE HRM_RESUME
@@ -13,86 +13,86 @@
             <if test="resumename!=null">
                 RESUMENAME=#{resumename},
             </if>
-            <if test="rename!=null">
-                "RENAME"=#{rename},
+            <if test="re_name!=null">
+                "RE_NAME"=#{re_name},
             </if>
-            <if test="resex!=null">
-                RESEX=#{resex},
+            <if test="re_sex!=null">
+                RE_SEX=#{re_sex},
             </if>
-            <if test="reidcardno!=null">
-                REIDCARDNO=#{reidcardno},
+            <if test="re_idcardno!=null">
+                RE_IDCARDNO=#{re_idcardno},
             </if>
-            <if test="rebirthday!=null">
-                REBIRTHDAY=#{rebirthday},
+            <if test="re_birthday!=null">
+                RE_BIRTHDAY=#{re_birthday},
             </if>
-            <if test="rephone!=null">
-                REPHONE=#{rephone},
+            <if test="re_phone!=null">
+                RE_PHONE=#{re_phone},
             </if>
-            <if test="reemail!=null">
-                REEMAIL=#{reemail},
+            <if test="re_email!=null">
+                RE_EMAIL=#{re_email},
             </if>
-            <if test="readdress!=null">
-                READDRESS=#{readdress},
+            <if test="re_address!=null">
+                RE_ADDRESS=#{re_address},
             </if>
-            <if test="repost!=null">
-                REPOST=#{repost},
+            <if test="re_post!=null">
+                RE_POST=#{re_post},
             </if>
-            <if test="reeducation!=null">
-                REEDUCATION=#{reeducation},
+            <if test="re_education!=null">
+                RE_EDUCATION=#{re_education},
             </if>
-            <if test="recollege!=null">
-                RECOLLEGE=#{recollege},
+            <if test="re_college!=null">
+                RE_COLLEGE=#{re_college},
             </if>
-            <if test="remajor!=null">
-                REMAJOR=#{remajor},
+            <if test="re_major!=null">
+                RE_MAJOR=#{re_major},
             </if>
-            <if test="regraduate!=null">
-                REGRADUATE=#{regraduate},
+            <if test="re_graduate!=null">
+                RE_GRADUATE=#{re_graduate},
             </if>
-            <if test="reintro!=null">
-                REINTRO=#{reintro}
+            <if test="re_intro!=null">
+                RE_INTRO=#{re_intro}
             </if>
         </set>
-        where REID=#{reid}
+        where RE_ID=#{re_id}
     </update>
     <delete id="deleteResume">
-        DELETE FROM HRM_RESUME WHERE REID=#{reid}
+        DELETE FROM HRM_RESUME WHERE RE_ID=#{re_id}
     </delete>
 
     <select id="getResumeByUser" resultType="java.lang.Integer">
-        SELECT COUNT (*) FROM HRM_RESUME WHERE "UID"=#{uid}
+        SELECT COUNT (*) FROM HRM_RESUME WHERE "U_ID"=#{u_id}
     </select>
     <select id="queryCurrentResumeByUser" resultMap="resumeMap1">
         SELECT * FROM (SELECT HRM_RESUME.*,rownum rn FROM HRM_RESUME
-        WHERE HRM_RESUME."UID"=#{0}) RE,HRM_USER
-        WHERE RE."UID"=HRM_USER."UID"
+        WHERE HRM_RESUME."U_ID"=#{0}) RE,HRM_USER
+        WHERE RE."U_ID"=HRM_USER."U_ID"
         and rn between #{1} and #{2}
     </select>
     <select id="getResumeByReid" resultType="com.gwy.model.Resume">
-        SELECT * from HRM_RESUME where REID=#{reid}
+        SELECT * from HRM_RESUME where RE_ID=#{re_id}
     </select>
     <resultMap id="resumeMap" type="com.gwy.model.Resume">
-        <id property="reid" column="REID"/>
+        <id property="re_id" column="RE_ID"/>
         <result property="resumename" column="RESUMENAME"/>
-        <result property="rename" column="RENAME"/>
-        <result property="resex" column="RESEX"/>
-        <result property="reidcardno" column="REIDCARDNO"/>
-        <result property="rebirthday" column="REBIRTHDAY"/>
-        <result property="rephone" column="REPHONE"/>
-        <result property="reemail" column="REEMAIL"/>
-        <result property="readdress" column="READDRESS"/>
-        <result property="repost" column="REPOST"/>
-        <result property="reeducation" column="REEDUCATION"/>
-        <result property="recollege" column="RECOLLEGE"/>
-        <result property="remajor" column="REMAJOR"/>
-        <result property="regraduate" column="REGRADUATE"/>
-        <result property="reintro" column="REINTRO"/>
+        <result property="re_name" column="RE_NAME"/>
+        <result property="re_sex" column="RE_SEX"/>
+        <result property="re_idcardno" column="RE_IDCARDNO"/>
+        <result property="re_birthday" column="RE_BIRTHDAY"/>
+        <result property="re_phone" column="RE_PHONE"/>
+        <result property="re_email" column="RE_EMAIL"/>
+        <result property="re_address" column="RE_ADDRESS"/>
+        <result property="re_post" column="RE_POST"/>
+        <result property="re_education" column="RE_EDUCATION"/>
+        <result property="re_college" column="RE_COLLEGE"/>
+        <result property="re_major" column="RE_MAJOR"/>
+        <result property="re_graduate" column="RE_GRADUATE"/>
+        <result property="re_intro" column="RE_INTRO"/>
     </resultMap>
     <resultMap id="resumeMap1" type="com.gwy.model.Resume" extends="resumeMap">
         <association property="user" javaType="com.gwy.model.User">
-            <id property="uid" column="UID"/>
-            <result property="uname" column="UNAME"/>
-            <result property="upass" column="UPASS"/>
+            <id property="u_id" column="U_ID"/>
+            <result property="u_name" column="U_NAME"/>
+            <result property="u_pass" column="U_PASS"/>
         </association>
     </resultMap>
 </mapper>

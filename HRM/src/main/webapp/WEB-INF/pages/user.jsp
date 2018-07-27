@@ -22,11 +22,11 @@
     <script>
         $(function () {
             $("#send").click(function () {
-                var riid=parseInt($(this).prev().val());
+                var ri_id=parseInt($(this).prev().val());
                 $.ajax({
                     type:"post",
                     url:"checkResume",
-                    data:{riid:riid},
+                    data:{ri_id:ri_id},
                     success:function (obj) {//成功后回调函数
 
                     },
@@ -43,7 +43,7 @@
 <div id="d">
     <div id="d1">
         <div id="d11">
-            <a href="login.jsp">&emsp;${user.uname}</a>
+            <a href="login.jsp">&emsp;${user.u_name}</a>
         </div>
         <div id="d12">
             <a href="myResume" >我的简历&emsp;</a>
@@ -65,15 +65,15 @@
                 </tr>
                 <c:forEach items="${recruitInformations}" var="recruitInformation" varStatus="loop">
                     <tr >
-                            <td>${recruitInformation.riid}</td>
-                            <td>${recruitInformation.department.dname}</td>
-                            <td>${recruitInformation.job.jname}</td>
-                            <td>${recruitInformation.job.jsalary}</td>
-                            <td>${recruitInformation.riNum}</td>
-                            <td>${recruitInformation.riIntro}</td>
-                            <td>${DateAndString.dateToStringTime(recruitInformation.riDate)}</td>
-                            <td><input type="hidden" name="riid" value="${recruitInformation.riid}" id="riid">
-                                <a href="sendResume?reid=${resume.reid}" id="send">投递简历&emsp;</a>
+                            <td>${recruitInformation.ri_id}</td>
+                            <td>${recruitInformation.department.d_name}</td>
+                            <td>${recruitInformation.job.j_name}</td>
+                            <td>${recruitInformation.job.j_salary}</td>
+                            <td>${recruitInformation.ri_Num}</td>
+                            <td>${recruitInformation.ri_Intro}</td>
+                            <td>${DateAndString.dateToStringTime(recruitInformation.ri_Date)}</td>
+                            <td><input type="hidden" name="ri_id" value="${recruitInformation.ri_id}" id="ri_id">
+                                <a href="sendResume?re_id=${resume.re_id}" id="send">投递简历&emsp;</a>
                                 </td>
                     </tr>
                 </c:forEach>

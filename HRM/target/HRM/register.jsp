@@ -78,7 +78,7 @@
                     $.ajax({
                         type:"get",
                         url:"checkName",
-                        data:{uname:$("#uname").val()},
+                        data:{u_name:$("#uname").val()},
                         success:function (obj) {
                             $("#name").text(obj);
                         },
@@ -122,10 +122,10 @@
             <div id="d21">
                 <form method="post" action="register">
                     <div>
-                        <span >用户</span><input type="text" name="uname" style="height:40px;width:200px " id="uname"/><span id="name" style="width: 300px;text-align: left;color: red">${error}</span>
+                        <span >用户</span><input type="text" name="u_name" style="height:40px;width:200px " id="uname"/><span id="name" style="width: 300px;text-align: left;color: red">${error}</span>
                     </div>
                     <div>
-                        <span >密码</span><input type="password" name="upass" style="height:40px;width:200px " id="pwd1"/><span id="pass" style="width: 300px;text-align: left;color: red"></span>
+                        <span >密码</span><input type="password" name="u_pass" style="height:40px;width:200px " id="pwd1"/><span id="pass" style="width: 300px;text-align: left;color: red"></span>
                     </div>
                     <div>
                         <span >重复</span><input type="password" name="pass1" style="height:40px;width:200px " id="pwd2"/><span id="pass1" style="width: 300px;text-align: left;color: red"></span>

@@ -53,13 +53,13 @@
                 </tr>
                 <c:forEach items="${recruitInformations}" var="recruitInformation" varStatus="loop">
                     <tr >
-                            <td>${recruitInformation.riid}</td>
-                            <td>${recruitInformation.department.dname}</td>
-                            <td>${recruitInformation.job.jname}</td>
-                            <td>${recruitInformation.job.jsalary}</td>
-                            <td>${recruitInformation.riNum}</td>
-                            <td>${recruitInformation.riIntro}</td>
-                            <td>${DateAndString.dateToStringTime(recruitInformation.riDate)}</td>
+                            <td>${recruitInformation.ri_id}</td>
+                            <td>${recruitInformation.department.d_name}</td>
+                            <td>${recruitInformation.job.j_name}</td>
+                            <td>${recruitInformation.job.j_salary}</td>
+                            <td>${recruitInformation.ri_Num}</td>
+                            <td>${recruitInformation.ri_Intro}</td>
+                            <td>${DateAndString.dateToStringTime(recruitInformation.ri_Date)}</td>
                             <td><input style="width: 80px" class="a1" type="button" value="投递简历"></td>
                     </tr>
                 </c:forEach>

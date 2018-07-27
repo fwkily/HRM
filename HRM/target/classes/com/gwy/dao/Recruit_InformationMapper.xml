@@ -5,32 +5,32 @@
 <mapper namespace="com.gwy.dao.Recruit_InformationMapper" >
 
     <select id="getRecruit_InformationByRiState" resultType="java.lang.Integer">
-        SELECT count(*) FROM HRM_RECRUIT_INFORMATION WHERE RISTATE=#{0}
+        SELECT count(*) FROM HRM_RECRUIT_INFORMATION WHERE RI_STATE=#{0}
     </select>
     <select id="queryCurrentPageRecruit_InformationByRiState" resultMap="recruit_InformationMap1">
         SELECT * FROM (SELECT HRM_RECRUIT_INFORMATION.*,rownum rn FROM HRM_RECRUIT_INFORMATION
-        WHERE HRM_RECRUIT_INFORMATION.RISTATE=#{0}) RI,HRM_DEPARTMENT,HRM_JOB
-        WHERE RI.DID=HRM_DEPARTMENT.DID
-        AND RI.JID=HRM_JOB.JID
+        WHERE HRM_RECRUIT_INFORMATION.RI_STATE=#{0}) RI,HRM_DEPARTMENT,HRM_JOB
+        WHERE RI.D_ID=HRM_DEPARTMENT.D_ID
+        AND RI.J_ID=HRM_JOB.J_ID
         and rn between #{1} and #{2}
     </select>
     <resultMap id="recruit_InformationMap" type="com.gwy.model.Recruit_Information">
-        <id property="riid" column="RIID"/>
-        <result property="riNum" column="RINUM"/>
-        <result property="riIntro" column="RIINTRO"/>
-        <result property="riState" column="RISTATE"/>
-        <result property="riDate" column="RIDATE"/>
+        <id property="ri_id" column="RI_ID"/>
+        <result property="ri_Num" column="RI_NUM"/>
+        <result property="ri_Intro" column="RI_INTRO"/>
+        <result property="ri_State" column="RI_STATE"/>
+        <result property="ri_Date" column="RI_DATE"/>
     </resultMap>
     <resultMap id="recruit_InformationMap1" type="com.gwy.model.Recruit_Information" extends="recruit_InformationMap">
-        <association property="department" javaType="com.gwy.model.Department" column="DID">
-            <id property="did" column="DID"/>
-            <result property="dname" column="DNAME"/>
-            <result property="ddate" column="DDATE"/>
+        <association property="department" javaType="com.gwy.model.Department">
+            <id property="d_id" column="D_ID"/>
+            <result property="d_name" column="D_NAME"/>
+            <result property="d_date" column="D_DATE"/>
         </association>
-        <association property="job" javaType="com.gwy.model.Job" column="JID">
-            <id property="jid" column="JID"/>
-            <result property="jname" column="JNAME"/>
-            <result property="jsalary" column="JSALARY"/>
+        <association property="job" javaType="com.gwy.model.Job">
+            <id property="j_id" column="J_ID"/>
+            <result property="j_name" column="J_NAME"/>
+            <result property="j_salary" column="J_SALARY"/>
         </association>
     </resultMap>
 </mapper>

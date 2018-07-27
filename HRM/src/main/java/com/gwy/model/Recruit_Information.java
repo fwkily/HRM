@@ -10,29 +10,16 @@ import java.util.Date;
  */
 //招聘信息表
 public class Recruit_Information implements Serializable{
-    private int riid;//招聘信息表ID
+    private int ri_id;//招聘信息表ID
     private Department department;//部门
     private Job job;//职位
-    private int riNum;//人数
-    private String riIntro;//简介
-    private int riState;//状态0未发布，1发布，2失效
+    private int ri_Num;//人数
+    private String ri_Intro;//简介
+    private int ri_State;//状态0未发布，1发布，2失效
     @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
-    private Date riDate;//时间
+    private Date ri_Date;//时间
 
-    public int getRiid() {
-        return riid;
-    }
-
-    public void setRiid(int riid) {
-        this.riid = riid;
-    }
-
-    public Department getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(Department department) {
-        this.department = department;
+    public Recruit_Information() {
     }
 
     public Job getJob() {
@@ -43,51 +30,72 @@ public class Recruit_Information implements Serializable{
         this.job = job;
     }
 
-    public int getRiNum() {
-        return riNum;
+    public int getRi_id() {
+        return ri_id;
     }
 
-    public void setRiNum(int riNum) {
-        this.riNum = riNum;
+    public void setRi_id(int ri_id) {
+        this.ri_id = ri_id;
     }
 
-    public String getRiIntro() {
-        return riIntro;
+    public Department getDepartment() {
+        return department;
     }
 
-    public void setRiIntro(String riIntro) {
-        this.riIntro = riIntro;
+    public void setDepartment(Department department) {
+        this.department = department;
     }
 
-    public int getRiState() {
-        return riState;
+    public Job getJ_ob() {
+        return job;
     }
 
-    public void setRiState(int riState) {
-        this.riState = riState;
+    public void setJ_ob(Job j_ob) {
+        this.job = j_ob;
     }
 
-    public Date getRiDate() {
-        return riDate;
+    public int getRi_Num() {
+        return ri_Num;
     }
 
-    public void setRiDate(Date riDate) {
-        this.riDate = riDate;
+    public void setRi_Num(int ri_Num) {
+        this.ri_Num = ri_Num;
+    }
+
+    public String getRi_Intro() {
+        return ri_Intro;
+    }
+
+    public void setRi_Intro(String ri_Intro) {
+        this.ri_Intro = ri_Intro;
+    }
+
+    public int getRi_State() {
+        return ri_State;
+    }
+
+    public void setRi_State(int ri_State) {
+        this.ri_State = ri_State;
+    }
+
+    public Date getRi_Date() {
+        return ri_Date;
+    }
+
+    public void setRi_Date(Date ri_Date) {
+        this.ri_Date = ri_Date;
     }
 
     @Override
     public String toString() {
         return "Recruit_Information{" +
-                "riid=" + riid +
+                "ri_id=" + ri_id +
                 ", department=" + department +
-                ", job=" + job +
-                ", riNum=" + riNum +
-                ", riIntro='" + riIntro + '\'' +
-                ", riState=" + riState +
-                ", riDate=" + riDate +
+                ", j_ob=" + job +
+                ", ri_Num=" + ri_Num +
+                ", ri_Intro='" + ri_Intro + '\'' +
+                ", ri_State=" + ri_State +
+                ", ri_Date=" + ri_Date +
                 '}';
-    }
-
-    public Recruit_Information() {
     }
 }

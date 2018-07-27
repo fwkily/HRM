@@ -4,18 +4,18 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gwy.dao.UserMapper" >
     <insert id="addUser">
-        INSERT INTO HRM_USER VALUES(USER_SEQ.nextval,#{uname},#{upass})
+        INSERT INTO HRM_USER VALUES(USER_SEQ.nextval,#{u_name},#{u_pass})
     </insert>
 
     <select id="getUserByNamePass" resultMap="userMap">
-        SELECT * FROM HRM_USER WHERE UNAME=#{uname} and UPASS=#{upass}
+        SELECT * FROM HRM_USER WHERE U_NAME=#{u_name} and U_PASS=#{u_pass}
     </select>
     <select id="getUserByName" resultMap="userMap">
-        SELECT * FROM HRM_USER where UNAME=#{uname}
+        SELECT * FROM HRM_USER where U_NAME=#{u_name}
     </select>
     <resultMap id="userMap" type="com.gwy.model.User">
-        <id property="uid" column="UID"/>
-        <result property="uname" column="UNAME"/>
-        <result property="upass" column="UPASS"/>
+        <id property="u_id" column="U_ID"/>
+        <result property="u_name" column="U_NAME"/>
+        <result property="u_pass" column="U_PASS"/>
     </resultMap>
 </mapper>

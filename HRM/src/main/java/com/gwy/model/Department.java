@@ -8,43 +8,43 @@ import java.util.Date;
  */
 //部门表
 public class Department implements Serializable{
-    private int did;//部门ID
-    private String dname;//部门名
-    private Date ddate;//创建日期
+    private int d_id;//部门ID
+    private String d_name;//部门名
+    private Date d_date;//创建日期
 
-    public int getDid() {
-        return did;
+    public Department() {
     }
 
-    public void setDid(int did) {
-        this.did = did;
+    public int getD_id() {
+        return d_id;
     }
 
-    public String getdname() {
-        return dname;
+    public void setD_id(int d_id) {
+        this.d_id = d_id;
     }
 
-    public void setdname(String dname) {
-        this.dname = dname;
+    public String getD_name() {
+        return d_name;
     }
 
-    public Date getddate() {
-        return ddate;
+    public void setD_name(String d_name) {
+        this.d_name = d_name;
     }
 
-    public void setddate(Date ddate) {
-        this.ddate = ddate;
+    public Date getD_date() {
+        return d_date;
+    }
+
+    public void setD_date(Date d_date) {
+        this.d_date = d_date;
     }
 
     @Override
     public String toString() {
         return "Department{" +
-                "did=" + did +
-                ", dname='" + dname + '\'' +
-                ", ddate=" + ddate +
+                "d_id=" + d_id +
+                ", d_name='" + d_name + '\'' +
+                ", d_date=" + d_date +
                 '}';
-    }
-
-    public Department() {
     }
 }

@@ -10,34 +10,34 @@ import java.util.Date;
  */
 //简历
 public class Resume implements Serializable{
-    private int reid;//简历ID
+    private int re_id;//简历ID
     private String resumename;//简历名
     private User user;//用户
-    private String rename;//姓名
-    private String resex;//性别
-    private String reidcardno;//身份证号码
+    private String re_name;//姓名
+    private String re_sex;//性别
+    private String re_idcardno;//身份证号码
     @DateTimeFormat(pattern="yyyy-MM-dd")
-    private Date rebirthday;//出生时间
-    private String rephone;//手机号码
-    private String reemail;//email
-    private String readdress;//地址
-    private String repost;//邮政编码
-    private String reeducation;//学历
-    private String recollege;//毕业院校
-    private String remajor;//专业
+    private Date re_birthday;//出生时间
+    private String re_phone;//手机号码
+    private String re_email;//email
+    private String re_address;//地址
+    private String re_post;//邮政编码
+    private String re_education;//学历
+    private String re_college;//毕业院校
+    private String re_major;//专业
     @DateTimeFormat(pattern="yyyy-MM-dd")
-    private Date regraduate;//毕业时间
-    private String reintro;//简介
+    private Date re_graduate;//毕业时间
+    private String re_intro;//简介
 
     public Resume() {
     }
 
-    public int getReid() {
-        return reid;
+    public int getRe_id() {
+        return re_id;
     }
 
-    public void setReid(int reid) {
-        this.reid = reid;
+    public void setRe_id(int re_id) {
+        this.re_id = re_id;
     }
 
     public String getResumename() {
@@ -56,129 +56,129 @@ public class Resume implements Serializable{
         this.user = user;
     }
 
-    public String getRename() {
-        return rename;
+    public String getRe_name() {
+        return re_name;
     }
 
-    public void setRename(String rename) {
-        this.rename = rename;
+    public void setRe_name(String re_name) {
+        this.re_name = re_name;
     }
 
-    public String getResex() {
-        return resex;
+    public String getRe_sex() {
+        return re_sex;
     }
 
-    public void setResex(String resex) {
-        this.resex = resex;
+    public void setRe_sex(String re_sex) {
+        this.re_sex = re_sex;
     }
 
-    public String getReidcardno() {
-        return reidcardno;
+    public String getRe_idcardno() {
+        return re_idcardno;
     }
 
-    public void setReidcardno(String reidcardno) {
-        this.reidcardno = reidcardno;
+    public void setRe_idcardno(String re_idcardno) {
+        this.re_idcardno = re_idcardno;
     }
 
-    public Date getRebirthday() {
-        return rebirthday;
+    public Date getRe_birthday() {
+        return re_birthday;
     }
 
-    public void setRebirthday(Date rebirthday) {
-        this.rebirthday = rebirthday;
+    public void setRe_birthday(Date re_birthday) {
+        this.re_birthday = re_birthday;
     }
 
-    public String getRephone() {
-        return rephone;
+    public String getRe_phone() {
+        return re_phone;
     }
 
-    public void setRephone(String rephone) {
-        this.rephone = rephone;
+    public void setRe_phone(String re_phone) {
+        this.re_phone = re_phone;
     }
 
-    public String getReemail() {
-        return reemail;
+    public String getRe_email() {
+        return re_email;
     }
 
-    public void setReemail(String reemail) {
-        this.reemail = reemail;
+    public void setRe_email(String re_email) {
+        this.re_email = re_email;
     }
 
-    public String getReaddress() {
-        return readdress;
+    public String getRe_address() {
+        return re_address;
     }
 
-    public void setReaddress(String readdress) {
-        this.readdress = readdress;
+    public void setRe_address(String re_address) {
+        this.re_address = re_address;
     }
 
-    public String getRepost() {
-        return repost;
+    public String getRe_post() {
+        return re_post;
     }
 
-    public void setRepost(String repost) {
-        this.repost = repost;
+    public void setRe_post(String re_post) {
+        this.re_post = re_post;
     }
 
-    public String getReeducation() {
-        return reeducation;
+    public String getRe_education() {
+        return re_education;
     }
 
-    public void setReeducation(String reeducation) {
-        this.reeducation = reeducation;
+    public void setRe_education(String re_education) {
+        this.re_education = re_education;
     }
 
-    public String getRecollege() {
-        return recollege;
+    public String getRe_college() {
+        return re_college;
     }
 
-    public void setRecollege(String recollege) {
-        this.recollege = recollege;
+    public void setRe_college(String re_college) {
+        this.re_college = re_college;
     }
 
-    public String getRemajor() {
-        return remajor;
+    public String getRe_major() {
+        return re_major;
     }
 
-    public void setRemajor(String remajor) {
-        this.remajor = remajor;
+    public void setRe_major(String re_major) {
+        this.re_major = re_major;
     }
 
-    public Date getRegraduate() {
-        return regraduate;
+    public Date getRe_graduate() {
+        return re_graduate;
     }
 
-    public void setRegraduate(Date regraduate) {
-        this.regraduate = regraduate;
+    public void setRe_graduate(Date re_graduate) {
+        this.re_graduate = re_graduate;
     }
 
-    public String getReintro() {
-        return reintro;
+    public String getRe_intro() {
+        return re_intro;
     }
 
-    public void setReintro(String reintro) {
-        this.reintro = reintro;
+    public void setRe_intro(String re_intro) {
+        this.re_intro = re_intro;
     }
 
     @Override
     public String toString() {
         return "Resume{" +
-                "reid=" + reid +
+                "re_id=" + re_id +
                 ", resumename='" + resumename + '\'' +
                 ", user=" + user +
-                ", rename='" + rename + '\'' +
-                ", resex='" + resex + '\'' +
-                ", reidcardno='" + reidcardno + '\'' +
-                ", rebirthday='" + rebirthday + '\'' +
-                ", rephone='" + rephone + '\'' +
-                ", reemail='" + reemail + '\'' +
-                ", readdress='" + readdress + '\'' +
-                ", repost='" + repost + '\'' +
-                ", reeducation='" + reeducation + '\'' +
-                ", recollege='" + recollege + '\'' +
-                ", remajor='" + remajor + '\'' +
-                ", regraduate='" + regraduate + '\'' +
-                ", reintro='" + reintro + '\'' +
+                ", re_name='" + re_name + '\'' +
+                ", re_sex='" + re_sex + '\'' +
+                ", re_idcardno='" + re_idcardno + '\'' +
+                ", re_birthday=" + re_birthday +
+                ", re_phone='" + re_phone + '\'' +
+                ", re_email='" + re_email + '\'' +
+                ", re_address='" + re_address + '\'' +
+                ", re_post='" + re_post + '\'' +
+                ", re_education='" + re_education + '\'' +
+                ", re_college='" + re_college + '\'' +
+                ", re_major='" + re_major + '\'' +
+                ", re_graduate=" + re_graduate +
+                ", re_intro='" + re_intro + '\'' +
                 '}';
     }
 }

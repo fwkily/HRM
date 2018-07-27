@@ -7,48 +7,43 @@ import java.io.Serializable;
  */
 //用户表
 public class User implements Serializable{
-    private int uid;//用户ID
-    private String uname;//用户名
-    private String upass;//用户密码
-
-    public User(String uname, String upass) {
-        this.uname = uname;
-        this.upass = upass;
-    }
+    private int u_id;//用户ID
+    private String u_name;//用户名
+    private String u_pass;//用户密码
 
     public User() {
+    }
+
+    public int getU_id() {
+        return u_id;
+    }
+
+    public void setU_id(int u_id) {
+        this.u_id = u_id;
+    }
+
+    public String getU_name() {
+        return u_name;
+    }
+
+    public void setU_name(String u_name) {
+        this.u_name = u_name;
+    }
+
+    public String getU_pass() {
+        return u_pass;
+    }
+
+    public void setU_pass(String u_pass) {
+        this.u_pass = u_pass;
     }
 
     @Override
     public String toString() {
         return "User{" +
-                "uid=" + uid +
-                ", uname='" + uname + '\'' +
-                ", upass='" + upass + '\'' +
+                "u_id=" + u_id +
+                ", u_name='" + u_name + '\'' +
+                ", u_pass='" + u_pass + '\'' +
                 '}';
-    }
-
-    public int getUid() {
-        return uid;
-    }
-
-    public void setUid(int uid) {
-        this.uid = uid;
-    }
-
-    public String getUname() {
-        return uname;
-    }
-
-    public void setUname(String uname) {
-        this.uname = uname;
-    }
-
-    public String getUpass() {
-        return upass;
-    }
-
-    public void setUpass(String upass) {
-        this.upass = upass;
     }
 }

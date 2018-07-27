@@ -8,25 +8,28 @@ import java.util.Date;
  */
 //职位表
 public class Job implements Serializable{
-    private int jid;//职位ID
-    private String jname;//职位名
+    private int j_id;//职位ID
+    private String j_name;//职位名
     private Department department;//部门
-    private double jsalary;//基本工资
+    private double j_salary;//基本工资
 
-    public int getJid() {
-        return jid;
+    public Job() {
     }
 
-    public void setJid(int jid) {
-        this.jid = jid;
+    public int getJ_id() {
+        return j_id;
     }
 
-    public String getjname() {
-        return jname;
+    public void setJ_id(int j_id) {
+        this.j_id = j_id;
     }
 
-    public void setjname(String jname) {
-        this.jname = jname;
+    public String getJ_name() {
+        return j_name;
+    }
+
+    public void setJ_name(String j_name) {
+        this.j_name = j_name;
     }
 
     public Department getDepartment() {
@@ -37,24 +40,21 @@ public class Job implements Serializable{
         this.department = department;
     }
 
-    public double getjsalary() {
-        return jsalary;
+    public double getJ_salary() {
+        return j_salary;
     }
 
-    public void setjsalary(double jsalary) {
-        this.jsalary = jsalary;
+    public void setJ_salary(double j_salary) {
+        this.j_salary = j_salary;
     }
 
     @Override
     public String toString() {
         return "Job{" +
-                "jid=" + jid +
-                ", jname='" + jname + '\'' +
+                "j_id=" + j_id +
+                ", j_name='" + j_name + '\'' +
                 ", department=" + department +
-                ", jsalary=" + jsalary +
+                ", j_salary=" + j_salary +
                 '}';
-    }
-
-    public Job() {
     }
 }

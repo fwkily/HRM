@@ -33,7 +33,7 @@
 <div id="d">
     <div id="d1">
         <div id="d11">
-            <a href="login.jsp">&emsp;${user.uname}</a>
+            <a href="login.jsp">&emsp;${user.u_name}</a>
         </div>
         <div id="d12">
             <a href="myResume" STYLE="color: red">我的简历&emsp;</a>
@@ -44,40 +44,40 @@
         <div id="d31">
             <a href="addresume">添加&emsp;</a>
             <c:forEach items="${resumes}" var="resume" varStatus="loop">
-                <a href="updateresume?reid=${resume.reid}">修改&emsp;</a><a href="deleteResume?reid=${resume.reid}" id="del">删除&emsp;</a>
+                <a href="updateresume?re_id=${resume.re_id}">修改&emsp;</a><a href="deleteResume?re_id=${resume.re_id}" id="del">删除&emsp;</a>
             <table >
                 <tr><th colspan="4" id="resumename">
                         ${resume.resumename}</th></tr>
                 <tr><td colspan="4">个人信息</td></tr>
                 <tr>
-                    <td>姓名</td><td>${resume.rename}</td>
-                    <td>性别</td><td>${resume.resex}</td>
+                    <td>姓名</td><td>${resume.re_name}</td>
+                    <td>性别</td><td>${resume.re_sex}</td>
                 </tr>
                 <tr>
-                    <td>身份证号</td><td>${resume.reidcardno}</td>
-                    <td>出生时间</td><td>${DateAndString.dateToString(resume.rebirthday)}</td>
+                    <td>身份证号</td><td>${resume.re_idcardno}</td>
+                    <td>出生时间</td><td>${DateAndString.dateToString(resume.re_birthday)}</td>
                 </tr>
                 <tr><td colspan="4">教育情况</td></tr>
                 <tr>
-                    <td>学历</td><td>${resume.reeducation}</td>
-                    <td>毕业院校</td><td>${resume.recollege}</td>
+                    <td>学历</td><td>${resume.re_education}</td>
+                    <td>毕业院校</td><td>${resume.re_college}</td>
                 </tr>
                 <tr>
-                    <td>专业</td><td>${resume.remajor}</td>
-                    <td>毕业时间</td><td>${DateAndString.dateToString(resume.regraduate)}</td>
+                    <td>专业</td><td>${resume.re_major}</td>
+                    <td>毕业时间</td><td>${DateAndString.dateToString(resume.re_graduate)}</td>
                 </tr>
                 <tr><td colspan="4">联系方式</td></tr>
                 <tr>
-                    <td>手机</td><td>${resume.rephone}</td>
-                    <td>电子邮箱</td><td>${resume.reemail}</td>
+                    <td>手机</td><td>${resume.re_phone}</td>
+                    <td>电子邮箱</td><td>${resume.re_email}</td>
                 </tr>
                 <tr>
-                    <td>地址</td><td>${resume.readdress}</td>
-                    <td>邮编</td><td>${resume.repost}</td>
+                    <td>地址</td><td>${resume.re_address}</td>
+                    <td>邮编</td><td>${resume.re_post}</td>
                 </tr>
                 <tr><td colspan="4">简介</td></tr>
                 <tr>
-                    <td colspan="4">${resume.reintro}</td>
+                    <td colspan="4">${resume.re_intro}</td>
                 </tr>
             </table>
             </c:forEach>
