@@ -2,26 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8b2714a-7280-4402-ac43-d2ef33ee6fd9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/f4260e13-80b6-4aa9-88ce-22b009c8e4da.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/f4260e13-80b6-4aa9-88ce-22b009c8e4da.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM.war" afterPath="$PROJECT_DIR$/target/HRM.war" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/controller/UserController.class" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/controller/UserController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/dao/ResumeMapper.class" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/dao/ResumeMapper.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/model/Attendance.class" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/model/Attendance.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/model/Cultivate.class" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/model/Cultivate.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/model/Rap.class" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/model/Rap.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/model/Recruit.class" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/model/Recruit.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/model/Recruit_Information.class" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/model/Recruit_Information.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/model/Resume.class" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/model/Resume.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/service/ResumeService.class" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/service/ResumeService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/service/impl/DepartmentServiceImpl.class" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/service/impl/DepartmentServiceImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/service/impl/ResumeServiceImpl.class" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/service/impl/ResumeServiceImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gwy/controller/UserController.class" afterPath="$PROJECT_DIR$/target/classes/com/gwy/controller/UserController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gwy/dao/ResumeMapper.class" afterPath="$PROJECT_DIR$/target/classes/com/gwy/dao/ResumeMapper.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gwy/model/Attendance.class" afterPath="$PROJECT_DIR$/target/classes/com/gwy/model/Attendance.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gwy/model/Cultivate.class" afterPath="$PROJECT_DIR$/target/classes/com/gwy/model/Cultivate.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gwy/model/Rap.class" afterPath="$PROJECT_DIR$/target/classes/com/gwy/model/Rap.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gwy/model/Recruit.class" afterPath="$PROJECT_DIR$/target/classes/com/gwy/model/Recruit.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gwy/model/Recruit_Information.class" afterPath="$PROJECT_DIR$/target/classes/com/gwy/model/Recruit_Information.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gwy/model/Resume.class" afterPath="$PROJECT_DIR$/target/classes/com/gwy/model/Resume.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gwy/service/ResumeService.class" afterPath="$PROJECT_DIR$/target/classes/com/gwy/service/ResumeService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gwy/service/impl/DepartmentServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/gwy/service/impl/DepartmentServiceImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gwy/service/impl/ResumeServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/gwy/service/impl/ResumeServiceImpl.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gwy/controller/AdminController.java" afterPath="$PROJECT_DIR$/src/main/java/com/gwy/controller/AdminController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gwy/controller/StaffController.java" afterPath="$PROJECT_DIR$/src/main/java/com/gwy/controller/StaffController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gwy/controller/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/com/gwy/controller/UserController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gwy/dao/RecruitMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/gwy/dao/RecruitMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gwy/dao/RecruitMapper.xml" afterPath="$PROJECT_DIR$/src/main/java/com/gwy/dao/RecruitMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gwy/dao/ResumeMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/gwy/dao/ResumeMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gwy/dao/ResumeMapper.xml" afterPath="$PROJECT_DIR$/src/main/java/com/gwy/dao/ResumeMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gwy/model/Attendance.java" afterPath="$PROJECT_DIR$/src/main/java/com/gwy/model/Attendance.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gwy/model/Cultivate.java" afterPath="$PROJECT_DIR$/src/main/java/com/gwy/model/Cultivate.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gwy/model/Rap.java" afterPath="$PROJECT_DIR$/src/main/java/com/gwy/model/Rap.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gwy/model/Recruit.java" afterPath="$PROJECT_DIR$/src/main/java/com/gwy/model/Recruit.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gwy/model/Recruit_Information.java" afterPath="$PROJECT_DIR$/src/main/java/com/gwy/model/Recruit_Information.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gwy/model/Resume.java" afterPath="$PROJECT_DIR$/src/main/java/com/gwy/model/Resume.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gwy/service/RecruitService.java" afterPath="$PROJECT_DIR$/src/main/java/com/gwy/service/RecruitService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gwy/service/ResumeService.java" afterPath="$PROJECT_DIR$/src/main/java/com/gwy/service/ResumeService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gwy/service/impl/RecruitServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/gwy/service/impl/RecruitServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gwy/service/impl/ResumeServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/gwy/service/impl/ResumeServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/user.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/user.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/dao/ResumeMapper.xml" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/dao/ResumeMapper.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM/WEB-INF/pages/user.jsp" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/pages/user.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gwy/dao/ResumeMapper.xml" afterPath="$PROJECT_DIR$/target/classes/com/gwy/dao/ResumeMapper.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -167,7 +174,7 @@
       <file leaf-file-name="user.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/user.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
+            <state relative-caret-position="36">
               <caret line="97" column="4" lean-forward="true" selection-start-line="97" selection-start-column="4" selection-end-line="97" selection-end-column="4" />
               <folding />
             </state>
@@ -1321,7 +1328,7 @@
       <workItem from="1532519492128" duration="2358000" />
       <workItem from="1532523220335" duration="23142000" />
       <workItem from="1532593099267" duration="3108000" />
-      <workItem from="1532604319262" duration="39980000" />
+      <workItem from="1532604319262" duration="40142000" />
     </task>
     <task id="LOCAL-00001" summary="再来一次">
       <created>1532499615920</created>
@@ -1400,11 +1407,18 @@
       <option name="project" value="LOCAL" />
       <updated>1532683267747</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="更新备份7.27 22:33 投简历写完">
+      <created>1532702066919</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1532702066919</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="91771000" />
+    <option name="totallyTimeSpent" value="91933000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -1520,7 +1534,8 @@
     <MESSAGE value="更新备份7.26 23.30" />
     <MESSAGE value="更新备份7.27 15:21 建好所有实体类，打算将service层建好" />
     <MESSAGE value="更新备份7.27 17:18 开始写投简历" />
-    <option name="LAST_COMMIT_MESSAGE" value="更新备份7.27 17:18 开始写投简历" />
+    <MESSAGE value="更新备份7.27 22:33 投简历写完" />
+    <option name="LAST_COMMIT_MESSAGE" value="更新备份7.27 22:33 投简历写完" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2024,7 +2039,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/user.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
+        <state relative-caret-position="36">
           <caret line="97" column="4" lean-forward="true" selection-start-line="97" selection-start-column="4" selection-end-line="97" selection-end-column="4" />
           <folding />
         </state>

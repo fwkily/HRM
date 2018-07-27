@@ -71,6 +71,9 @@
     <select id="getResumeByReid" resultType="com.gwy.model.Resume">
         SELECT * from HRM_RESUME where RE_ID=#{re_id}
     </select>
+    <select id="getResumesByUser" resultMap="resumeMap">
+        SELECT * FROM HRM_RESUME WHERE "U_ID"=#{u_id}
+    </select>
     <resultMap id="resumeMap" type="com.gwy.model.Resume">
         <id property="re_id" column="RE_ID"/>
         <result property="resumename" column="RESUMENAME"/>

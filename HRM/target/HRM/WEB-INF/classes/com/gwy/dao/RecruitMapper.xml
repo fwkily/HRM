@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gwy.dao.RecruitMapper" >
+    <insert id="addRecruit">
+        INSERT INTO HRM_RECRUIT VALUES (RECRUIT_SEQ.nextval,#{recruitInformation.ri_id},#{resume.re_id},#{r_state})
+    </insert>
+
+    <select id="getRecruitByUserRe" resultType="com.gwy.model.Recruit">
+        SELECT * FROM HRM_RECRUIT r,HRM_RESUME re,HRM_RECRUIT_INFORMATION ri
+        WHERE r.RE_ID=re.RE_ID AND r.RI_ID=ri.RI_ID AND re.U_ID=#{0} AND ri.RI_ID=#{1}
+    </select>
+    <resultMap id="recruitMap" type="com.gwy.model.Recruit">
+        <id property="r_id" column="R_ID"/>
+        <result property="r_state" column="R_STATE"/>
+    </resultMap>
+    <resultMap id="recruitMap1" type="com.gwy.model.Recruit" extends="recruitMap">
+        <association property="recruitInformation" javaType="com.gwy.model.Recruit_Information">
+            <id property="ri_id" column="RI_ID"/>
+            <result property="ri_num" column="RI_NUM"/>
+            <result property="ri_intro" column="RI_INTRO"/>
+            <result property="ri_state" column="RI_STATE"/>
+            <result property="ri_date" column="RI_DATE"/>
+        </association>
+        <association property="resume" resultMap="resumeMap" column="RE_ID">
+        </association>
+    </resultMap>
+    <resultMap id="resumeMap" type="com.gwy.model.Resume">
+        <id property="re_id" column="RE_ID"/>
+        <result property="resumename" column="RESUMENAME"/>
+        <result property="re_name" column="RE_NAME"/>
+        <result property="re_sex" column="RE_SEX"/>
+        <result property="re_idcardno" column="RE_IDCARDNO"/>
+        <result property="re_birthday" column="RE_BIRTHDAY"/>
+        <result property="re_phone" column="RE_PHONE"/>
+        <result property="re_email" column="RE_EMAIL"/>
+        <result property="re_address" column="RE_ADDRESS"/>
+        <result property="re_post" column="RE_POST"/>
+        <result property="re_education" column="RE_EDUCATION"/>
+        <result property="re_college" column="RE_COLLEGE"/>
+        <result property="re_major" column="RE_MAJOR"/>
+        <result property="re_graduate" column="RE_GRADUATE"/>
+        <result property="re_intro" column="RE_INTRO"/>
+        <association property="user" javaType="com.gwy.model.User" column="U_ID">
+            <id property="u_id" column="U_ID"/>
+            <result property="u_name" column="U_NAME"/>
+            <result property="u_pass" column="U_PASS"/>
+        </association>
+    </resultMap>
+</mapper>
