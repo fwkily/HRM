@@ -21,4 +21,6 @@ public interface ResumeService {
     int updateResume(Resume resume);
 
     int deleteResume(Resume resume);
+
+    List<Resume> getResumesByUser(User user);
 }

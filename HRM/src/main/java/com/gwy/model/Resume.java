@@ -32,6 +32,10 @@ public class Resume implements Serializable{
     public Resume() {
     }
 
+    public Resume(int re_id) {
+        this.re_id = re_id;
+    }
+
     public int getRe_id() {
         return re_id;
     }

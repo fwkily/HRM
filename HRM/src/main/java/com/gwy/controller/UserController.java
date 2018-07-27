@@ -1,5 +1,6 @@
 package com.gwy.controller;
 
+import com.gwy.model.Recruit;
 import com.gwy.model.Recruit_Information;
 import com.gwy.model.Resume;
 import com.gwy.model.User;
@@ -31,6 +32,8 @@ public class UserController {
     private ResumeService resumeService;
     @Resource
     private Recruit_InformationService recruit_informationService;
+    @Resource
+    private RecruitService recruitService;
     @RequestMapping("/checkName")
     public void checkName(User user, HttpServletRequest request, HttpServletResponse response) throws Exception{
         System.out.println(user.getU_name());
@@ -91,14 +94,17 @@ public class UserController {
         return "../../begin";
     }
     @RequestMapping("/user")
-    public String user(@RequestParam(value = "currentPage",defaultValue = "1")int currentPage, HttpServletRequest request) throws Exception{
+    public String user(@RequestParam(value = "currentPage",defaultValue = "1")int currentPage, HttpServletRequest request,HttpSession session) throws Exception{
         int state = 1;
         int pageSize = 10;
+        User user = (User) session.getAttribute("user");
         int totalRows=recruit_informationService.getRecruit_InformationByRiState(state);
         int totalPages = DoPage.getTotalPages(totalRows,pageSize);
         int begin = (currentPage-1)*pageSize+1;
         int end = (currentPage-1)*pageSize+pageSize;
         List<Recruit_Information> recruitInformations = recruit_informationService.queryCurrentPageRecruit_InformationByRiState(state,begin,end);
+        List<Resume> resumes = resumeService.getResumesByUser(user);
+        request.setAttribute("resumes",resumes);
         request.setAttribute("recruitInformations",recruitInformations);
         request.setAttribute("currentPage",currentPage);
         request.setAttribute("totalPages",totalPages);
@@ -150,54 +156,18 @@ public class UserController {
         resumeService.deleteResume(resume);
         return "redirect:myResume";
     }
-    /*
-    @RequestMapping("/user")
-    public String user(@RequestParam(value = "currentPage",defaultValue = "1")int currentPage, HttpServletRequest request) throws Exception{
-        int state = 1;
-        int pageSize = 10;
-        List<Good> goodList = goodService.getGoodByState(state);
-        int totalRows  = goodList.size();
-        int totalPages = DoPage.getTotalPages(totalRows,pageSize);
-        int begin = (currentPage-1)*pageSize+1;
-        int end = (currentPage-1)*pageSize+pageSize;
-        List<Good> goods = goodService.queryCurrentPageGoodByState(state,begin,end);
-        request.setAttribute("goods",goods);
-        request.setAttribute("currentPage",currentPage);
-        request.setAttribute("totalPages",totalPages);
-        return "user";
-    }
-    @RequestMapping("/changePassWord")
-    public String changePassWord(String oldPassWord,String newPassWord, HttpSession session) throws Exception{
+    @RequestMapping("/sendResume")
+    public void sendResume(int ri_id,int re_id,HttpSession session,HttpServletResponse response) throws Exception{
+        response.setContentType("text/html;charset=utf-8");
         User user = (User) session.getAttribute("user");
-        if (oldPassWord.equals(user.getUpass())){
-            user.setUpass(newPassWord);
-            userService.updateUser(user);
-            return "../../login";
+        Recruit recruit=recruitService.getRecruitByUserRe(user.getU_id(),ri_id);//查看当前用户对该条招聘信息是否投递过简历
+        if (recruit!=null){
+            response.getWriter().print("该职位你已经投递简历");
+        }else {
+            recruit=new Recruit(new Recruit_Information(ri_id),new Resume(re_id),0);
+            recruitService.addRecruit(recruit);
+            response.getWriter().print("投递简历成功");
         }
-        session.setAttribute("error","密码错误");
-        return "redirect:myUserDetail";
     }
-    @RequestMapping("/chongZhi")
-    public String chongZhi(double money, HttpSession session) throws Exception{
-        User user = (User) session.getAttribute("user");
-        user.setUmoney(user.getUmoney()+money);
-        userService.updateUser(user);
-        session.setAttribute("user",user);
-        return "redirect:myUserDetail";
-    }
-    @RequestMapping("/index")
-    public String index(@RequestParam(value = "currentPage",defaultValue = "1")int currentPage, HttpServletRequest request) throws Exception{
-        int state = 1;
-        int pageSize = 10;
-        List<Good> goodList = goodService.getGoodByState(state);
-        int totalRows  = goodList.size();
-        int totalPages = DoPage.getTotalPages(totalRows,pageSize);
-        int begin = (currentPage-1)*pageSize+1;
-        int end = (currentPage-1)*pageSize+pageSize;
-        List<Good> goods = goodService.queryCurrentPageGoodByState(state,begin,end);
-        request.setAttribute("goods",goods);
-        request.setAttribute("currentPage",currentPage);
-        request.setAttribute("totalPages",totalPages);
-        return "../../index";
-    }*/
+
 }

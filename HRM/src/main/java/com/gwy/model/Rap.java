@@ -11,7 +11,7 @@ public class Rap implements Serializable{
     private int ra_id;//ID
     private Date ra_date;//奖惩时间
     private double ra_money;//金额
-    private User user;//用户
+    private Staff staff;//用户
     private String ra_explain;//说明
 
     public Rap() {
@@ -41,12 +41,12 @@ public class Rap implements Serializable{
         this.ra_money = ra_money;
     }
 
-    public User getUser() {
-        return user;
+    public Staff getStaff() {
+        return staff;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setStaff(Staff staff) {
+        this.staff = staff;
     }
 
     public String getRa_explain() {
@@ -63,7 +63,7 @@ public class Rap implements Serializable{
                 "ra_id=" + ra_id +
                 ", ra_date=" + ra_date +
                 ", ra_money=" + ra_money +
-                ", user=" + user +
+                ", staff=" + staff +
                 ", ra_explain='" + ra_explain + '\'' +
                 '}';
     }

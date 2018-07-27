@@ -46,4 +46,9 @@ public class ResumeServiceImpl implements ResumeService{
     public int deleteResume(Resume resume) {
         return resumeMapper.deleteResume(resume);
     }
+
+    @Override
+    public List<Resume> getResumesByUser(User user) {
+        return resumeMapper.getResumesByUser(user);
+    }
 }

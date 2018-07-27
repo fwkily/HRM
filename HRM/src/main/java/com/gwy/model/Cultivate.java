@@ -9,7 +9,7 @@ import java.util.Date;
 //培训表
 public class Cultivate implements Serializable {
     private int c_id;//ID
-    private User user;//培训人
+    private Staff staff;//培训人
     private Date c_date;//日期
     private String c_content;//内容
     private int c_state;//状态
@@ -25,12 +25,12 @@ public class Cultivate implements Serializable {
         this.c_id = c_id;
     }
 
-    public User getUser() {
-        return user;
+    public Staff getStaff() {
+        return staff;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setStaff(Staff staff) {
+        this.staff = staff;
     }
 
     public Date getC_date() {
@@ -61,7 +61,7 @@ public class Cultivate implements Serializable {
     public String toString() {
         return "Cultivate{" +
                 "c_id=" + c_id +
-                ", user=" + user +
+                ", staff=" + staff +
                 ", c_date=" + c_date +
                 ", c_content='" + c_content + '\'' +
                 ", c_state=" + c_state +

@@ -21,20 +21,25 @@
     <script src="resources/js/jquery.js"></script>
     <script>
         $(function () {
-            $("#send").click(function () {
+            $(".send").click(function () {
+                var re_id = $("#resume").val();
+                if(re_id==null){
+                    alert("你没有简历可投递，请创建");
+                    return false;
+                }
+                re_id=parseInt(re_id);
                 var ri_id=parseInt($(this).prev().val());
                 $.ajax({
                     type:"post",
-                    url:"checkResume",
-                    data:{ri_id:ri_id},
+                    url:"sendResume",
+                    data:{ri_id:ri_id,re_id:re_id},
                     success:function (obj) {//成功后回调函数
-
+                        $("#str").text(obj);
                     },
                     error:function (obj) {
 
                     }
                 })
-                return false;
             })
         })
     </script>
@@ -46,6 +51,7 @@
             <a href="login.jsp">&emsp;${user.u_name}</a>
         </div>
         <div id="d12">
+            <a href="user" >首页&emsp;</a>
             <a href="myResume" >我的简历&emsp;</a>
             <a href="myInterview">面试管理&emsp;</a>
         </div>
@@ -73,10 +79,18 @@
                             <td>${recruitInformation.ri_Intro}</td>
                             <td>${DateAndString.dateToStringTime(recruitInformation.ri_Date)}</td>
                             <td><input type="hidden" name="ri_id" value="${recruitInformation.ri_id}" id="ri_id">
-                                <a href="sendResume?re_id=${resume.re_id}" id="send">投递简历&emsp;</a>
+                                <input type="button" value="投递简历" class="send">
                                 </td>
                     </tr>
                 </c:forEach>
+                    <tr><td colspan="6">
+                        <select name="re_id" id="resume">
+                        <c:forEach items="${resumes}" var="resume">
+                            <option value="${resume.re_id}">简历ID:${resume.re_id}收货人:${resume.resumename}</option>
+                        </c:forEach>
+                    </td>
+                    <td colspan="2" id="str" style="color: red"></td>
+                    </tr>
             </table>
         </div>
         <div id="d32" >

@@ -9,7 +9,7 @@ import java.util.Date;
 //考勤表
 public class Attendance implements Serializable{
     private int a_id;//ID
-    private User user;//用户
+    private Staff staff;//用户
     private Date a_date;//当前日期
     private Date on_date;//上班
     private Date up_date;//下班
@@ -26,12 +26,12 @@ public class Attendance implements Serializable{
         this.a_id = a_id;
     }
 
-    public User getUser() {
-        return user;
+    public Staff getStaff() {
+        return staff;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setStaff(Staff staff) {
+        this.staff = staff;
     }
 
     public Date getA_date() {
@@ -70,7 +70,7 @@ public class Attendance implements Serializable{
     public String toString() {
         return "Attendance{" +
                 "a_id=" + a_id +
-                ", user=" + user +
+                ", staff=" + staff +
                 ", a_date=" + a_date +
                 ", on_date=" + on_date +
                 ", up_date=" + up_date +

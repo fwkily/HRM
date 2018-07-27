@@ -22,4 +22,6 @@ public interface ResumeMapper {
     int updateResume(Resume resume);
 
     int deleteResume(Resume resume);
+
+    List<Resume> getResumesByUser(User user);
 }

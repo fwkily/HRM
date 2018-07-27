@@ -13,11 +13,15 @@ public class Recruit_Information implements Serializable{
     private int ri_id;//招聘信息表ID
     private Department department;//部门
     private Job job;//职位
-    private int ri_Num;//人数
-    private String ri_Intro;//简介
-    private int ri_State;//状态0未发布，1发布，2失效
+    private int ri_num;//人数
+    private String ri_intro;//简介
+    private int ri_state;//状态0未发布，1发布，2失效
     @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
-    private Date ri_Date;//时间
+    private Date ri_date;//时间
+
+    public Recruit_Information(int ri_id) {
+        this.ri_id = ri_id;
+    }
 
     public Recruit_Information() {
     }
@@ -55,35 +59,35 @@ public class Recruit_Information implements Serializable{
     }
 
     public int getRi_Num() {
-        return ri_Num;
+        return ri_num;
     }
 
-    public void setRi_Num(int ri_Num) {
-        this.ri_Num = ri_Num;
+    public void setRi_Num(int ri_num) {
+        this.ri_num = ri_num;
     }
 
     public String getRi_Intro() {
-        return ri_Intro;
+        return ri_intro;
     }
 
-    public void setRi_Intro(String ri_Intro) {
-        this.ri_Intro = ri_Intro;
+    public void setRi_Intro(String ri_intro) {
+        this.ri_intro = ri_intro;
     }
 
     public int getRi_State() {
-        return ri_State;
+        return ri_state;
     }
 
-    public void setRi_State(int ri_State) {
-        this.ri_State = ri_State;
+    public void setRi_State(int ri_state) {
+        this.ri_state = ri_state;
     }
 
     public Date getRi_Date() {
-        return ri_Date;
+        return ri_date;
     }
 
-    public void setRi_Date(Date ri_Date) {
-        this.ri_Date = ri_Date;
+    public void setRi_Date(Date ri_date) {
+        this.ri_date = ri_date;
     }
 
     @Override
@@ -92,10 +96,10 @@ public class Recruit_Information implements Serializable{
                 "ri_id=" + ri_id +
                 ", department=" + department +
                 ", j_ob=" + job +
-                ", ri_Num=" + ri_Num +
-                ", ri_Intro='" + ri_Intro + '\'' +
-                ", ri_State=" + ri_State +
-                ", ri_Date=" + ri_Date +
+                ", ri_num=" + ri_num +
+                ", ri_intro='" + ri_intro + '\'' +
+                ", ri_state=" + ri_state +
+                ", ri_date=" + ri_date +
                 '}';
     }
 }

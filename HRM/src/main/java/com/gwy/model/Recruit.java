@@ -12,6 +12,12 @@ public class Recruit implements Serializable{
     private Resume resume;//简历
     private int r_state;//状态
 
+    public Recruit(Recruit_Information recruitInformation, Resume resume, int r_state) {
+        this.recruitInformation = recruitInformation;
+        this.resume = resume;
+        this.r_state = r_state;
+    }
+
     public Recruit() {
     }
 
