@@ -4,8 +4,8 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gwy.dao.JobMapper" >
 
-    <select id="getJob" resultType="com.gwy.model.Job">
-
+    <select id="getJob" resultMap="jobMap1">
+        SELECT * FROM HRM_JOB
     </select>
     <resultMap id="jobMap" type="com.gwy.model.Job">
         <id property="j_id" column="J_ID"/>

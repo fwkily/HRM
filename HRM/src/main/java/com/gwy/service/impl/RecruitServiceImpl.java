@@ -6,6 +6,7 @@ import com.gwy.service.RecruitService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * Created by destiny on 2018/7/25/0025.
@@ -23,5 +24,20 @@ public class RecruitServiceImpl implements RecruitService{
     @Override
     public int addRecruit(Recruit recruit) {
         return recruitMapper.addRecruit(recruit);
+    }
+
+    @Override
+    public int getRecruitByRiidRstate(int ri_id, int r_state) {
+        return recruitMapper.getRecruitByRiidRstate(ri_id,r_state);
+    }
+
+    @Override
+    public List<Recruit> queryCurrentPageRecruitByRiidRstate(int ri_id, int r_state, int begin, int end) {
+        return recruitMapper.queryCurrentPageRecruitByRiidRstate(ri_id,r_state,begin,end);
+    }
+
+    @Override
+    public int updateRecruit(Recruit recruit) {
+        return recruitMapper.updateRecruit(recruit);
     }
 }

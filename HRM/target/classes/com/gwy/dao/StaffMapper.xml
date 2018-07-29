@@ -3,11 +3,44 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gwy.dao.StaffMapper" >
+    <select id="getStaffByDidJidState" resultType="java.lang.Integer">
+        SELECT count(*) FROM HRM_STAFF
+        <where>
+            <if test="d_id!=0">
+                D_ID=#{d_id}
+            </if>
+            <if test="j_id!=0">
+                and J_ID=#{j_id}
+            </if>
+            <if test="s_state>=0">
+                and S_STATE=#{s_state}
+            </if>
+        </where>
+    </select>
+    <select id="queryCurrentPageStaffByDidJidState" resultMap="staffMap1">
+        SELECT * FROM (SELECT HRM_STAFF.*,rownum rn FROM HRM_STAFF
+        <where>
+            <if test="param1!=0">
+                D_ID=#{param1}
+            </if>
+            <if test="param2!=0">
+                and J_ID=#{param2}
+            </if>
+            <if test="param3>=0">
+                and S_STATE=#{param3}
+            </if>
+        </where>) S,HRM_DEPARTMENT,HRM_JOB
+        where S.D_ID=HRM_DEPARTMENT.D_ID
+        and S.J_ID=HRM_JOB.J_ID
+        and rn between #{param4} and #{param5}
+    </select>
+
+
     <resultMap id="staffMap" type="com.gwy.model.Staff">
-        <id property="s_id" column=""/>
-        <result property="s_username" column=""/>
-        <result property="s_pass" column=""/>
-        <result property="s_state" column=""/>
+        <id property="s_id" column="S_ID"/>
+        <result property="s_username" column="S_USERNAME"/>
+        <result property="s_pass" column="S_PASS"/>
+        <result property="s_state" column="S_STATE"/>
         <result property="s_name" column="S_NAME"/>
         <result property="s_sex" column="S_SEX"/>
         <result property="s_idcardno" column="S_IDCARDNO"/>

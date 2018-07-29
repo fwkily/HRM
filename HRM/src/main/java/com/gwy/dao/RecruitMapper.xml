@@ -6,10 +6,23 @@
     <insert id="addRecruit">
         INSERT INTO HRM_RECRUIT VALUES (RECRUIT_SEQ.nextval,#{recruitInformation.ri_id},#{resume.re_id},#{r_state})
     </insert>
+    <update id="updateRecruit">
+        UPDATE HRM_RECRUIT SET R_STATE=#{r_state} where R_ID=#{r_id}
+    </update>
 
     <select id="getRecruitByUserRe" resultType="com.gwy.model.Recruit">
         SELECT * FROM HRM_RECRUIT r,HRM_RESUME re,HRM_RECRUIT_INFORMATION ri
         WHERE r.RE_ID=re.RE_ID AND r.RI_ID=ri.RI_ID AND re.U_ID=#{0} AND ri.RI_ID=#{1}
+    </select>
+    <select id="getRecruitByRiidRstate" resultType="java.lang.Integer">
+        SELECT count(*) FROM HRM_RECRUIT WHERE RI_ID=#{0} and R_STATE=#{1}
+    </select>
+    <select id="queryCurrentPageRecruitByRiidRstate" resultMap="recruitMap1">
+        SELECT * from (SELECT HRM_RECRUIT.*,rownum rn FROM HRM_RECRUIT
+        WHERE RI_ID=#{0} and R_STATE=#{1}) R,HRM_RECRUIT_INFORMATION RI,HRM_RESUME RE
+        WHERE R.RI_ID=RI.RI_ID
+        and R.RE_ID=RE.RE_ID
+        and rn between #{2} and #{3}
     </select>
     <resultMap id="recruitMap" type="com.gwy.model.Recruit">
         <id property="r_id" column="R_ID"/>

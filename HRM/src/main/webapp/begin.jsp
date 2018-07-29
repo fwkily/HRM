@@ -57,9 +57,9 @@
                             <td>${recruitInformation.department.d_name}</td>
                             <td>${recruitInformation.job.j_name}</td>
                             <td>${recruitInformation.job.j_salary}</td>
-                            <td>${recruitInformation.ri_Num}</td>
-                            <td>${recruitInformation.ri_Intro}</td>
-                            <td>${DateAndString.dateToStringTime(recruitInformation.ri_Date)}</td>
+                            <td>${recruitInformation.ri_num}</td>
+                            <td>${recruitInformation.ri_intro}</td>
+                            <td>${DateAndString.dateToStringTime(recruitInformation.ri_date)}</td>
                             <td><input style="width: 80px" class="a1" type="button" value="投递简历"></td>
                     </tr>
                 </c:forEach>

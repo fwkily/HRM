@@ -26,14 +26,6 @@ public class Recruit_Information implements Serializable{
     public Recruit_Information() {
     }
 
-    public Job getJob() {
-        return job;
-    }
-
-    public void setJob(Job job) {
-        this.job = job;
-    }
-
     public int getRi_id() {
         return ri_id;
     }
@@ -50,43 +42,43 @@ public class Recruit_Information implements Serializable{
         this.department = department;
     }
 
-    public Job getJ_ob() {
+    public Job getJob() {
         return job;
     }
 
-    public void setJ_ob(Job j_ob) {
-        this.job = j_ob;
+    public void setJob(Job job) {
+        this.job = job;
     }
 
-    public int getRi_Num() {
+    public int getRi_num() {
         return ri_num;
     }
 
-    public void setRi_Num(int ri_num) {
+    public void setRi_num(int ri_num) {
         this.ri_num = ri_num;
     }
 
-    public String getRi_Intro() {
+    public String getRi_intro() {
         return ri_intro;
     }
 
-    public void setRi_Intro(String ri_intro) {
+    public void setRi_intro(String ri_intro) {
         this.ri_intro = ri_intro;
     }
 
-    public int getRi_State() {
+    public int getRi_state() {
         return ri_state;
     }
 
-    public void setRi_State(int ri_state) {
+    public void setRi_state(int ri_state) {
         this.ri_state = ri_state;
     }
 
-    public Date getRi_Date() {
+    public Date getRi_date() {
         return ri_date;
     }
 
-    public void setRi_Date(Date ri_date) {
+    public void setRi_date(Date ri_date) {
         this.ri_date = ri_date;
     }
 
@@ -95,7 +87,7 @@ public class Recruit_Information implements Serializable{
         return "Recruit_Information{" +
                 "ri_id=" + ri_id +
                 ", department=" + department +
-                ", j_ob=" + job +
+                ", job=" + job +
                 ", ri_num=" + ri_num +
                 ", ri_intro='" + ri_intro + '\'' +
                 ", ri_state=" + ri_state +
