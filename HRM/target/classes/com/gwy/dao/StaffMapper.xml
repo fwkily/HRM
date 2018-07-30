@@ -3,10 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gwy.dao.StaffMapper" >
-    <insert id="addStaff">
-        <selectKey keyProperty="S_ID" order="AFTER" resultType="java.lang.Integer">
-            SELECT LAST_INSERT_ID() FROM HRM_STAFF
-        </selectKey>
+    <insert id="addStaff" keyProperty="S_ID" useGeneratedKeys="true" parameterType="com.gwy.model.Staff">
         INSERT INTO HRM_STAFF(S_ID, S_USERNAME, S_PASS, D_ID, J_ID, S_STATE, S_NAME, S_SEX, S_IDCARDNO, S_BIRTHDAY, S_PHONE, S_EMAIL, S_ADDRESS, S_POST, S_EDUCATION, S_COLLEGE, S_MAJOR, S_GRADUATE, S_INTRO, S_ENTRYDATE)
         VALUES (STAFF_SEQ.nextval,null,null,#{department.d_id},#{job.j_id},
         #{s_state},#{s_name},#{s_sex},#{s_idcardno},#{s_birthday},#{s_phone},#{s_email},
