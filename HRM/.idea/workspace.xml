@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8b2714a-7280-4402-ac43-d2ef33ee6fd9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_fastjson_1_1_35.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/f4260e13-80b6-4aa9-88ce-22b009c8e4da/_metadata_/metadata" afterPath="$PROJECT_DIR$/.idea/dataSources/f4260e13-80b6-4aa9-88ce-22b009c8e4da/_metadata_/metadata" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM.war" afterPath="$PROJECT_DIR$/target/HRM.war" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/controller/AdminController.class" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/controller/AdminController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/dao/JobMapper.class" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/dao/JobMapper.class" />
@@ -19,20 +17,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gwy/service/StaffService.class" afterPath="$PROJECT_DIR$/target/classes/com/gwy/service/StaffService.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gwy/service/impl/JobServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/gwy/service/impl/JobServiceImpl.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gwy/service/impl/StaffServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/gwy/service/impl/StaffServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/HRM_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/HRM_war_exploded.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HRM.iml" afterPath="$PROJECT_DIR$/HRM.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gwy/controller/AdminController.java" afterPath="$PROJECT_DIR$/src/main/java/com/gwy/controller/AdminController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gwy/dao/JobMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/gwy/dao/JobMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gwy/dao/JobMapper.xml" afterPath="$PROJECT_DIR$/src/main/java/com/gwy/dao/JobMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gwy/dao/StaffMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/gwy/dao/StaffMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gwy/dao/StaffMapper.xml" afterPath="$PROJECT_DIR$/src/main/java/com/gwy/dao/StaffMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gwy/service/JobService.java" afterPath="$PROJECT_DIR$/src/main/java/com/gwy/service/JobService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gwy/service/StaffService.java" afterPath="$PROJECT_DIR$/src/main/java/com/gwy/service/StaffService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gwy/service/impl/JobServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/gwy/service/impl/JobServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gwy/service/impl/StaffServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/gwy/service/impl/StaffServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/dao/JobMapper.xml" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/dao/JobMapper.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/dao/StaffMapper.xml" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/dao/StaffMapper.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM/WEB-INF/pages/admin.jsp" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/pages/admin.jsp" />
@@ -1488,7 +1473,7 @@
       <workItem from="1532523220335" duration="23142000" />
       <workItem from="1532593099267" duration="3108000" />
       <workItem from="1532604319262" duration="119831000" />
-      <workItem from="1532924606088" duration="15521000" />
+      <workItem from="1532924606088" duration="15632000" />
     </task>
     <task id="LOCAL-00001" summary="再来一次">
       <created>1532499615920</created>
@@ -1616,14 +1601,21 @@
       <option name="project" value="LOCAL" />
       <updated>1532917965041</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="更新备份7.30 18:41周末作业写完，继续写管理员其他部分">
+      <created>1532947381418</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1532947381418</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="187143000" />
+    <option name="totallyTimeSpent" value="187254000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="7" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1740,7 +1732,8 @@
     <MESSAGE value="更新备份7.28 1:26 晚上爆肝留念" />
     <MESSAGE value="更新备份7.29 10:10 招聘信息管理写完，写面试管理，" />
     <MESSAGE value="更新备份7.30 周末作业还差一点收尾" />
-    <option name="LAST_COMMIT_MESSAGE" value="更新备份7.30 周末作业还差一点收尾" />
+    <MESSAGE value="更新备份7.30 18:41周末作业写完，继续写管理员其他部分" />
+    <option name="LAST_COMMIT_MESSAGE" value="更新备份7.30 18:41周末作业写完，继续写管理员其他部分" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
