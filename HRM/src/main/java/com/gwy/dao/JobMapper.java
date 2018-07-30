@@ -11,4 +11,6 @@ import java.util.List;
 public interface JobMapper {
 
     List<Job> getJob();
+
+    List<Job> getJobByDid(int d_id);
 }

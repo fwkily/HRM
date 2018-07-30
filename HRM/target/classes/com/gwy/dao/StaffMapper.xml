@@ -3,12 +3,78 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gwy.dao.StaffMapper" >
-    <insert id="addStaff" keyProperty="S_ID" useGeneratedKeys="true" parameterType="com.gwy.model.Staff">
+    <insert id="addStaff" parameterType="com.gwy.model.Staff">
+        <selectKey resultType="java.lang.Integer" order="BEFORE" keyProperty="s_id">
+            SELECT STAFF_SEQ.nextval FROM DUAL
+        </selectKey>
         INSERT INTO HRM_STAFF(S_ID, S_USERNAME, S_PASS, D_ID, J_ID, S_STATE, S_NAME, S_SEX, S_IDCARDNO, S_BIRTHDAY, S_PHONE, S_EMAIL, S_ADDRESS, S_POST, S_EDUCATION, S_COLLEGE, S_MAJOR, S_GRADUATE, S_INTRO, S_ENTRYDATE)
-        VALUES (STAFF_SEQ.nextval,null,null,#{department.d_id},#{job.j_id},
+        VALUES (#{s_id},null,null,#{department.d_id},#{job.j_id},
         #{s_state},#{s_name},#{s_sex},#{s_idcardno},#{s_birthday},#{s_phone},#{s_email},
         #{s_address},#{s_post},#{s_education},#{s_college},#{s_major},#{s_graduate},#{s_intro},sysdate)
     </insert>
+    <update id="updateStaff">
+        UPDATE HRM_STAFF
+        <set>
+            <if test="s_username!=null">
+                S_USERNAME=#{s_username},
+            </if>
+            <if test="s_pass!=null">
+                S_PASS=#{s_pass},
+            </if>
+            <if test="department!=null">
+                D_ID=#{department.d_id},
+            </if>
+            <if test="job!=null">
+                J_ID=#{job.j_id},
+            </if>
+            <if test="s_state>=0">
+                S_STATE=#{s_state},
+            </if>
+            <if test="s_name!=null">
+                S_NAME=#{s_name},
+            </if>
+            <if test="s_sex!=null">
+                S_SEX=#{s_sex},
+            </if>
+            <if test="s_idcardno!=null">
+                S_IDCARDNO=#{s_idcardno},
+            </if>
+            <if test="s_birthday!=null">
+                S_BIRTHDAY=#{s_birthday},
+            </if>
+            <if test="s_phone!=null">
+                S_PHONE=#{s_phone},
+            </if>
+            <if test="s_email!=null">
+                S_EMAIL=#{s_email},
+            </if>
+            <if test="s_address!=null">
+                S_ADDRESS=#{s_address},
+            </if>
+            <if test="s_post!=null">
+                S_POST=#{s_post},
+            </if>
+            <if test="s_education!=null">
+                S_EDUCATION=#{s_education},
+            </if>
+            <if test="s_college!=null">
+                S_COLLEGE=#{s_college},
+            </if>
+            <if test="s_major!=null">
+                S_MAJOR=#{s_major},
+            </if>
+            <if test="s_graduate!=null">
+                S_GRADUATE=#{s_graduate},
+            </if>
+            <if test="s_intro!=null">
+                S_INTRO=#{s_intro},
+            </if>
+            <if test="s_entrydate!=null">
+                S_ENTRYDATE=#{s_entrydate}
+            </if>
+        </set>
+        WHERE S_ID=#{s_id}
+    </update>
     <select id="getStaffByDidJidState" resultType="java.lang.Integer">
         SELECT count(*) FROM HRM_STAFF
         <where>

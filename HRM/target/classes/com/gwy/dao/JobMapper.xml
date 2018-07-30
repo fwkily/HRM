@@ -7,6 +7,9 @@
     <select id="getJob" resultMap="jobMap1">
         SELECT * FROM HRM_JOB
     </select>
+    <select id="getJobByDid" resultMap="jobMap1">
+        SELECT * from HRM_JOB WHERE D_ID=#{d_id}
+    </select>
     <resultMap id="jobMap" type="com.gwy.model.Job">
         <id property="j_id" column="J_ID"/>
         <result property="j_name" column="J_NAME"/>

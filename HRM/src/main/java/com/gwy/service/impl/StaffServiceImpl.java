@@ -35,4 +35,9 @@ public class StaffServiceImpl implements StaffService{
     public int addStaff(Staff staff) {
         return staffMapper.addStaff(staff);
     }
+
+    @Override
+    public int updateStaff(Staff staff) {
+        return staffMapper.updateStaff(staff);
+    }
 }

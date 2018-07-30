@@ -17,4 +17,6 @@ public interface StaffService {
     List<Staff> getStaffsByDidJidState(int d_id, int j_id, int i);
 
     int addStaff(Staff staff);
+
+    int updateStaff(Staff staff);
 }

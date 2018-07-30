@@ -1,4 +1,6 @@
 <%@ page import="com.gwy.util.DateAndString" %>
+<%@ page import="com.gwy.model.Job" %>
+<%@ page import="java.util.List" %>
 <%--
   Created by IntelliJ IDEA.
   User: destiny
@@ -41,6 +43,23 @@
                     }
                 })
             })
+            $("#d_id").change(function () {
+                var d_id=parseInt($(this).val());
+                $.ajax({
+                    type:"post",
+                    url:"loadJob",
+                    data:{d_id:d_id},
+                    success:function (jobs) {//成功后回调函数
+                        $("#j_id").empty();
+                        $(jobs).each(function (i) {
+                            $("#j_id").append("<option value="+jobs[i].j_id+">"+jobs[i].j_name+"</option>");
+                        })
+                    },
+                    error:function (obj) {
+
+                    }
+                })
+            })
         })
     </script>
 </head>
@@ -69,9 +88,6 @@
         </select>
         <select name="j_id" id="j_id">
             <option value="0">职位</option>
-            <c:forEach items="${jobs}" var="job">
-            <option value="${job.j_id}">${job.j_name}</option>
-            </c:forEach>
         </select>
         <select name="s_state" id="s_state">
             <option value="-1">在职状态</option>

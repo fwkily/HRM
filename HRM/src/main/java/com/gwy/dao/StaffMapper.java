@@ -18,4 +18,6 @@ public interface StaffMapper {
     List<Staff> getStaffsByDidJidState(@Param("d_id")int d_id,@Param("j_id") int j_id,@Param("s_state") int s_state);
 
     int addStaff(Staff staff);
+
+    int updateStaff(Staff staff);
 }

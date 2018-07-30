@@ -1,5 +1,6 @@
 package com.gwy.controller;
 
+import com.alibaba.fastjson.JSONArray;
 import com.gwy.model.*;
 import com.gwy.service.*;
 import com.gwy.util.DateAndString;
@@ -8,11 +9,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -226,8 +229,20 @@ public class AdminController {
                 resume.getRe_sex(),resume.getRe_idcardno(),resume.getRe_birthday(),resume.getRe_phone(),
                 resume.getRe_email(),resume.getRe_address(),resume.getRe_post(),resume.getRe_education(),
                 resume.getRe_college(),resume.getRe_major(),resume.getRe_graduate(),resume.getRe_intro());
-        int s_id = staffService.addStaff(staff);
-        System.out.println(s_id);
-        response.getWriter().print("发布成功");
+        staffService.addStaff(staff);
+        int s_id = staff.getS_id();
+        staff.setS_username("gwyhxl"+s_id);
+        staff.setS_pass("gwyhxl"+s_id);
+        interview.setI_state(3);
+        interviewService.updateInterview(interview);
+        staffService.updateStaff(staff);
+        response.getWriter().print("录用成功");
+    }
+    @RequestMapping("/loadJob")
+    @ResponseBody
+    public Object loadJob(int d_id, HttpServletResponse response) throws Exception{
+        List<Job> jobList = jobService.getJobByDid(d_id);
+        /*String jobs=JSONArray.toJSONString(jobList);*/
+        return jobList;
     }
 }
