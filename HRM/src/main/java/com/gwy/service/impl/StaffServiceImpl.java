@@ -25,4 +25,14 @@ public class StaffServiceImpl implements StaffService{
     public List<Staff> queryCurrentPageStaffByDidJidState(int d_id, int j_id, int s_state, int begin, int end) {
         return staffMapper.queryCurrentPageStaffByDidJidState(d_id,j_id,s_state,begin,end);
     }
+
+    @Override
+    public List<Staff> getStaffsByDidJidState(int d_id, int j_id, int s_state) {
+        return staffMapper.getStaffsByDidJidState(d_id,j_id,s_state);
+    }
+
+    @Override
+    public int addStaff(Staff staff) {
+        return staffMapper.addStaff(staff);
+    }
 }

@@ -40,4 +40,14 @@ public class RecruitServiceImpl implements RecruitService{
     public int updateRecruit(Recruit recruit) {
         return recruitMapper.updateRecruit(recruit);
     }
+
+    @Override
+    public Recruit getRecruitByRid(int r_id) {
+        return recruitMapper.getRecruitByRid(r_id);
+    }
+
+    @Override
+    public Recruit getRecruitByUidRiid(int u_id, int ri_id) {
+        return recruitMapper.getRecruitByUidRiid(u_id,ri_id);
+    }
 }

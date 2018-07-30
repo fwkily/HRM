@@ -56,7 +56,7 @@
             <a href="myInterview">考勤管理&emsp;</a>
             <a href="myInterview">培训管理&emsp;</a>
             <a href="ri">招聘信息&emsp;</a>
-            <a href="myInterview">招聘管理&emsp;</a>
+            <a href="r">招聘管理&emsp;</a>
             <a href="myInterview">奖惩管理&emsp;</a>
         </div>
     </div>

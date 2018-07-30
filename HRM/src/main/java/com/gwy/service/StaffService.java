@@ -13,4 +13,8 @@ public interface StaffService {
     int getStaffByDidJidState(int d_id, int j_id, int s_state);
 
     List<Staff> queryCurrentPageStaffByDidJidState(int d_id, int j_id, int s_state, int begin, int end);
+
+    List<Staff> getStaffsByDidJidState(int d_id, int j_id, int i);
+
+    int addStaff(Staff staff);
 }

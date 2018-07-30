@@ -63,6 +63,7 @@
                         <td>${recruitInformation.ri_intro}</td>
                         <td>${DateAndString.dateToStringTime(recruitInformation.ri_date)}</td>
                         <td>
+                            <a href="interviewManage?ri_id=${recruitInformation.ri_id}">查看面试</a>
                             <a href="check?ri_id=${recruitInformation.ri_id}">查看简历</a>
                         </td>
 

@@ -14,4 +14,8 @@ public interface StaffMapper {
     int getStaffByDidJidState(@Param("d_id") int d_id,@Param("j_id") int j_id,@Param("s_state") int s_state);
 
     List<Staff> queryCurrentPageStaffByDidJidState(int d_id, int j_id, int s_state, int begin, int end);
+
+    List<Staff> getStaffsByDidJidState(@Param("d_id")int d_id,@Param("j_id") int j_id,@Param("s_state") int s_state);
+
+    int addStaff(Staff staff);
 }

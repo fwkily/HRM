@@ -2,6 +2,7 @@ package com.gwy.controller;
 
 import com.gwy.model.*;
 import com.gwy.service.*;
+import com.gwy.util.DateAndString;
 import com.gwy.util.DoPage;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +13,8 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -35,6 +38,8 @@ public class AdminController {
     private Recruit_InformationService recruit_informationService;
     @Resource
     private RecruitService recruitService;
+    @Resource
+    private InterviewService interviewService;
     @RequestMapping("/adminLogin")
     public String adminLogin(Admin admin, HttpSession session, Model model) throws Exception{
         admin = adminService.getAdminByNamePass(admin);
@@ -150,14 +155,79 @@ public class AdminController {
         List<Recruit> recruits = recruitService.queryCurrentPageRecruitByRiidRstate(ri_id,r_state,begin,end);
         if (!recruits.isEmpty()){
             Recruit recruit = recruits.get(0);
-            recruit.setR_state(1);//取出的标记为已读
-            recruitService.updateRecruit(recruit);
+            if (recruit.getR_state()==0){
+                recruit.setR_state(1);//取出的标记为已读
+                recruitService.updateRecruit(recruit);
+            }
         }
+        Recruit_Information recruitInformation=recruit_informationService.getRecruit_InformationByRiid(ri_id);
         request.setAttribute("recruits",recruits);
+        request.setAttribute("recruitInformation",recruitInformation);
         request.setAttribute("r_state",r_state);
         request.setAttribute("ri_id",ri_id);
         request.setAttribute("currentPage",currentPage);
         request.setAttribute("totalPages",totalPages);
         return "check";
+    }
+    @RequestMapping("/refuse")
+    public String refuse(int ri_id,int r_id) throws Exception{
+        Recruit recruit = recruitService.getRecruitByRid(r_id);
+        recruit.setR_state(3);
+        recruitService.updateRecruit(recruit);
+        return "redirect:check?ri_id="+ri_id;
+    }
+    @RequestMapping("/interview")
+    public String interview(int r_id, HttpServletRequest request) throws Exception{
+        Recruit recruit = recruitService.getRecruitByRid(r_id);
+        List<Staff> staffs=staffService.getStaffsByDidJidState(recruit.getRecruitInformation().getDepartment().getD_id(),0,1);
+        request.setAttribute("recruit",recruit);
+        request.setAttribute("staffs",staffs);
+        return "interview";
+    }
+    @RequestMapping("/addInterview")
+    public String addInterview(String mi_date,int r_id,Interview interview, HttpServletRequest request) throws Exception{
+        mi_date=mi_date.replaceAll("T"," ");
+        Date i_date= DateAndString.dateToStringTime(mi_date);
+        Recruit recruit = recruitService.getRecruitByRid(r_id);
+        recruit.setR_state(2);
+        recruitService.updateRecruit(recruit);//更新为面试
+        interview.setI_date(i_date);
+        interview.setUser(recruit.getResume().getUser());//设置用户
+        interview.setRecruit_Information(recruit.getRecruitInformation());//招聘信息
+        interviewService.addInterview(interview);
+        int ri_id = recruit.getRecruitInformation().getRi_id();
+        return "redirect:check?ri_id="+ri_id;
+    }
+    @RequestMapping("/interviewManage")
+    public String interviewManage(@RequestParam(value = "i_state",defaultValue = "1")int i_state,int ri_id,@RequestParam(value = "currentPage",defaultValue = "1")int currentPage, HttpServletRequest request) throws Exception{
+        int pageSize = 10;
+        int totalRows=interviewService.getInterviewByRiid(ri_id,i_state);
+        int totalPages = DoPage.getTotalPages(totalRows,pageSize);
+        int begin = (currentPage-1)*pageSize+1;
+        int end = (currentPage-1)*pageSize+pageSize;
+        List<Interview> interviews = interviewService.queryCurrentPageInterviewByRiid(ri_id,i_state,begin,end);
+        request.setAttribute("interviews",interviews);
+        request.setAttribute("ri_id",ri_id);
+        request.setAttribute("i_state",i_state);
+        request.setAttribute("currentPage",currentPage);
+        request.setAttribute("totalPages",totalPages);
+        return "interviewManage";
+    }
+    @RequestMapping("/hire")
+    public void hire(int i_id, HttpServletResponse response) throws Exception{
+        response.setContentType("text/html;charset=utf-8");
+        Interview interview =  interviewService.getInterviewByIid(i_id);
+        int ri_id = interview.getRecruit_Information().getRi_id();
+        int u_id = interview.getUser().getU_id();
+        Recruit recruit=recruitService.getRecruitByUidRiid(u_id,ri_id);
+        Recruit_Information recruitInformation = recruit.getRecruitInformation();
+        Resume resume = recruit.getResume();
+        Staff staff=new Staff(null,null,recruitInformation.getDepartment(),recruitInformation.getJob(),0,resume.getRe_name(),
+                resume.getRe_sex(),resume.getRe_idcardno(),resume.getRe_birthday(),resume.getRe_phone(),
+                resume.getRe_email(),resume.getRe_address(),resume.getRe_post(),resume.getRe_education(),
+                resume.getRe_college(),resume.getRe_major(),resume.getRe_graduate(),resume.getRe_intro());
+        int s_id = staffService.addStaff(staff);
+        System.out.println(s_id);
+        response.getWriter().print("发布成功");
     }
 }

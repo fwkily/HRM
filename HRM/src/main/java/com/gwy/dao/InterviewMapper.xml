@@ -4,4 +4,55 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gwy.dao.InterviewMapper" >
 
+    <insert id="addInterview">
+        INSERT INTO HRM_INTERVIEW
+        VALUES (INTERVIEW_SEQ.nextval,#{user.u_id},#{recruit_Information.ri_id},#{i_state},#{i_date},#{i_address},#{i_intro},#{staff.s_id})
+    </insert>
+    <update id="updateInterview">
+        UPDATE HRM_INTERVIEW SET I_STATE=#{i_state} where I_ID=#{i_id}
+    </update>
+    <select id="getInterviewByUidIstate" resultType="java.lang.Integer">
+        SELECT count(*) FROM HRM_INTERVIEW WHERE U_ID=#{0} and I_STATE=#{1}
+    </select>
+    <select id="queryCurrentInterviewByUidIstate" resultMap="interviewMap1">
+        SELECT * FROM (SELECT HRM_INTERVIEW.*,rownum rn FROM HRM_INTERVIEW
+        WHERE U_ID=#{0} and I_STATE=#{1}) I,HRM_RECRUIT_INFORMATION RI,HRM_STAFF S,HRM_DEPARTMENT D,HRM_JOB J
+        WHERE I.RI_ID=RI.RI_ID
+        AND I.S_ID=S.S_ID
+        AND RI.D_ID=D.D_ID
+        AND RI.J_ID=J.J_ID
+        and rn between #{2} and #{3}
+    </select>
+    <select id="getInterviewByIid" resultMap="interviewMap1">
+        SELECT * FROM HRM_INTERVIEW I,HRM_RECRUIT_INFORMATION RI,HRM_STAFF S,HRM_DEPARTMENT D,HRM_JOB J
+        WHERE I.RI_ID=RI.RI_ID
+        AND I.S_ID=S.S_ID
+        AND RI.D_ID=D.D_ID
+        AND RI.J_ID=J.J_ID
+        AND I.I_ID=#{i_id}
+    </select>
+    <select id="getInterviewByRiid" resultType="java.lang.Integer">
+        SELECT count(*) FROM HRM_INTERVIEW WHERE RI_ID=#{0} and I_STATE=#{1}
+    </select>
+    <select id="queryCurrentPageInterviewByRiid" resultMap="interviewMap1">
+        SELECT * FROM (SELECT HRM_INTERVIEW.*,rownum rn FROM HRM_INTERVIEW
+        WHERE RI_ID=#{0} and I_STATE=#{1}) I,HRM_RECRUIT_INFORMATION RI,HRM_STAFF S,HRM_DEPARTMENT D,HRM_JOB J
+        WHERE I.RI_ID=RI.RI_ID
+        AND I.S_ID=S.S_ID
+        AND RI.D_ID=D.D_ID
+        AND RI.J_ID=J.J_ID
+        and rn between #{2} and #{3}
+    </select>
+    <resultMap id="interviewMap" type="com.gwy.model.Interview">
+        <id property="i_id" column="I_ID"/>
+        <result property="i_state" column="I_STATE"/>
+        <result property="i_date" column="I_DATE"/>
+        <result property="i_address" column="I_ADDRESS"/>
+        <result property="i_intro" column="I_INTRO"/>
+    </resultMap>
+    <resultMap id="interviewMap1" type="com.gwy.model.Interview" extends="interviewMap">
+        <association property="user" resultMap="com.gwy.dao.UserMapper.userMap"/>
+        <association property="recruit_Information" resultMap="com.gwy.dao.Recruit_InformationMapper.recruit_InformationMap1"/>
+        <association property="staff" resultMap="com.gwy.dao.StaffMapper.staffMap1"/>
+    </resultMap>
 </mapper>

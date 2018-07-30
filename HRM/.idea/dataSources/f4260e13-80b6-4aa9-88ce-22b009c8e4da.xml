@@ -4,9 +4,9 @@
     <root id="1"/>
     <schema id="2" parent="1" name="HRM">
       <ObjectId>50</ObjectId>
-      <IntrospectionTimestamp>2018-07-28.01:52:18</IntrospectionTimestamp>
+      <IntrospectionTimestamp>2018-07-30.09:54:08</IntrospectionTimestamp>
       <CreatedTimestamp>2018-07-25.11:31:32</CreatedTimestamp>
-      <ModifiedTimestamp>2018-07-28.01:52:11</ModifiedTimestamp>
+      <ModifiedTimestamp>2018-07-30.09:44:35</ModifiedTimestamp>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -140,9 +140,9 @@
       <SequenceIdentity>1..9999999999</SequenceIdentity>
     </sequence>
     <sequence id="34" parent="2" name="STAFF_SEQ">
-      <ObjectId>20509</ObjectId>
-      <CreatedTimestamp>2018-07-26.22:45:07</CreatedTimestamp>
-      <ModifiedTimestamp>2018-07-26.22:45:07</ModifiedTimestamp>
+      <ObjectId>20714</ObjectId>
+      <CreatedTimestamp>2018-07-30.09:44:35</CreatedTimestamp>
+      <ModifiedTimestamp>2018-07-30.09:44:35</ModifiedTimestamp>
       <SequenceIdentity>1..9999999999</SequenceIdentity>
     </sequence>
     <sequence id="35" parent="2" name="USER_SEQ">
@@ -208,7 +208,7 @@
     <table id="45" parent="2" name="HRM_RECRUIT_INFORMATION">
       <ObjectId>20398</ObjectId>
       <CreatedTimestamp>2018-07-25.15:55:19</CreatedTimestamp>
-      <ModifiedTimestamp>2018-07-27.11:06:43</ModifiedTimestamp>
+      <ModifiedTimestamp>2018-07-28.22:53:31</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
     <table id="46" parent="2" name="HRM_RESUME">
@@ -226,7 +226,7 @@
     <table id="48" parent="2" name="HRM_STAFF">
       <ObjectId>20507</ObjectId>
       <CreatedTimestamp>2018-07-26.22:44:28</CreatedTimestamp>
-      <ModifiedTimestamp>2018-07-27.11:04:47</ModifiedTimestamp>
+      <ModifiedTimestamp>2018-07-30.08:51:28</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
     <table id="49" parent="2" name="HRM_USER">
@@ -681,7 +681,6 @@
     <column id="126" parent="45" name="RI_STATE">
       <Position>6</Position>
       <DataType>NUMBER(1)|0</DataType>
-      <NotNull>1</NotNull>
     </column>
     <column id="127" parent="45" name="RI_DATE">
       <Position>7</Position>
@@ -846,12 +845,10 @@
     <column id="155" parent="48" name="S_USERNAME">
       <Position>2</Position>
       <DataType>VARCHAR2(40)|0</DataType>
-      <NotNull>1</NotNull>
     </column>
     <column id="156" parent="48" name="S_PASS">
       <Position>3</Position>
       <DataType>VARCHAR2(40)|0</DataType>
-      <NotNull>1</NotNull>
     </column>
     <column id="157" parent="48" name="D_ID">
       <Position>4</Position>

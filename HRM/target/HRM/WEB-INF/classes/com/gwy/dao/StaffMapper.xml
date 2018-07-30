@@ -3,6 +3,15 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gwy.dao.StaffMapper" >
+    <insert id="addStaff">
+        <selectKey keyProperty="S_ID" order="AFTER" resultType="java.lang.Integer">
+            SELECT LAST_INSERT_ID() FROM HRM_STAFF
+        </selectKey>
+        INSERT INTO HRM_STAFF(S_ID, S_USERNAME, S_PASS, D_ID, J_ID, S_STATE, S_NAME, S_SEX, S_IDCARDNO, S_BIRTHDAY, S_PHONE, S_EMAIL, S_ADDRESS, S_POST, S_EDUCATION, S_COLLEGE, S_MAJOR, S_GRADUATE, S_INTRO, S_ENTRYDATE)
+        VALUES (STAFF_SEQ.nextval,null,null,#{department.d_id},#{job.j_id},
+        #{s_state},#{s_name},#{s_sex},#{s_idcardno},#{s_birthday},#{s_phone},#{s_email},
+        #{s_address},#{s_post},#{s_education},#{s_college},#{s_major},#{s_graduate},#{s_intro},sysdate)
+    </insert>
     <select id="getStaffByDidJidState" resultType="java.lang.Integer">
         SELECT count(*) FROM HRM_STAFF
         <where>
@@ -33,6 +42,20 @@
         where S.D_ID=HRM_DEPARTMENT.D_ID
         and S.J_ID=HRM_JOB.J_ID
         and rn between #{param4} and #{param5}
+    </select>
+    <select id="getStaffsByDidJidState" resultMap="staffMap1">
+        SELECT * FROM HRM_STAFF
+        <where>
+            <if test="d_id!=0">
+                D_ID=#{d_id}
+            </if>
+            <if test="j_id!=0">
+                and J_ID=#{j_id}
+            </if>
+            <if test="s_state>=0">
+                and S_STATE=#{s_state}
+            </if>
+        </where>
     </select>
 
 

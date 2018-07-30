@@ -1,9 +1,6 @@
 package com.gwy.controller;
 
-import com.gwy.model.Recruit;
-import com.gwy.model.Recruit_Information;
-import com.gwy.model.Resume;
-import com.gwy.model.User;
+import com.gwy.model.*;
 import com.gwy.service.*;
 import com.gwy.util.DoPage;
 import org.springframework.stereotype.Controller;
@@ -34,6 +31,8 @@ public class UserController {
     private Recruit_InformationService recruit_informationService;
     @Resource
     private RecruitService recruitService;
+    @Resource
+    private InterviewService interviewService;
     @RequestMapping("/checkName")
     public void checkName(User user, HttpServletRequest request, HttpServletResponse response) throws Exception{
         System.out.println(user.getU_name());
@@ -169,5 +168,35 @@ public class UserController {
             response.getWriter().print("投递简历成功");
         }
     }
-
+    @RequestMapping("/myInterview")
+    public String myInterview(@RequestParam(value = "i_state",defaultValue = "0")int i_state,@RequestParam(value = "currentPage",defaultValue = "1")int currentPage,HttpSession session,HttpServletRequest request) throws Exception{
+        User user = (User) session.getAttribute("user");
+        int pageSize = 10;
+        int totalRows=interviewService.getInterviewByUidIstate(user.getU_id(),i_state);
+        int totalPages = DoPage.getTotalPages(totalRows,pageSize);
+        int begin = (currentPage-1)*pageSize+1;
+        int end = (currentPage-1)*pageSize+pageSize;
+        List<Interview> interviews = interviewService.queryCurrentInterviewByUidIstate(user.getU_id(),i_state,begin,end);
+        request.setAttribute("interviews",interviews);
+        request.setAttribute("i_state",i_state);
+        request.setAttribute("currentPage",currentPage);
+        request.setAttribute("totalPages",totalPages);
+        return "myInterview";
+    }
+    @RequestMapping("/jion")
+    public void jion(int i_id,HttpServletResponse response) throws Exception{
+        response.setContentType("text/html;charset=utf-8");
+        Interview interview = interviewService.getInterviewByIid(i_id);
+        interview.setI_state(1);
+        interviewService.updateInterview(interview);
+        response.getWriter().print("已参加此次面试，请做好准备");
+    }
+    @RequestMapping("/refuseInterview")
+    public void refuseInterview(int i_id,HttpServletResponse response) throws Exception{
+        response.setContentType("text/html;charset=utf-8");
+        Interview interview = interviewService.getInterviewByIid(i_id);
+        interview.setI_state(2);
+        interviewService.updateInterview(interview);
+        response.getWriter().print("已拒绝此次面试，请珍惜每一次面试机会");
+    }
 }

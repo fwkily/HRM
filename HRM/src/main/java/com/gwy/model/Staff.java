@@ -22,6 +22,28 @@ public class Staff implements Serializable{
     private String s_email;//email
     private String s_address;//地址
     private String s_post;//邮编
+
+    public Staff(String s_username, String s_pass, Department department, Job job, int s_state, String s_name, String s_sex, String s_idcardno, Date s_birthday, String s_phone, String s_email, String s_address, String s_post, String s_education, String s_college, String s_major, Date s_graduate, String s_intro) {
+        this.s_username = s_username;
+        this.s_pass = s_pass;
+        this.department = department;
+        this.job = job;
+        this.s_state = s_state;
+        this.s_name = s_name;
+        this.s_sex = s_sex;
+        this.s_idcardno = s_idcardno;
+        this.s_birthday = s_birthday;
+        this.s_phone = s_phone;
+        this.s_email = s_email;
+        this.s_address = s_address;
+        this.s_post = s_post;
+        this.s_education = s_education;
+        this.s_college = s_college;
+        this.s_major = s_major;
+        this.s_graduate = s_graduate;
+        this.s_intro = s_intro;
+    }
+
     private String s_education;//学历
     private String s_college;//毕业院校
     private String s_major;//专业

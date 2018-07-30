@@ -19,4 +19,8 @@ public interface RecruitMapper {
     List<Recruit> queryCurrentPageRecruitByRiidRstate(int ri_id, int r_state, int begin, int end);
 
     int updateRecruit(Recruit recruit);
+
+    Recruit getRecruitByRid(int r_id);
+
+    Recruit getRecruitByUidRiid(int u_id, int ri_id);
 }
