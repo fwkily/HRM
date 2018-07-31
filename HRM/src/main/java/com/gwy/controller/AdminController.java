@@ -56,7 +56,6 @@ public class AdminController {
     @RequestMapping("/admin")
     public String admin(@RequestParam(value = "s_state",defaultValue = "1")int s_state,@RequestParam(value = "d_id",defaultValue = "0")int d_id,@RequestParam(value = "j_id",defaultValue = "0")int j_id,@RequestParam(value = "currentPage",defaultValue = "1")int currentPage, HttpServletRequest request,HttpSession session) throws Exception{
         List<Department> departments = departmentService.getDepartment();
-        List<Job> jobs = jobService.getJob();
         int pageSize = 10;
         int totalRows=staffService.getStaffByDidJidState(d_id,j_id,s_state);
         int totalPages = DoPage.getTotalPages(totalRows,pageSize);
@@ -64,7 +63,9 @@ public class AdminController {
         int end = (currentPage-1)*pageSize+pageSize;
         List<Staff> staffs = staffService.queryCurrentPageStaffByDidJidState(d_id,j_id,s_state,begin,end);
         request.setAttribute("departments",departments);
-        request.setAttribute("jobs",jobs);
+        request.setAttribute("s_state",s_state);
+        request.setAttribute("d_id",d_id);
+        request.setAttribute("j_id",j_id);
         request.setAttribute("staffs",staffs);
         request.setAttribute("currentPage",currentPage);
         request.setAttribute("totalPages",totalPages);
@@ -244,5 +245,11 @@ public class AdminController {
         List<Job> jobList = jobService.getJobByDid(d_id);
         /*String jobs=JSONArray.toJSONString(jobList);*/
         return jobList;
+    }
+    @RequestMapping("/organizationalManagement")
+    public String organizationalManagement(HttpServletRequest request) throws Exception{
+        List<Department> departments = departmentService.getDepartment();
+        request.setAttribute("departments",departments);
+        return "organizationalManagement";
     }
 }

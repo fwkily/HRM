@@ -23,26 +23,6 @@
     <script src="resources/js/jquery.js"></script>
     <script>
         $(function () {
-            $(".send").click(function () {
-                var re_id = $("#resume").val();
-                if(re_id==null){
-                    alert("你没有简历可投递，请创建");
-                    return false;
-                }
-                re_id=parseInt(re_id);
-                var ri_id=parseInt($(this).prev().val());
-                $.ajax({
-                    type:"post",
-                    url:"sendResume",
-                    data:{ri_id:ri_id,re_id:re_id},
-                    success:function (obj) {//成功后回调函数
-                        $("#str").text(obj);
-                    },
-                    error:function (obj) {
-
-                    }
-                })
-            })
             $("#d_id").change(function () {
                 var d_id=parseInt($(this).val());
                 $.ajax({
@@ -51,6 +31,7 @@
                     data:{d_id:d_id},
                     success:function (jobs) {//成功后回调函数
                         $("#j_id").empty();
+                        $("#j_id").append("<option value='0'>部门</option>");
                         $(jobs).each(function (i) {
                             $("#j_id").append("<option value="+jobs[i].j_id+">"+jobs[i].j_name+"</option>");
                         })
@@ -72,6 +53,7 @@
         <div id="d12">
             <a href="admin" >员工管理&emsp;</a>
             <a href="myResume" >薪资管理&emsp;</a>
+            <a href="organizationalManagement" >组织管理&emsp;</a>
             <a href="myInterview">考勤管理&emsp;</a>
             <a href="myInterview">培训管理&emsp;</a>
             <a href="ri">招聘信息&emsp;</a>
@@ -80,6 +62,7 @@
         </div>
     </div>
     <div id="d4">
+        <form action="admin" method="post">
         <select name="d_id" id="d_id">
             <option value="0">部门</option>
             <c:forEach items="${departments}" var="department">
@@ -95,6 +78,8 @@
             <option value="0">实习</option>
             <option value="2">离职</option>
         </select>
+            <input type="submit" value="确认"/>
+        </form>
     </div>
     <div id="d3" style="font-size: 24px">
         <div id="d31">
@@ -140,11 +125,11 @@
             </table>
         </div>
         <div id="d32" >
-            <a href="admin?currentPage=${currentPage-1==0?currentPage:currentPage-1}">上一页</a>
-            <a href="admin?currentPage=${currentPage}">第${currentPage}页</a>
+            <a href="admin?d_id=${d_id}&j_id=${j_id}&s_state=${s_state}&currentPage=${currentPage-1==0?currentPage:currentPage-1}">上一页</a>
+            <a href="admin?d_id=${d_id}&j_id=${j_id}&s_state=${s_state}&currentPage=${currentPage}">第${currentPage}页</a>
             共${totalPages}页
-            <a href="admin?currentPage=${currentPage+1>totalPages?currentPage:currentPage+1}">下一页</a>
-            <form action="admin" method="post">
+            <a href="admin?d_id=${d_id}&j_id=${j_id}&s_state=${s_state}&currentPage=${currentPage+1>totalPages?currentPage:currentPage+1}">下一页</a>
+            <form action="admin?d_id=${d_id}&j_id=${j_id}&s_state=${s_state}" method="post">
                 <input style="width: 30px" type="number" min="1" max="${totalPages}" value="${currentPage}" name="currentPage">
                 <input type="submit" value="跳转">
             </form>
