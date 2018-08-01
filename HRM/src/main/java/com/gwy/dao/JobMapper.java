@@ -17,4 +17,8 @@ public interface JobMapper {
     int deleteJobByDid(int d_id);
 
     int deleteJobByJid(int j_id);
+
+    int addJob(int d_id, String j_name,double j_salary);
+
+    int updateJob(int j_id, String j_name,double j_salary);
 }

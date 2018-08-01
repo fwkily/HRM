@@ -275,4 +275,28 @@ public class AdminController {
             response.getWriter().print("该职位还有员工，不能删除");
         }
     }
+    @RequestMapping("/addd")
+    public void addd(String d_name,HttpServletResponse response) throws Exception{
+        response.setContentType("text/html;charset=utf-8");
+        departmentService.addDepartment(d_name);
+        response.getWriter().print("添加部门成功");
+    }
+    @RequestMapping("/updated")
+    public void updated(int d_id,String d_name,HttpServletResponse response) throws Exception{
+        response.setContentType("text/html;charset=utf-8");
+        departmentService.updateDepartment(d_id,d_name);
+        response.getWriter().print("修改部门成功");
+    }
+    @RequestMapping("/addj")
+    public void addj(int d_id,double j_salary,String j_name,HttpServletResponse response) throws Exception{
+        response.setContentType("text/html;charset=utf-8");
+        jobService.addJob(d_id,j_name,j_salary);
+        response.getWriter().print("添加职位成功");
+    }
+    @RequestMapping("/updatej")
+    public void updatej(int j_id,double j_salary,String j_name,HttpServletResponse response) throws Exception{
+        response.setContentType("text/html;charset=utf-8");
+        jobService.updateJob(j_id,j_name,j_salary);
+        response.getWriter().print("修改职位成功");
+    }
 }

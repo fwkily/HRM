@@ -41,6 +41,24 @@
                     }
                 })
             })
+            $(".dimission").click(function () {
+                var s_id=parseInt($(this).siblings().eq(0).val());
+                $.ajax({
+                    type:"post",
+                    url:"dimission",
+                    data:{s_id:s_id},
+                    success:function (jobs) {//成功后回调函数
+                        $("#j_id").empty();
+                        $("#j_id").append("<option value='0'>部门</option>");
+                        $(jobs).each(function (i) {
+                            $("#j_id").append("<option value="+jobs[i].j_id+">"+jobs[i].j_name+"</option>");
+                        })
+                    },
+                    error:function (obj) {
+
+                    }
+                })
+            })
         })
     </script>
 </head>
@@ -94,11 +112,7 @@
                     <th width="40px">email</th>
                     <th width="80px">部门</th>
                     <th width="120px">职位</th>
-                    <th width="60px">基本信息</th>
-                    <th width="60px">薪资</th>
-                    <th width="60px">培训</th>
-                    <th width="60px">绩效</th>
-                    <th width="60px">考勤</th>
+                    <th width="60px">操作</th>
                 </tr>
                 <c:forEach items="${staffs}" var="staff" varStatus="loop">
                     <tr >
@@ -111,11 +125,13 @@
                         <td>${staff.s_email}</td>
                         <td>${staff.department.d_name}</td>
                         <td>${staff.job.j_name}</td>
-                        <td><input type="button" value="基本信息"></td>
-                        <td><input type="button" value="薪资"></td>
-                        <td><input type="button" value="培训"></td>
-                        <td><input type="button" value="绩效"></td>
-                        <td><input type="button" value="考勤"></td>
+                        <td><input type="hidden" value="${staff.s_id}" name="s_id">
+                            <input type="button" value="基本信息">
+                            <input type="button" value="薪资">
+                            <input type="button" value="培训">
+                            <input type="button" value="绩效">
+                            <input type="button" value="考勤">
+                            <input type="button" value="离职" class="dimission"></td>
                     </tr>
                 </c:forEach>
                 <tr><td colspan="6">

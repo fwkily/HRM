@@ -120,6 +120,12 @@
             </if>
         </where>
     </select>
+    <select id="countStaffByDid" resultType="java.lang.Integer">
+        SELECT count(*) FROM HRM_STAFF WHERE D_ID=#{0}
+    </select>
+    <select id="countStaffByJid" resultType="java.lang.Integer">
+        SELECT count(*) FROM HRM_STAFF WHERE J_ID=#{0}
+    </select>
 
 
     <resultMap id="staffMap" type="com.gwy.model.Staff">

@@ -3,6 +3,18 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gwy.dao.JobMapper" >
+    <insert id="addJob">
+        INSERT INTO HRM_JOB VALUES (JOB_SEQ.nextval,#{1},#{0},#{2})
+    </insert>
+    <update id="updateJob">
+        UPDATE HRM_JOB SET J_NAME=#{1},J_SALARY=#{2} where J_ID=#{0}
+    </update>
+    <delete id="deleteJobByDid">
+        DELETE FROM HRM_JOB WHERE D_ID=#{d_id}
+    </delete>
+    <delete id="deleteJobByJid">
+        DELETE FROM HRM_JOB WHERE J_ID=#{j_id}
+    </delete>
 
     <select id="getJob" resultMap="jobMap1">
         SELECT * FROM HRM_JOB
