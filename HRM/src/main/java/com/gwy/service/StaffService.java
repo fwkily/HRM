@@ -19,4 +19,8 @@ public interface StaffService {
     int addStaff(Staff staff);
 
     int updateStaff(Staff staff);
+
+    int countStaffByDid(int d_id);
+
+    int countStaffByJid(int j_id);
 }

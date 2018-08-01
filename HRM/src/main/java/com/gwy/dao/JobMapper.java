@@ -13,4 +13,8 @@ public interface JobMapper {
     List<Job> getJob();
 
     List<Job> getJobByDid(int d_id);
+
+    int deleteJobByDid(int d_id);
+
+    int deleteJobByJid(int j_id);
 }

@@ -25,4 +25,14 @@ public class JobServiceImpl implements JobService{
     public List<Job> getJobByDid(int d_id) {
         return jobMapper.getJobByDid(d_id);
     }
+
+    @Override
+    public int deleteJobByDid(int d_id) {
+        return jobMapper.deleteJobByDid(d_id);
+    }
+
+    @Override
+    public int deleteJobByJid(int j_id) {
+        return jobMapper.deleteJobByJid(j_id);
+    }
 }

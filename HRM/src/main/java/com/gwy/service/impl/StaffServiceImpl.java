@@ -40,4 +40,14 @@ public class StaffServiceImpl implements StaffService{
     public int updateStaff(Staff staff) {
         return staffMapper.updateStaff(staff);
     }
+
+    @Override
+    public int countStaffByDid(int d_id) {
+        return staffMapper.countStaffByDid(d_id);
+    }
+
+    @Override
+    public int countStaffByJid(int j_id) {
+        return staffMapper.countStaffByJid(j_id);
+    }
 }

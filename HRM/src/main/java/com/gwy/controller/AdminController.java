@@ -252,4 +252,27 @@ public class AdminController {
         request.setAttribute("departments",departments);
         return "organizationalManagement";
     }
+    @RequestMapping("/deld")
+    public void deld(int d_id,HttpServletResponse response) throws Exception{
+        response.setContentType("text/html;charset=utf-8");
+        int count=staffService.countStaffByDid(d_id);//获取该部门人数
+        if (count==0){//没有人删除
+            jobService.deleteJobByDid(d_id);//删除该部门下职位
+            departmentService.deleteDepartment(d_id);//删除该部门
+            response.getWriter().print("部门删除成功");
+        }else{
+            response.getWriter().print("该部门还有员工，不能删除");
+        }
+    }
+    @RequestMapping("/delj")
+    public void delj(int j_id,HttpServletResponse response) throws Exception{
+        response.setContentType("text/html;charset=utf-8");
+        int count=staffService.countStaffByJid(j_id);//获取该职位人数
+        if (count==0){//没有人删除
+            jobService.deleteJobByJid(j_id);//删除该职位
+            response.getWriter().print("职位删除成功");
+        }else{
+            response.getWriter().print("该职位还有员工，不能删除");
+        }
+    }
 }

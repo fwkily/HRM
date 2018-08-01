@@ -10,4 +10,6 @@ import java.util.List;
  */
 public interface DepartmentService {
     List<Department> getDepartment();
+
+    int deleteDepartment(int d_id);
 }
