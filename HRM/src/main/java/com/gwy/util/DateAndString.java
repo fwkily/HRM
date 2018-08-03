@@ -16,6 +16,10 @@ public class DateAndString {
         SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         return sdf.format(date);
     }
+    public static String dateToStringTime1(Date date){
+        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
+        return sdf.format(date);
+    }
     public static Date dateToStringTime(String date){
         SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm");
         try {

@@ -50,4 +50,44 @@ public class StaffServiceImpl implements StaffService{
     public int countStaffByJid(int j_id) {
         return staffMapper.countStaffByJid(j_id);
     }
+
+    @Override
+    public Staff getStaffBySid(int s_id) {
+        return staffMapper.getStaffBySid(s_id);
+    }
+
+    @Override
+    public double getMonthsBySid(int s_id) {
+        return staffMapper.getMonthsBySid(s_id);
+    }
+
+    @Override
+    public int addCultivate(int s_id,int c_id) {
+        return staffMapper.addCultivate(s_id,c_id);
+    }
+
+    @Override
+    public List<Staff> getStaff() {
+        return staffMapper.getStaff();
+    }
+
+    @Override
+    public List<Staff> getStaffBySstate(int s_state) {
+        return staffMapper.getStaffBySstate(s_state);
+    }
+
+    @Override
+    public List<Staff> getStaffByDid(int d_id) {
+        return staffMapper.getStaffByDid(d_id);
+    }
+
+    @Override
+    public int deleteCultivate(int c_id) {
+        return staffMapper.deleteCultivate(c_id);
+    }
+
+    @Override
+    public Staff getStaffByNamePass(Staff staff) {
+        return staffMapper.getStaffByNamePass(staff);
+    }
 }

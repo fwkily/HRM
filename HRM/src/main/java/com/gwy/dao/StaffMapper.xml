@@ -12,6 +12,10 @@
         #{s_state},#{s_name},#{s_sex},#{s_idcardno},#{s_birthday},#{s_phone},#{s_email},
         #{s_address},#{s_post},#{s_education},#{s_college},#{s_major},#{s_graduate},#{s_intro},sysdate)
     </insert>
+    <insert id="addCultivate">
+        INSERT INTO HRM_SC
+        VALUES (SC_SEQ.nextval,#{0},#{1},0)
+    </insert>
     <update id="updateStaff">
         UPDATE HRM_STAFF
         <set>
@@ -75,13 +79,16 @@
         </set>
         WHERE S_ID=#{s_id}
     </update>
+    <delete id="deleteCultivate">
+        DELETE FROM HRM_SC WHERE C_ID=#{c_id}
+    </delete>
     <select id="getStaffByDidJidState" resultType="java.lang.Integer">
         SELECT count(*) FROM HRM_STAFF
         <where>
-            <if test="d_id!=0">
+            <if test="d_id>0">
                 D_ID=#{d_id}
             </if>
-            <if test="j_id!=0">
+            <if test="j_id>0">
                 and J_ID=#{j_id}
             </if>
             <if test="s_state>=0">
@@ -92,27 +99,26 @@
     <select id="queryCurrentPageStaffByDidJidState" resultMap="staffMap1">
         SELECT * FROM (SELECT HRM_STAFF.*,rownum rn FROM HRM_STAFF
         <where>
-            <if test="param1!=0">
+            <if test="param1>0">
                 D_ID=#{param1}
             </if>
-            <if test="param2!=0">
+            <if test="param2>0">
                 and J_ID=#{param2}
             </if>
             <if test="param3>=0">
                 and S_STATE=#{param3}
             </if>
-        </where>) S,HRM_DEPARTMENT,HRM_JOB
-        where S.D_ID=HRM_DEPARTMENT.D_ID
-        and S.J_ID=HRM_JOB.J_ID
-        and rn between #{param4} and #{param5}
+        </where>) S left join HRM_DEPARTMENT on S.D_ID=HRM_DEPARTMENT.D_ID
+        left join HRM_JOB on S.J_ID=HRM_JOB.J_ID
+        where rn between #{param4} and #{param5}
     </select>
     <select id="getStaffsByDidJidState" resultMap="staffMap1">
         SELECT * FROM HRM_STAFF
         <where>
-            <if test="d_id!=0">
+            <if test="d_id>0">
                 D_ID=#{d_id}
             </if>
-            <if test="j_id!=0">
+            <if test="j_id>0">
                 and J_ID=#{j_id}
             </if>
             <if test="s_state>=0">
@@ -125,6 +131,24 @@
     </select>
     <select id="countStaffByJid" resultType="java.lang.Integer">
         SELECT count(*) FROM HRM_STAFF WHERE J_ID=#{0}
+    </select>
+    <select id="getStaffBySid" resultMap="staffMap1">
+        SELECT * from HRM_STAFF where S_ID=#{s}
+    </select>
+    <select id="getMonthsBySid" resultType="java.lang.Double">
+        select months_between(sysdate,S_ENTRYDATE) days from HRM_STAFF WHERE S_ID=#{0}
+    </select>
+    <select id="getStaff" resultType="com.gwy.model.Staff">
+        SELECT * FROM HRM_STAFF
+    </select>
+    <select id="getStaffBySstate" resultType="com.gwy.model.Staff">
+        SELECT * FROM HRM_STAFF where S_STATE=#{s_state}
+    </select>
+    <select id="getStaffByDid" resultType="com.gwy.model.Staff">
+        SELECT * from HRM_STAFF where D_ID=#{d_id}
+    </select>
+    <select id="getStaffByNamePass" resultType="com.gwy.model.Staff">
+
     </select>
 
 

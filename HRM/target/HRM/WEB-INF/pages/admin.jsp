@@ -41,6 +41,67 @@
                     }
                 })
             })
+            $(".dimission").click(function () {
+                var s_id=parseInt($(this).siblings().eq(0).val());
+                var s_intro=prompt("请输入离职理由","");
+                if (s_intro==null){
+                    return false;
+                }
+                alert(s_intro);
+                $.ajax({
+                    type:"post",
+                    url:"dimission",
+                    data:{s_id:s_id,s_intro:s_intro},
+                    success:function (obj) {//成功后回调函数
+                        alert(obj);
+                        location.reload(true);
+                    },
+                    error:function (obj) {
+
+                    }
+                })
+            })
+            $(".positive").click(function () {
+                var s_id=parseInt($(this).siblings().eq(0).val());
+                var s_intro=prompt("请输入评价","");
+                if (s_intro==""){
+                    alert("评价为空");
+                    return false;
+                }
+                $.ajax({
+                    type:"post",
+                    url:"positive",
+                    data:{s_id:s_id,s_intro:s_intro},
+                    success:function (obj) {//成功后回调函数
+                        alert(obj);
+                        location.reload(true);
+                    },
+                    error:function (obj) {
+
+                    }
+                })
+            })
+            $(".change").click(function () {
+                var s_id=parseInt($(this).siblings().eq(0).val());
+                var d_id=parseInt($("#d_id").val());
+                var j_id=parseInt($("#j_id").val());
+                if (d_id==0||j_id==0){
+                    alert("请选择部门职位");
+                    return false;
+                }
+                $.ajax({
+                    type:"post",
+                    url:"change",
+                    data:{s_id:s_id,d_id:d_id,j_id:j_id},
+                    success:function (obj) {//成功后回调函数
+                        alert(obj);
+                        location.reload(true);
+                    },
+                    error:function (obj) {
+
+                    }
+                })
+            })
         })
     </script>
 </head>
@@ -51,11 +112,11 @@
             <a href="adminLogin.jsp">&emsp;${admin.ad_name}</a>
         </div>
         <div id="d12">
-            <a href="admin" >员工管理&emsp;</a>
+            <a href="admin" style="color: red">员工管理&emsp;</a>
             <a href="myResume" >薪资管理&emsp;</a>
             <a href="organizationalManagement" >组织管理&emsp;</a>
             <a href="myInterview">考勤管理&emsp;</a>
-            <a href="myInterview">培训管理&emsp;</a>
+            <a href="cultivate">培训管理&emsp;</a>
             <a href="ri">招聘信息&emsp;</a>
             <a href="r">招聘管理&emsp;</a>
             <a href="myInterview">奖惩管理&emsp;</a>
@@ -94,11 +155,7 @@
                     <th width="40px">email</th>
                     <th width="80px">部门</th>
                     <th width="120px">职位</th>
-                    <th width="60px">基本信息</th>
-                    <th width="60px">薪资</th>
-                    <th width="60px">培训</th>
-                    <th width="60px">绩效</th>
-                    <th width="60px">考勤</th>
+                    <th width="60px">操作</th>
                 </tr>
                 <c:forEach items="${staffs}" var="staff" varStatus="loop">
                     <tr >
@@ -111,11 +168,19 @@
                         <td>${staff.s_email}</td>
                         <td>${staff.department.d_name}</td>
                         <td>${staff.job.j_name}</td>
-                        <td><input type="button" value="基本信息"></td>
-                        <td><input type="button" value="薪资"></td>
-                        <td><input type="button" value="培训"></td>
-                        <td><input type="button" value="绩效"></td>
-                        <td><input type="button" value="考勤"></td>
+                        <td><input type="hidden" value="${staff.s_id}" name="s_id">
+                            <input type="button" value="基本信息">
+                            <input type="button" value="薪资">
+                            <input type="button" value="培训">
+                            <input type="button" value="绩效">
+                            <input type="button" value="考勤">
+                            <c:if test="${staff.s_state eq 0}">
+                                <input type="button" value="转正" class="positive">
+                            </c:if>
+                            <c:if test="${staff.s_state < 2}">
+                            <input type="button" value="离职" class="dimission">
+                            <input type="button" value="转岗" class="change">
+                            </c:if></td>
                     </tr>
                 </c:forEach>
                 <tr><td colspan="6">

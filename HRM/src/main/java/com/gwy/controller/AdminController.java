@@ -1,6 +1,5 @@
 package com.gwy.controller;
 
-import com.alibaba.fastjson.JSONArray;
 import com.gwy.model.*;
 import com.gwy.service.*;
 import com.gwy.util.DateAndString;
@@ -15,8 +14,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.PrintWriter;
-import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -43,6 +41,8 @@ public class AdminController {
     private RecruitService recruitService;
     @Resource
     private InterviewService interviewService;
+    @Resource
+    private CultivateService cultivateService;
     @RequestMapping("/adminLogin")
     public String adminLogin(Admin admin, HttpSession session, Model model) throws Exception{
         admin = adminService.getAdminByNamePass(admin);
@@ -298,5 +298,128 @@ public class AdminController {
         response.setContentType("text/html;charset=utf-8");
         jobService.updateJob(j_id,j_name,j_salary);
         response.getWriter().print("修改职位成功");
+    }
+    @RequestMapping("/dimission")
+    public void dimission(int s_id,String s_intro,HttpServletResponse response) throws Exception{
+        response.setContentType("text/html;charset=utf-8");
+        Staff staff = staffService.getStaffBySid(s_id);
+        staff.setDepartment(new Department(0));
+        staff.setJob(new Job(0));
+        staff.setS_intro(s_intro);
+        staff.setS_state(2);
+        staffService.updateStaff(staff);
+        response.getWriter().print("离职办理成功");
+    }
+    @RequestMapping("/positive")
+    public void positive(int s_id,String s_intro,HttpServletResponse response) throws Exception{
+        response.setContentType("text/html;charset=utf-8");
+        double months = staffService.getMonthsBySid(s_id);
+        if (months>=1){
+            Staff staff = staffService.getStaffBySid(s_id);
+            staff.setS_intro(s_intro);
+            staff.setS_state(1);
+            staffService.updateStaff(staff);
+            response.getWriter().print("转正办理成功");
+        }else{
+            response.getWriter().print("试用期不足一个月不能转正");
+        }
+    }
+    @RequestMapping("/change")
+    public void change(int s_id,int d_id,int j_id,HttpServletResponse response) throws Exception{
+        response.setContentType("text/html;charset=utf-8");
+        Staff staff = staffService.getStaffBySid(s_id);
+        staff.getDepartment().setD_id(d_id);
+        staff.getJob().setJ_id(j_id);
+        staffService.updateStaff(staff);
+        response.getWriter().print("转岗办理成功");
+    }
+    @RequestMapping("/cultivate")
+    public String cultivate(@RequestParam(value = "c_state",defaultValue = "1")int c_state,@RequestParam(value = "currentPage",defaultValue = "1")int currentPage, HttpServletRequest request) throws Exception{
+        int pageSize = 10;
+        int totalRows=cultivateService.getCultivateByCstate(c_state);
+        int totalPages = DoPage.getTotalPages(totalRows,pageSize);
+        int begin = (currentPage-1)*pageSize+1;
+        int end = (currentPage-1)*pageSize+pageSize;
+        List<Cultivate> cultivates = cultivateService.queryCurrentPageCultivateByCstate(c_state,begin,end);
+        List<Department> departments=departmentService.getDepartment();
+        request.setAttribute("departments",departments);
+        request.setAttribute("cultivates",cultivates);
+        request.setAttribute("c_state",c_state);
+        request.setAttribute("currentPage",currentPage);
+        request.setAttribute("totalPages",totalPages);
+        return "cultivate";
+    }
+    @RequestMapping("/addcultivate1")
+    public String addcultivate1(HttpServletRequest request) throws Exception{
+        List<Department> departments=departmentService.getDepartment();
+        request.setAttribute("departments",departments);
+        return "addCultivate";
+    }
+    @RequestMapping("/addcultivate")
+    public String addcultivate(Cultivate cultivate,String begintime,String endtime,HttpServletRequest request) throws Exception{
+        begintime=begintime.replaceAll("T"," ");
+        Date c_begintime= DateAndString.dateToStringTime(begintime);
+        endtime=endtime.replaceAll("T"," ");
+        Date c_endtime= DateAndString.dateToStringTime(endtime);
+        cultivate.setC_begintime(c_begintime);
+        cultivate.setC_endtime(c_endtime);
+        int c_id=cultivate.getC_id();
+        if (c_id==0){
+            cultivateService.addCultivate(cultivate);
+        }else{
+            cultivateService.updateCultivate(cultivate);
+        }
+
+        return "redirect:cultivate";
+    }
+    @RequestMapping("/issueCultivate")
+    public void issueCultivate(int c_id,int d_id,HttpServletRequest request,HttpServletResponse response) throws Exception{
+        response.setContentType("text/html;charset=utf-8");
+        if (d_id==0){
+            Calendar calendar=Calendar.getInstance();
+            int day=calendar.get(calendar.DAY_OF_MONTH);
+            if (day!=1){
+                response.getWriter().print("每月1号才可以发布新人培训");
+                return;
+            }
+            List<Staff> staffs = staffService.getStaffBySstate(0);
+            for (Staff staff:staffs) {
+                double months=staffService.getMonthsBySid(staff.getS_id());
+                if (months<1){
+                    staffService.addCultivate(staff.getS_id(),c_id);
+                }
+            }
+        }else{
+            List<Staff> staffs = staffService.getStaffByDid(d_id);
+            for (Staff staff:staffs) {
+                staffService.addCultivate(staff.getS_id(),c_id);
+            }
+        }
+        Cultivate cultivate = cultivateService.getCultivateByCid(c_id);
+        cultivate.setC_state(1);
+        cultivate.setC_issuetime(new Date());
+        cultivateService.updateCultivate(cultivate);
+        response.getWriter().print("培训发布成功");
+    }
+    @RequestMapping("/recallCultivate")
+    public void recallCultivate(int c_id,HttpServletRequest request,HttpServletResponse response) throws Exception{
+        response.setContentType("text/html;charset=utf-8");
+        double minutes = cultivateService.getMinutesByCid(c_id);
+        if(minutes>10){
+            response.getWriter().print("已发布10分钟，不能撤回");
+        }else {
+            staffService.deleteCultivate(c_id);
+            Cultivate cultivate = new Cultivate();
+            cultivate.setC_state(0);
+            cultivate.setC_id(c_id);
+            cultivateService.updateCultivate(cultivate);
+            response.getWriter().print("培训撤回成功");
+        }
+    }
+    @RequestMapping("/updateCultivate1")
+    public String updateCultivate1(int c_id,HttpServletRequest request) throws Exception{
+        Cultivate cultivate = cultivateService.getCultivateByCid(c_id);
+        request.setAttribute("cultivate",cultivate);
+        return "addCultivate";
     }
 }

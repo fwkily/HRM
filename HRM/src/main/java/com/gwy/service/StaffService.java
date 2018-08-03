@@ -23,4 +23,20 @@ public interface StaffService {
     int countStaffByDid(int d_id);
 
     int countStaffByJid(int j_id);
+
+    Staff getStaffBySid(int s_id);
+
+    double getMonthsBySid(int s_id);
+
+    int addCultivate(int s_id,int c_id);
+
+    List<Staff> getStaff();
+
+    List<Staff> getStaffBySstate(int s_state);
+
+    List<Staff> getStaffByDid(int d_id);
+
+    int deleteCultivate(int c_id);
+
+    Staff getStaffByNamePass(Staff staff);
 }

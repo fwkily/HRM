@@ -12,6 +12,10 @@ public class Department implements Serializable{
     private String d_name;//部门名
     private Date d_date;//创建日期
 
+    public Department(int d_id) {
+        this.d_id = d_id;
+    }
+
     public Department() {
     }
 

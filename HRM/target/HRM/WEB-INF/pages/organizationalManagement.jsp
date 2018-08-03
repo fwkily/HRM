@@ -31,6 +31,7 @@
                     data:{d_id:d_id},
                     success:function (jobs) {//成功后回调函数
                         $("#j_id").empty();
+                        $("#j_id").append("<option value='0'>职位</option>");
                         $(jobs).each(function (i) {
                             $("#j_id").append("<option value="+jobs[i].j_id+">"+jobs[i].j_name+"</option>");
                         })
@@ -84,6 +85,94 @@
                     }
                 })
             })
+            $("#saved").click(function () {
+                var d_id=parseInt($("#d_id").val());
+                var d_name=$("#d_name").val();
+                if (d_name==null||d_name==""){
+                    alert("部门名不能为空");
+                    return false;
+                }
+                if(d_id==0){
+                    if(!confirm("确认添加该部门")){
+                        return false;
+                    }
+                    $.ajax({
+                        type:"post",
+                        url:"addd",
+                        data:{d_name:d_name},
+                        success:function (obj) {//成功后回调函数
+                            alert(obj);
+                            location.reload(true);
+                        },
+                        error:function (obj) {
+
+                        }
+                    })
+                }else{
+                    if(!confirm("确认修改该部门")){
+                        return false;
+                    }
+                    $.ajax({
+                        type:"post",
+                        url:"updated",
+                        data:{d_id:d_id,d_name:d_name},
+                        success:function (obj) {//成功后回调函数
+                            alert(obj);
+                            location.reload(true);
+                        },
+                        error:function (obj) {
+
+                        }
+                    })
+                }
+            })
+            $("#savej").click(function () {
+                var d_id=parseInt($("#d_id").val());
+                var j_id=parseInt($("#j_id").val());
+                var j_name=$("#j_name").val();
+                var j_salary=parseFloat($("#j_salary").val());
+                if (j_name==null||j_name==""){
+                    alert("部门名不能为空");
+                    return false;
+                }
+                if(d_id==0){
+                    alert("必须选择部门")
+                    return false;
+                }
+                if(j_id==0){
+                    if(!confirm("确认添加该职位")){
+                        return false;
+                    }
+                    $.ajax({
+                        type:"post",
+                        url:"addj",
+                        data:{d_id:d_id,j_name:j_name,j_salary:j_salary},
+                        success:function (obj) {//成功后回调函数
+                            alert(obj);
+                            location.reload(true);
+                        },
+                        error:function (obj) {
+
+                        }
+                    })
+                }else{
+                    if(!confirm("确认修改该职位")){
+                        return false;
+                    }
+                    $.ajax({
+                        type:"post",
+                        url:"updatej",
+                        data:{j_id:j_id,j_name:j_name,j_salary:j_salary},
+                        success:function (obj) {//成功后回调函数
+                            alert(obj);
+                            location.reload(true);
+                        },
+                        error:function (obj) {
+
+                        }
+                    })
+                }
+            })
         })
     </script>
 </head>
@@ -115,14 +204,14 @@
                             <option value="${department.d_id}">${department.d_name}</option>
                         </c:forEach>
                     </select>
-                    </td><td><input type="button" value="删除部门" id="deld"></td>
+                    </td><td><input type="button" value="删除部门" id="deld">部门名：<input type="text" name="d_name" id="d_name"><input type="button" value="添加修改部门" id="saved"></td>
                 </tr>
                 <tr style="background-color: #faebd7">
                     <td>
                         <select name="j_id" id="j_id">
                             <option value="0">职位</option>
                         </select>
-                    </td><td><input type="button" value="删除职位" id="delj"></td>
+                    </td><td><input type="button" value="删除职位" id="delj">职位名：<input type="text" name="j_name" id="j_name">基本工资：<input type="number" step="0.1" name="j_salary" id="j_salary"><input type="button" value="添加修改职位" id="savej"></td>
                 </tr>
             </table>
         </div>

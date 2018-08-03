@@ -1,8 +1,6 @@
 package com.gwy.controller;
 
-import com.gwy.model.Recruit_Information;
-import com.gwy.model.Resume;
-import com.gwy.model.User;
+import com.gwy.model.*;
 import com.gwy.service.*;
 import com.gwy.util.DoPage;
 import org.springframework.stereotype.Controller;
@@ -22,7 +20,7 @@ import java.util.List;
 @Controller
 public class StaffController {
     @Resource
-    private UserService userService;
+    private StaffService staffService;
     @Resource
     private DepartmentService departmentService;
     @Resource
@@ -30,6 +28,24 @@ public class StaffController {
     @Resource
     private ResumeService resumeService;
     @Resource
+    private StaffService staffService;
+    @Resource
     private Recruit_InformationService recruit_informationService;
+    @Resource
+    private RecruitService recruitService;
+    @Resource
+    private InterviewService interviewService;
+    @Resource
+    private CultivateService cultivateService;
+    @RequestMapping("/staffLogin")
+    public String staffLogin(Staff staff, HttpSession session, Model model) throws Exception{
+        staff = staffService.getStaffByNamePass(staff);
+        if (null!=staff){
+            session.setAttribute("staff",staff);
+            return "redirect:staff";
+        }
+        model.addAttribute("str","用户名或密码错误");
+        return "../../staffLogin";
+    }
 
 }

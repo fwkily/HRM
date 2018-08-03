@@ -13,6 +13,10 @@ public class Job implements Serializable{
     private Department department;//部门
     private double j_salary;//基本工资
 
+    public Job(int j_id) {
+        this.j_id = j_id;
+    }
+
     public Job() {
     }
 
