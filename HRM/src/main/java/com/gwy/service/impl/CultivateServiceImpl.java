@@ -45,4 +45,14 @@ public class CultivateServiceImpl implements CultivateService{
     public double getMinutesByCid(int c_id) {
         return cultivateMapper.getMinutesByCid(c_id);
     }
+
+    @Override
+    public List<Cultivate> getCultivateBySid(int s_id,int begin,int end) {
+        return cultivateMapper.getCultivateBySid(s_id,begin,end);
+    }
+
+    @Override
+    public int getCountBySid(int s_id) {
+        return cultivateMapper.getCountBySid(s_id);
+    }
 }

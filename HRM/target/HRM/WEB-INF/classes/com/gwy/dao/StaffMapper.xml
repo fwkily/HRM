@@ -138,14 +138,20 @@
     <select id="getMonthsBySid" resultType="java.lang.Double">
         select months_between(sysdate,S_ENTRYDATE) days from HRM_STAFF WHERE S_ID=#{0}
     </select>
-    <select id="getStaff" resultType="com.gwy.model.Staff">
+    <select id="getStaff" resultMap="staffMap1">
         SELECT * FROM HRM_STAFF
     </select>
-    <select id="getStaffBySstate" resultType="com.gwy.model.Staff">
+    <select id="getStaffBySstate" resultMap="staffMap1">
         SELECT * FROM HRM_STAFF where S_STATE=#{s_state}
     </select>
-    <select id="getStaffByDid" resultType="com.gwy.model.Staff">
+    <select id="getStaffByDid" resultMap="staffMap1">
         SELECT * from HRM_STAFF where D_ID=#{d_id}
+    </select>
+    <select id="getStaffByNamePass" resultMap="staffMap1">
+        SELECT * FROM HRM_STAFF,HRM_DEPARTMENT,HRM_JOB where
+         HRM_STAFF.D_ID=HRM_DEPARTMENT.D_ID
+         AND HRM_STAFF.J_ID=HRM_JOB.J_ID
+         AND S_USERNAME=#{s_username} and S_PASS=#{s_pass}
     </select>
 
 

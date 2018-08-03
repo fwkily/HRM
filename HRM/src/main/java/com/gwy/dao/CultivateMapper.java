@@ -21,4 +21,8 @@ public interface CultivateMapper {
     int updateCultivate(Cultivate cultivate);
 
     double getMinutesByCid(int c_id);
+
+    List<Cultivate> getCultivateBySid(int s_id,int begin,int end);
+
+    int getCountBySid(int s_id);
 }

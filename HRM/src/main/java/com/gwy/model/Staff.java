@@ -1,5 +1,7 @@
 package com.gwy.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -17,11 +19,19 @@ public class Staff implements Serializable{
     private String s_name;//名字
     private String s_sex;//性别
     private String s_idcardno;//身份证号
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date s_birthday;//出生日期
     private String s_phone;//手机号
     private String s_email;//email
     private String s_address;//地址
     private String s_post;//邮编
+    private String s_education;//学历
+    private String s_college;//毕业院校
+    private String s_major;//专业
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+    private Date s_graduate;//毕业时间
+    private String s_intro;//简介
+    private Date s_entrydate;//入职时间
 
     public Staff(String s_username, String s_pass, Department department, Job job, int s_state, String s_name, String s_sex, String s_idcardno, Date s_birthday, String s_phone, String s_email, String s_address, String s_post, String s_education, String s_college, String s_major, Date s_graduate, String s_intro) {
         this.s_username = s_username;
@@ -43,13 +53,6 @@ public class Staff implements Serializable{
         this.s_graduate = s_graduate;
         this.s_intro = s_intro;
     }
-
-    private String s_education;//学历
-    private String s_college;//毕业院校
-    private String s_major;//专业
-    private Date s_graduate;//毕业时间
-    private String s_intro;//简介
-    private Date s_entrydate;//入职时间
 
     public Staff() {
     }

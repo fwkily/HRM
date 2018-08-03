@@ -3,5 +3,32 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gwy.dao.AttendanceMapper" >
+    <insert id="addAttendance">
+        INSERT INTO HRM_ATTENDANCE
+        VALUES (ATTENDANCE_SEQ.nextval,#{staff.s_id},sysdate,sysdate,null,0)
+    </insert>
 
+    <select id="getCountDayBySid" resultType="java.lang.Integer">
+        SELECT count(*) FROM HRM_ATTENDANCE WHERE to_char(sysdate,'yyyy-mm-dd')=to_char(A_DATE,'yyyy-mm-dd')
+        AND S_ID=#{s_id}
+    </select>
+    <select id="getCountMonthBySid" resultType="java.lang.Integer">
+        SELECT count(*) FROM HRM_ATTENDANCE WHERE to_char(sysdate,'yyyy-mm')=to_char(A_DATE,'yyyy-mm')
+        AND S_ID=#{s_id}
+    </select>
+    <select id="queryCountMonthBySid" resultMap="attendanceMap1">
+        SELECT * FROM (SELECT HRM_ATTENDANCE.*,rownum rn FROM HRM_ATTENDANCE
+        WHERE to_char(sysdate,'yyyy-mm')=to_char(A_DATE,'yyyy-mm') AND S_ID=#{0})
+        WHERE rn between #{1} and #{2}
+    </select>
+    <resultMap id="attendanceMap" type="com.gwy.model.Attendance">
+        <id property="a_id" column="A_ID"/>
+        <result property="a_date" column="A_DATE"/>
+        <result property="on_time" column="ON_TIME"/>
+        <result property="off_time" column="OFF_TIME"/>
+        <result property="a_state" column="A_STATE"/>
+    </resultMap>
+    <resultMap id="attendanceMap1" type="com.gwy.model.Attendance" extends="attendanceMap">
+        <association property="staff" resultMap="com.gwy.dao.StaffMapper.staffMap1"/>
+    </resultMap>
 </mapper>

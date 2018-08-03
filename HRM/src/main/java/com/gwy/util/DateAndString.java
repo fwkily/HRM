@@ -12,6 +12,9 @@ public class DateAndString {
         SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
         return sdf.format(date);
     }
+    public static String dateToString(){
+        return null;
+    }
     public static String dateToStringTime(Date date){
         SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         return sdf.format(date);
