@@ -17,6 +17,12 @@ public class Rap implements Serializable{
     public Rap() {
     }
 
+    public Rap(double ra_money, Staff staff, String ra_explain) {
+        this.ra_money = ra_money;
+        this.staff = staff;
+        this.ra_explain = ra_explain;
+    }
+
     public int getRa_id() {
         return ra_id;
     }

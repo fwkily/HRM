@@ -4,4 +4,18 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gwy.dao.RapMapper" >
 
+    <insert id="addRap">
+        INSERT INTO HRM_RAP
+        VALUES (RAP_SRQ.nextval,sysdate,#{ra_money},#{staff.s_id},#{ra_explain})
+    </insert>
+
+    <resultMap id="rapMap" type="com.gwy.model.Rap">
+        <id property="ra_id" column="RA_ID"/>
+        <result property="ra_date" column="RA_DATE"/>
+        <result property="ra_money" column="RA_MONEY"/>
+        <result property="ra_explain" column="RA_EXPLAIN"/>
+    </resultMap>
+    <resultMap id="rapMap1" type="com.gwy.model.Rap" extends="rapMap">
+        <association property="staff" resultMap="com.gwy.dao.StaffMapper.staffMap1"/>
+    </resultMap>
 </mapper>

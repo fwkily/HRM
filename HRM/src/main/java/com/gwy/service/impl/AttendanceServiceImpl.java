@@ -35,4 +35,29 @@ public class AttendanceServiceImpl implements AttendanceService{
     public List<Attendance> queryCountMonthBySid(int s_id, int begin, int end) {
         return attendanceMapper.queryCountMonthBySid(s_id,begin,end);
     }
+
+    @Override
+    public double getOnMinutes(int s_id) {
+        return attendanceMapper.getOnMinutes(s_id);
+    }
+
+    @Override
+    public Attendance getAttendanceBySid(int s_id) {
+        return attendanceMapper.getAttendanceBySid(s_id);
+    }
+
+    @Override
+    public int off(int a_id) {
+        return attendanceMapper.off(a_id);
+    }
+
+    @Override
+    public double getOffMinutes(int s_id) {
+        return attendanceMapper.getOffMinutes(s_id);
+    }
+
+    @Override
+    public int updateAttendance(Attendance attendance) {
+        return attendanceMapper.updateAttendance(attendance);
+    }
 }

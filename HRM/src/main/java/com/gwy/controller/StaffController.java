@@ -12,6 +12,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -37,6 +38,8 @@ public class StaffController {
     private CultivateService cultivateService;
     @Resource
     private AttendanceService attendanceService;
+    @Resource
+    private RapService rapService;
     @RequestMapping("/staffLogin")
     public String staffLogin(Staff staff, HttpSession session, Model model) throws Exception{
         staff = staffService.getStaffByNamePass(staff);
@@ -131,10 +134,119 @@ public class StaffController {
         int count = attendanceService.getCountDayBySid(staff.getS_id());
         if (count==0){
             response.getWriter().print("该天未打上班卡，请联系管理员");
-        }else{
-            //attendanceService.addAttendance(attendance);
-            double
-            response.getWriter().print("打下班卡成功");
+            return;
+        }else {
+            attendance = attendanceService.getAttendanceBySid(staff.getS_id());
+            if (attendance.getA_state() == 0) {//第一次打下班卡
+                attendanceService.off(attendance.getA_id());//打下班卡
+                attendance = attendanceService.getAttendanceBySid(staff.getS_id());//获取打卡记录
+                double on_Minutes = attendanceService.getOnMinutes(staff.getS_id());//上班打卡
+                double off_Minutes = attendanceService.getOffMinutes(staff.getS_id());//下班打卡
+                if (on_Minutes >= 0) {//上班打卡9:00之前
+                    if (off_Minutes >= 0) {//下班打卡18:00之后
+                        if (off_Minutes <= 30) {//下班打卡18:30之前
+                            attendance.setA_state(1);//正常上班打卡
+                            attendanceService.updateAttendance(attendance);
+                            response.getWriter().print("正常下班打卡");
+                            return;
+                        } else {//下班打卡18:30之后 加班
+                            attendance.setA_state(2);//正常加班打卡
+                            attendanceService.updateAttendance(attendance);
+                            response.getWriter().print("正常加班打卡");
+                            return;
+                        }
+                    } else if (off_Minutes > -180) {//下班打卡18:00之前 15:00之后 早退
+                        attendance.setA_state(3);//早退打卡
+                        attendanceService.updateAttendance(attendance);
+                        Rap rap = new Rap(-100, staff, "早退");
+                        rapService.addRap(rap);
+                        response.getWriter().print("早退打卡");
+                        return;
+                    } else {//下班打卡15:00之前 旷工
+                        attendance.setA_state(7);//旷工打卡
+                        attendanceService.updateAttendance(attendance);
+                        response.getWriter().print("早退超3小时旷工打卡");
+                        return;
+                    }
+                } else if (on_Minutes > -180) {//上班打卡9:00之后 12:00之前 迟到
+                    if (off_Minutes >= 0) {//下班打卡18:00之后
+                        if (off_Minutes <= 30) {//下班打卡18:30之前
+                            attendance.setA_state(4);//迟到打卡
+                            attendanceService.updateAttendance(attendance);
+                            Rap rap = new Rap(-100, staff, "迟到");
+                            rapService.addRap(rap);
+                            response.getWriter().print("迟到打卡");
+                            return;
+                        } else {//下班打卡18:30之后 加班
+                            attendance.setA_state(5);//迟到加班打卡
+                            attendanceService.updateAttendance(attendance);
+                            Rap rap = new Rap(-100, staff, "迟到");
+                            rapService.addRap(rap);
+                            response.getWriter().print("迟到加班打卡");
+                            return;
+                        }
+                    } else if (off_Minutes > -180) {//下班打卡18:00之前 15:00之前 早退
+                        if ((on_Minutes + off_Minutes) <= -180) {
+                            attendance.setA_state(7);//迟到早退旷工打卡
+                            attendanceService.updateAttendance(attendance);
+                            response.getWriter().print("迟到早退超3小时旷工打卡");
+                            return;
+                        } else {
+                            attendance.setA_state(6);//迟到加早退打卡
+                            attendanceService.updateAttendance(attendance);
+                            Rap rap = new Rap(-100, staff, "迟到");
+                            Rap rap1 = new Rap(-100, staff, "早退");
+                            rapService.addRap(rap);
+                            rapService.addRap(rap1);
+                            response.getWriter().print("迟到加早退打卡");
+                            return;
+                        }
+                    } else {//下班打卡15:00之前 旷工
+                        attendance.setA_state(7);//早退超3小时旷工打卡
+                        attendanceService.updateAttendance(attendance);
+                        response.getWriter().print("早退超3小时旷工打卡");
+                        return;
+                    }
+                } else {//上班打卡12:00之后 旷工
+                    attendance.setA_state(7);//迟到超3小时旷工旷工打卡
+                    attendanceService.updateAttendance(attendance);
+                    response.getWriter().print("迟到超3小时旷工打卡");
+                    return;
+                }
+            } else if (attendance.getA_state() == 1) {
+                attendance.setA_state(2);//变成加班打卡
+                attendanceService.updateAttendance(attendance);
+                attendanceService.off(attendance.getA_id());//打加班卡
+                response.getWriter().print("加班打卡");
+                return;
+            } else if (attendance.getA_state() == 2) {
+                attendanceService.off(attendance.getA_id());//打加班卡
+                response.getWriter().print("加班时间更新成功");
+                return;
+            } else if (attendance.getA_state() == 4) {
+                attendance.setA_state(5);//迟到变迟到加班
+                attendanceService.updateAttendance(attendance);
+                attendanceService.off(attendance.getA_id());//打加班卡
+                response.getWriter().print("加班打卡");
+                return;
+            } else if (attendance.getA_state() == 5) {
+                attendanceService.off(attendance.getA_id());//打加班卡
+                response.getWriter().print("加班时间更新成功");
+                return;
+            } else if (attendance.getA_state() == 7) {
+                attendance.setA_state(8);//旷工变旷工加班
+                attendanceService.updateAttendance(attendance);
+                attendanceService.off(attendance.getA_id());//打加班卡
+                response.getWriter().print("加班打卡");
+                return;
+            }else if (attendance.getA_state() == 8) {
+                attendanceService.off(attendance.getA_id());//打加班卡
+                response.getWriter().print("加班时间更新成功");
+                return;
+            } else {
+                response.getWriter().print("打卡异常，请联系管理员");
+                return;
+            }
         }
     }
 }

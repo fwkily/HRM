@@ -17,4 +17,14 @@ public interface AttendanceMapper {
     int getCountMonthBySid(int s_id);
 
     List<Attendance> queryCountMonthBySid(int s_id, int begin, int end);
+
+    double getOnMinutes(int s_id);
+
+    Attendance getAttendanceBySid(int s_id);
+
+    int off(int a_id);
+
+    double getOffMinutes(int s_id);
+
+    int updateAttendance(Attendance attendance);
 }
