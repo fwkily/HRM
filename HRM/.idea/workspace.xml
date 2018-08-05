@@ -2,39 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8b2714a-7280-4402-ac43-d2ef33ee6fd9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM.war" afterPath="$PROJECT_DIR$/target/HRM.war" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/controller/StaffController.class" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/controller/StaffController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/dao/AttendanceMapper.class" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/dao/AttendanceMapper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/dao/RapMapper.class" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/dao/RapMapper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/model/Rap.class" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/model/Rap.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/service/AttendanceService.class" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/service/AttendanceService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/service/RapService.class" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/service/RapService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/service/impl/AttendanceServiceImpl.class" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/service/impl/AttendanceServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/service/impl/RapServiceImpl.class" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/service/impl/RapServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gwy/controller/StaffController.class" afterPath="$PROJECT_DIR$/target/classes/com/gwy/controller/StaffController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gwy/dao/AttendanceMapper.class" afterPath="$PROJECT_DIR$/target/classes/com/gwy/dao/AttendanceMapper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gwy/dao/RapMapper.class" afterPath="$PROJECT_DIR$/target/classes/com/gwy/dao/RapMapper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gwy/model/Rap.class" afterPath="$PROJECT_DIR$/target/classes/com/gwy/model/Rap.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gwy/service/AttendanceService.class" afterPath="$PROJECT_DIR$/target/classes/com/gwy/service/AttendanceService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gwy/service/RapService.class" afterPath="$PROJECT_DIR$/target/classes/com/gwy/service/RapService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gwy/service/impl/AttendanceServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/gwy/service/impl/AttendanceServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gwy/service/impl/RapServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/gwy/service/impl/RapServiceImpl.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gwy/controller/StaffController.java" afterPath="$PROJECT_DIR$/src/main/java/com/gwy/controller/StaffController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gwy/dao/AttendanceMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/gwy/dao/AttendanceMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gwy/dao/AttendanceMapper.xml" afterPath="$PROJECT_DIR$/src/main/java/com/gwy/dao/AttendanceMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gwy/dao/RapMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/gwy/dao/RapMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gwy/dao/RapMapper.xml" afterPath="$PROJECT_DIR$/src/main/java/com/gwy/dao/RapMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gwy/model/Attendance.java" afterPath="$PROJECT_DIR$/src/main/java/com/gwy/model/Attendance.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gwy/model/Rap.java" afterPath="$PROJECT_DIR$/src/main/java/com/gwy/model/Rap.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gwy/service/AttendanceService.java" afterPath="$PROJECT_DIR$/src/main/java/com/gwy/service/AttendanceService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gwy/service/RapService.java" afterPath="$PROJECT_DIR$/src/main/java/com/gwy/service/RapService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gwy/service/impl/AttendanceServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/gwy/service/impl/AttendanceServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gwy/service/impl/RapServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/gwy/service/impl/RapServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/dao/AttendanceMapper.xml" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/dao/AttendanceMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/dao/RapMapper.xml" afterPath="$PROJECT_DIR$/target/HRM/WEB-INF/classes/com/gwy/dao/RapMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gwy/dao/AttendanceMapper.xml" afterPath="$PROJECT_DIR$/target/classes/com/gwy/dao/AttendanceMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gwy/dao/RapMapper.xml" afterPath="$PROJECT_DIR$/target/classes/com/gwy/dao/RapMapper.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -1608,7 +1576,7 @@
       <workItem from="1533179134524" duration="19937000" />
       <workItem from="1533222606483" duration="27426000" />
       <workItem from="1533286710001" duration="21195000" />
-      <workItem from="1533387719291" duration="768000" />
+      <workItem from="1533387719291" duration="1457000" />
     </task>
     <task id="LOCAL-00001" summary="再来一次">
       <created>1532499615920</created>
@@ -1785,7 +1753,14 @@
       <option name="project" value="LOCAL" />
       <updated>1533286990371</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="员工考勤写完，正在写奖惩">
+      <created>1533388843168</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1533388843168</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1821,7 +1796,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="308225000" />
+    <option name="totallyTimeSpent" value="308914000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="0" />
@@ -1846,7 +1821,7 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28295454" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39204547" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.175" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21137339" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1948,7 +1923,8 @@
     <MESSAGE value="培训管理员部门完成，正在写员工登录查看个人信息和培训，今天写完" />
     <MESSAGE value="培训管理员部分完成，正在写员工登录查看个人信息和培训，今天写完" />
     <MESSAGE value="写完上班打卡，查看当月考勤信息，正在写下班的逻辑，" />
-    <option name="LAST_COMMIT_MESSAGE" value="写完上班打卡，查看当月考勤信息，正在写下班的逻辑，" />
+    <MESSAGE value="员工考勤写完，正在写奖惩" />
+    <option name="LAST_COMMIT_MESSAGE" value="员工考勤写完，正在写奖惩" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2255,7 +2231,7 @@
         <state relative-caret-position="213">
           <caret line="386" column="29" lean-forward="false" selection-start-line="386" selection-start-column="23" selection-end-line="386" selection-end-column="29" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2274,6 +2250,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
           <caret line="60" column="39" lean-forward="false" selection-start-line="60" selection-start-column="39" selection-end-line="60" selection-end-column="39" />
+          <folding>
+            <element signature="e#490#491#0" expanded="false" />
+            <element signature="e#552#553#0" expanded="false" />
+            <element signature="e#1041#1042#0" expanded="false" />
+            <element signature="e#1099#1100#0" expanded="false" />
+            <element signature="e#1167#1168#0" expanded="false" />
+            <element signature="e#1231#1232#0" expanded="false" />
+            <element signature="e#1277#1278#0" expanded="false" />
+            <element signature="e#1326#1327#0" expanded="false" />
+            <element signature="e#1385#1386#0" expanded="false" />
+            <element signature="e#1444#1445#0" expanded="false" />
+            <element signature="e#1516#1517#0" expanded="false" />
+            <element signature="e#1584#1585#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2289,6 +2279,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="10" column="12" lean-forward="true" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2296,6 +2287,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
           <caret line="19" column="27" lean-forward="false" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
+          <folding>
+            <element signature="e#407#408#0" expanded="false" />
+            <element signature="e#451#452#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
