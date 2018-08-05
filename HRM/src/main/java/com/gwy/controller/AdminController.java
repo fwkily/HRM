@@ -47,6 +47,8 @@ public class AdminController {
     private AttendanceService attendanceService;
     @Resource
     private RapService rapService;
+    @Resource
+    private PayService payService;
     @RequestMapping("/adminLogin")
     public String adminLogin(Admin admin, HttpSession session, Model model) throws Exception{
         admin = adminService.getAdminByNamePass(admin);
@@ -494,5 +496,42 @@ public class AdminController {
         request.setAttribute("totalPages",totalPages);
         return "rap";
     }
+    @RequestMapping("/pay")
+    public String pay(@RequestParam(value = "d_id",defaultValue = "0")int d_id,@RequestParam(value = "j_id",defaultValue = "0")int j_id,@RequestParam(value = "currentPage",defaultValue = "1")int currentPage, HttpServletRequest request,HttpSession session) throws Exception{
+        List<Department> departments = departmentService.getDepartment();
+        int pageSize = 10;
+        int totalRows=payService.getPayByDidJid(d_id,j_id);
+        int totalPages = DoPage.getTotalPages(totalRows,pageSize);
+        int begin = (currentPage-1)*pageSize+1;
+        int end = (currentPage-1)*pageSize+pageSize;
+        List<Pay> pays = payService.queryCurrentPagePayByDidJid(d_id,j_id,begin,end);
+        request.setAttribute("departments",departments);
+        request.setAttribute("d_id",d_id);
+        request.setAttribute("j_id",j_id);
+        request.setAttribute("pays",pays);
+        request.setAttribute("currentPage",currentPage);
+        request.setAttribute("totalPages",totalPages);
+        return "pay";
+    }
+    @RequestMapping("/payCalculation")//工资结算
+    public void payCalculation(HttpServletResponse response) throws Exception{
+        response.setContentType("text/html;charset=utf-8");
+        Calendar calendar=Calendar.getInstance();
+        int day=calendar.get(calendar.DAY_OF_MONTH);
+        if (day!=1){
+            response.getWriter().print("每月1号才可以结算上个月工资");
+            return;
+        }
+        int count = payService.getCountMonthPay();
+        if (count!=0){
+            response.getWriter().print("该月已经结算上个月工资");
+            return;
+        }
+        List<Staff> staffs = staffService.getStaffBySstate(0);//结算试用期工资
+        for (Staff staff:staffs) {
+            Pay pay = new Pay();
 
+        }
+        response.getWriter().print("培训发布成功");
+    }
 }

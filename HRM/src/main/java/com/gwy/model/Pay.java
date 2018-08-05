@@ -17,7 +17,7 @@ public class Pay implements Serializable{
     private double p_rap;//奖惩
     private double p_ss;//社保
     private double p_pay;//实际工资
-    private int p_state;//状态
+    private int p_state;//状态0生成，1正确，2复议，
     private String p_intro;//说明
 
     public Pay() {

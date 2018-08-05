@@ -102,6 +102,20 @@
                     }
                 })
             })
+            $("#payCalculation").click(function () {
+                $.ajax({
+                    type:"post",
+                    url:"payCalculation",
+                    data:{},
+                    success:function (obj) {//成功后回调函数
+                        alert(obj);
+                        location.reload(true);
+                    },
+                    error:function (obj) {
+
+                    }
+                })
+            })
         })
     </script>
 </head>
@@ -124,76 +138,65 @@
     </div>
     <div id="d4">
         <form action="admin" method="post">
-        <select name="d_id" id="d_id">
-            <option value="0">部门</option>
-            <c:forEach items="${departments}" var="department">
-            <option value="${department.d_id}">${department.d_name}</option>
-            </c:forEach>
-        </select>
-        <select name="j_id" id="j_id">
-            <option value="0">职位</option>
-        </select>
-        <select name="s_state" id="s_state">
-            <option value="-1">在职状态</option>
-            <option value="1">在职</option>
-            <option value="0">试用期</option>
-            <option value="2">离职</option>
-        </select>
+            <select name="d_id" id="d_id">
+                <option value="0">部门</option>
+                <c:forEach items="${departments}" var="department">
+                    <option value="${department.d_id}">${department.d_name}</option>
+                </c:forEach>
+            </select>
+            <select name="j_id" id="j_id">
+                <option value="0">职位</option>
+            </select>
             <input type="submit" value="确认"/>
         </form>
+        <input type="button" id="payCalculation" value="工资结算"/>
     </div>
     <div id="d3" style="font-size: 24px">
         <div id="d31">
             <table >
                 <tr style="background-color: #faebd7">
+                    <th width="40px">薪资ID</th>
+                    <th width="40px">结算日期</th>
                     <th width="40px">员工ID</th>
-                    <th width="40px">姓名</th>
-                    <th width="40px">性别</th>
-                    <th width="40px">入职状态</th>
-                    <th width="40px">入职时间</th>
-                    <th width="40px">手机号</th>
-                    <th width="40px">email</th>
-                    <th width="80px">部门</th>
-                    <th width="120px">职位</th>
+                    <th width="40px">基本工资</th>
+                    <th width="40px">绩效</th>
+                    <th width="40px">加班</th>
+                    <th width="40px">奖惩</th>
+                    <th width="40px">社保</th>
+                    <th width="40px">实际工资</th>
+                    <th width="80px">状态</th>
+                    <th width="120px">说明</th>
                     <th width="60px">操作</th>
                 </tr>
-                <c:forEach items="${staffs}" var="staff" varStatus="loop">
+                <c:forEach items="${pays}" var="pay" varStatus="loop">
                     <tr >
-                        <td>${staff.s_id}</td>
-                        <td>${staff.s_name}</td>
-                        <td>${staff.s_sex}</td>
-                        <td>${staff.s_state==1?"在职":staff.s_state==0?"试用期":"离职"}</td>
-                        <td>${DateAndString.dateToStringTime(staff.s_entrydate)}</td>
-                        <td>${staff.s_phone}</td>
-                        <td>${staff.s_email}</td>
-                        <td>${staff.department.d_name}</td>
-                        <td>${staff.job.j_name}</td>
-                        <td><input type="hidden" value="${staff.s_id}" name="s_id">
-                            <a href="staffInformation?s_id=${staff.s_id}">基本信息</a>
-                            <input type="button" value="薪资">
-                            <a href="staffCultivate?s_id=${staff.s_id}">培训</a>
-                            <a href="staffAttendance?s_id=${staff.s_id}">考勤</a>
-                            <c:if test="${staff.s_state eq 0}">
-                                <input type="button" value="转正" class="positive">
+                        <td>${pay.p_id}</td>
+                        <td>${DateAndString.dateToString(pay.p_date)}</td>
+                        <td>${pay.staff.s_id}</td>
+                        <td>${pay.p_base}</td>
+                        <td>${pay.p_performance}</td>
+                        <td>${pay.p_overtime}</td>
+                        <td>${pay.p_rap}</td>
+                        <td>${pay.p_ss}</td>
+                        <td>${pay.p_pay}</td>
+                        <td>${pay.p_state==0?"待确定":pay.p_state==0?"正常":"待处理"}</td>
+                        <td>${pay.p_intro}</td>
+                        <td><input type="hidden" name="p_id" value="${pay.p_id}">
+                            <c:if test="${pay.p_state eq 0}">
+                                <input type="button" value="无误" class="right">
+                                <input type="button" value="处理" class="dispose">
                             </c:if>
-                            <c:if test="${staff.s_state < 2}">
-                            <input type="button" value="离职" class="dimission">
-                            <input type="button" value="转岗" class="change">
-                            </c:if></td>
+                        </td>
                     </tr>
                 </c:forEach>
-                <tr><td colspan="6">
-                </td>
-                    <td colspan="2" id="str" style="color: red"></td>
-                </tr>
             </table>
         </div>
         <div id="d32" >
-            <a href="admin?d_id=${d_id}&j_id=${j_id}&s_state=${s_state}&currentPage=${currentPage-1==0?currentPage:currentPage-1}">上一页</a>
-            <a href="admin?d_id=${d_id}&j_id=${j_id}&s_state=${s_state}&currentPage=${currentPage}">第${currentPage}页</a>
+            <a href="pay?d_id=${d_id}&j_id=${j_id}&s_state=${s_state}&currentPage=${currentPage-1==0?currentPage:currentPage-1}">上一页</a>
+            <a href="pay?d_id=${d_id}&j_id=${j_id}&s_state=${s_state}&currentPage=${currentPage}">第${currentPage}页</a>
             共${totalPages}页
-            <a href="admin?d_id=${d_id}&j_id=${j_id}&s_state=${s_state}&currentPage=${currentPage+1>totalPages?currentPage:currentPage+1}">下一页</a>
-            <form action="admin?d_id=${d_id}&j_id=${j_id}&s_state=${s_state}" method="post">
+            <a href="pay?d_id=${d_id}&j_id=${j_id}&s_state=${s_state}&currentPage=${currentPage+1>totalPages?currentPage:currentPage+1}">下一页</a>
+            <form action="pay?d_id=${d_id}&j_id=${j_id}&s_state=${s_state}" method="post">
                 <input style="width: 30px" type="number" min="1" max="${totalPages}" value="${currentPage}" name="currentPage">
                 <input type="submit" value="跳转">
             </form>
