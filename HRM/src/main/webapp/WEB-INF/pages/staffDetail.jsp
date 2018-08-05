@@ -71,6 +71,10 @@
                         <td>身份证号</td><td>${staff.s_idcardno}</td>
                         <td>出生时间</td><td>${DateAndString.dateToString(staff.s_birthday)}</td>
                     </tr>
+                    <tr>
+                        <td>部门</td><td>${staff.department.d_name}</td>
+                        <td>职位</td><td>${staff.job.j_name}</td>
+                    </tr>
                     <tr><td colspan="4">教育情况</td></tr>
                     <tr>
                         <td>学历</td><td>${staff.s_education}</td>

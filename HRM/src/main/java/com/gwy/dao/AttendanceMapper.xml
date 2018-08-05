@@ -50,6 +50,35 @@
         AS minutes FROM HRM_ATTENDANCE WHERE to_char(sysdate,'yyyy-mm-dd')=to_char(A_DATE,'yyyy-mm-dd')
         AND S_ID=#{s_id}
     </select>
+    <select id="getCountDayByDidJid" resultType="java.lang.Integer">
+        SELECT count(*) FROM HRM_ATTENDANCE,HRM_STAFF
+        <where>
+            <if test="j_id!=0">
+                HRM_STAFF.J_ID=#{j_id}
+            </if>
+            <if test="d_id!=0">
+               and HRM_STAFF.D_ID=#{d_id}
+            </if>
+            and HRM_STAFF.S_ID=HRM_ATTENDANCE.S_ID
+            and to_char(sysdate,'yyyy-mm-dd')=to_char(HRM_ATTENDANCE.A_DATE,'yyyy-mm-dd')
+        </where>
+    </select>
+    <select id="queryCurrentPageStaffDayByDidJid" resultMap="attendanceMap1">
+        SELECT * FROM (SELECT HRM_ATTENDANCE.*,rownum rn FROM HRM_ATTENDANCE,HRM_STAFF,HRM_DEPARTMENT,HRM_JOB
+        <where>
+            <if test="j_id!=0">
+                HRM_STAFF.J_ID=#{j_id}
+            </if>
+            <if test="d_id!=0">
+               and HRM_STAFF.D_ID=#{d_id}
+            </if>
+            and HRM_STAFF.S_ID=HRM_ATTENDANCE.S_ID
+            and HRM_STAFF.D_ID=HRM_DEPARTMENT.D_ID
+            and HRM_STAFF.J_ID=HRM_JOB.J_ID
+            and to_char(sysdate,'yyyy-mm-dd')=to_char(HRM_ATTENDANCE.A_DATE,'yyyy-mm-dd')
+        </where> ) s
+        WHERE rn between #{begin} and #{end}
+    </select>
     <resultMap id="attendanceMap" type="com.gwy.model.Attendance">
         <id property="a_id" column="A_ID"/>
         <result property="a_date" column="A_DATE"/>

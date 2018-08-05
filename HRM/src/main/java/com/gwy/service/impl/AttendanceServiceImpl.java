@@ -60,4 +60,14 @@ public class AttendanceServiceImpl implements AttendanceService{
     public int updateAttendance(Attendance attendance) {
         return attendanceMapper.updateAttendance(attendance);
     }
+
+    @Override
+    public int getCountDayByDidJid(int d_id, int j_id) {
+        return attendanceMapper.getCountDayByDidJid(d_id,j_id);
+    }
+
+    @Override
+    public List<Attendance> queryCurrentPageStaffDayByDidJid(int d_id, int j_id, int begin, int end) {
+        return attendanceMapper.queryCurrentPageStaffDayByDidJid(d_id,j_id,begin,end);
+    }
 }

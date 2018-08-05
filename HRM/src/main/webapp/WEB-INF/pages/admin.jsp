@@ -115,11 +115,11 @@
             <a href="admin" style="color: red">员工管理&emsp;</a>
             <a href="myResume" >薪资管理&emsp;</a>
             <a href="organizationalManagement" >组织管理&emsp;</a>
-            <a href="myInterview">考勤管理&emsp;</a>
+            <a href="attendanceInformation">考勤管理&emsp;</a>
             <a href="cultivate">培训管理&emsp;</a>
             <a href="ri">招聘信息&emsp;</a>
             <a href="r">招聘管理&emsp;</a>
-            <a href="myInterview">奖惩管理&emsp;</a>
+            <a href="rap">奖惩管理&emsp;</a>
         </div>
     </div>
     <div id="d4">
@@ -136,7 +136,7 @@
         <select name="s_state" id="s_state">
             <option value="-1">在职状态</option>
             <option value="1">在职</option>
-            <option value="0">实习</option>
+            <option value="0">试用期</option>
             <option value="2">离职</option>
         </select>
             <input type="submit" value="确认"/>
@@ -162,18 +162,17 @@
                         <td>${staff.s_id}</td>
                         <td>${staff.s_name}</td>
                         <td>${staff.s_sex}</td>
-                        <td>${staff.s_state==1?"在职":staff.s_state==0?"实习":"离职"}</td>
+                        <td>${staff.s_state==1?"在职":staff.s_state==0?"试用期":"离职"}</td>
                         <td>${DateAndString.dateToStringTime(staff.s_entrydate)}</td>
                         <td>${staff.s_phone}</td>
                         <td>${staff.s_email}</td>
                         <td>${staff.department.d_name}</td>
                         <td>${staff.job.j_name}</td>
                         <td><input type="hidden" value="${staff.s_id}" name="s_id">
-                            <input type="button" value="基本信息">
+                            <a href="staffInformation?s_id=${staff.s_id}">基本信息</a>
                             <input type="button" value="薪资">
-                            <input type="button" value="培训">
-                            <input type="button" value="绩效">
-                            <input type="button" value="考勤">
+                            <a href="staffCultivate?s_id=${staff.s_id}">培训</a>
+                            <a href="staffAttendance?s_id=${staff.s_id}">考勤</a>
                             <c:if test="${staff.s_state eq 0}">
                                 <input type="button" value="转正" class="positive">
                             </c:if>

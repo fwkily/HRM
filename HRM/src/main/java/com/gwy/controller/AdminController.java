@@ -43,6 +43,10 @@ public class AdminController {
     private InterviewService interviewService;
     @Resource
     private CultivateService cultivateService;
+    @Resource
+    private AttendanceService attendanceService;
+    @Resource
+    private RapService rapService;
     @RequestMapping("/adminLogin")
     public String adminLogin(Admin admin, HttpSession session, Model model) throws Exception{
         admin = adminService.getAdminByNamePass(admin);
@@ -422,4 +426,73 @@ public class AdminController {
         request.setAttribute("cultivate",cultivate);
         return "addCultivate";
     }
+    @RequestMapping("/staffAttendance")
+    public String staffAttendance(int s_id,@RequestParam(value = "currentPage",defaultValue = "1")int currentPage, HttpServletRequest request) throws Exception{
+        int pageSize = 10;
+        int totalRows=attendanceService.getCountMonthBySid(s_id);
+        int totalPages = DoPage.getTotalPages(totalRows,pageSize);
+        int begin = (currentPage-1)*pageSize+1;
+        int end = (currentPage-1)*pageSize+pageSize;
+        List<Attendance> attendances = attendanceService.queryCountMonthBySid(s_id,begin,end);
+        request.setAttribute("attendances",attendances);
+        request.setAttribute("s_id",s_id);
+        request.setAttribute("currentPage",currentPage);
+        request.setAttribute("totalPages",totalPages);
+        return "staffAttendance";
+    }
+    @RequestMapping("/staffCultivate")
+    public String staffCultivate(int s_id,@RequestParam(value = "currentPage",defaultValue = "1")int currentPage, HttpServletRequest request) throws Exception{
+        int pageSize = 10;
+        int totalRows=cultivateService.getCountBySid(s_id);
+        int totalPages = DoPage.getTotalPages(totalRows,pageSize);
+        int begin = (currentPage-1)*pageSize+1;
+        int end = (currentPage-1)*pageSize+pageSize;
+        List<Cultivate> cultivates = cultivateService.getCultivateBySid(s_id,begin,end);
+        request.setAttribute("cultivates",cultivates);
+        request.setAttribute("s_id",s_id);
+        request.setAttribute("currentPage",currentPage);
+        request.setAttribute("totalPages",totalPages);
+        return "staffCultivate";
+    }
+    @RequestMapping("/staffInformation")
+    public String staffInformation(int s_id,HttpServletRequest request) throws Exception{
+        Staff staff = staffService.getStaffBySid(s_id);
+        request.setAttribute("staff",staff);
+        return "staffInformation";
+    }
+    @RequestMapping("/attendanceInformation")
+    public String attendanceInformation(@RequestParam(value = "d_id",defaultValue = "0")int d_id,@RequestParam(value = "j_id",defaultValue = "0")int j_id,@RequestParam(value = "currentPage",defaultValue = "1")int currentPage, HttpServletRequest request,HttpSession session) throws Exception{
+        List<Department> departments = departmentService.getDepartment();
+        int pageSize = 10;
+        int totalRows=attendanceService.getCountDayByDidJid(d_id,j_id);
+        int totalPages = DoPage.getTotalPages(totalRows,pageSize);
+        int begin = (currentPage-1)*pageSize+1;
+        int end = (currentPage-1)*pageSize+pageSize;
+        List<Attendance> attendances = attendanceService.queryCurrentPageStaffDayByDidJid(d_id,j_id,begin,end);
+        request.setAttribute("departments",departments);
+        request.setAttribute("d_id",d_id);
+        request.setAttribute("j_id",j_id);
+        request.setAttribute("attendances",attendances);
+        request.setAttribute("currentPage",currentPage);
+        request.setAttribute("totalPages",totalPages);
+        return "attendanceInformation";
+    }
+    @RequestMapping("/rap")
+    public String rap(@RequestParam(value = "d_id",defaultValue = "0")int d_id,@RequestParam(value = "j_id",defaultValue = "0")int j_id,@RequestParam(value = "currentPage",defaultValue = "1")int currentPage, HttpServletRequest request,HttpSession session) throws Exception{
+        List<Department> departments = departmentService.getDepartment();
+        int pageSize = 10;
+        int totalRows=rapService.getCountDayByDidJid(d_id,j_id);
+        int totalPages = DoPage.getTotalPages(totalRows,pageSize);
+        int begin = (currentPage-1)*pageSize+1;
+        int end = (currentPage-1)*pageSize+pageSize;
+        List<Rap> raps = rapService.queryCurrentPageStaffDayByDidJid(d_id,j_id,begin,end);
+        request.setAttribute("departments",departments);
+        request.setAttribute("d_id",d_id);
+        request.setAttribute("j_id",j_id);
+        request.setAttribute("raps",raps);
+        request.setAttribute("currentPage",currentPage);
+        request.setAttribute("totalPages",totalPages);
+        return "rap";
+    }
+
 }

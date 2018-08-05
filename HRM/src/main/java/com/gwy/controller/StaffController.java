@@ -249,4 +249,18 @@ public class StaffController {
             }
         }
     }
+    @RequestMapping("/rapMessage")
+    public String rapMessage(@RequestParam(value = "currentPage",defaultValue = "1")int currentPage, HttpServletRequest request,HttpSession session) throws Exception{
+        Staff staff = (Staff) session.getAttribute("staff");
+        int pageSize = 10;
+        int totalRows=rapService.getCountMonthBySid(staff.getS_id());
+        int totalPages = DoPage.getTotalPages(totalRows,pageSize);
+        int begin = (currentPage-1)*pageSize+1;
+        int end = (currentPage-1)*pageSize+pageSize;
+        List<Rap> raps=rapService.queryCountMonthBySid(staff.getS_id(),begin,end);
+        request.setAttribute("raps",raps);
+        request.setAttribute("currentPage",currentPage);
+        request.setAttribute("totalPages",totalPages);
+        return "rapMessage";
+    }
 }

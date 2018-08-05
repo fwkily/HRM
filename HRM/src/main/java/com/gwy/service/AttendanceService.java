@@ -27,4 +27,8 @@ public interface AttendanceService {
     double getOffMinutes(int s_id);
 
     int updateAttendance(Attendance attendance);
+
+    int getCountDayByDidJid(int d_id, int j_id);
+
+    List<Attendance> queryCurrentPageStaffDayByDidJid(int d_id, int j_id, int begin, int end);
 }
