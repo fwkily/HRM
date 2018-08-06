@@ -16,4 +16,6 @@ public interface PayMapper {
     int getPayByDidJid(@Param("d_id")int d_id, @Param("j_id")int j_id);
 
     List<Pay> queryCurrentPagePayByDidJid(@Param("d_id")int d_id,@Param("j_id") int j_id,@Param("begin") int begin,@Param("end") int end);
+
+    int addPay(Pay pay);
 }

@@ -31,4 +31,10 @@ public interface AttendanceService {
     int getCountDayByDidJid(int d_id, int j_id);
 
     List<Attendance> queryCurrentPageStaffDayByDidJid(int d_id, int j_id, int begin, int end);
+
+    int getCountLastMonthBySid(int s_id);
+
+    List<Attendance> getAttendanceLastMonthBySid(int s_id);
+
+    double getOffMinutesByAid(int a_id);
 }

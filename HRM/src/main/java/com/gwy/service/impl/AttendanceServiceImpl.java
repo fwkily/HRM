@@ -70,4 +70,19 @@ public class AttendanceServiceImpl implements AttendanceService{
     public List<Attendance> queryCurrentPageStaffDayByDidJid(int d_id, int j_id, int begin, int end) {
         return attendanceMapper.queryCurrentPageStaffDayByDidJid(d_id,j_id,begin,end);
     }
+
+    @Override
+    public int getCountLastMonthBySid(int s_id) {
+        return attendanceMapper.getCountLastMonthBySid(s_id);
+    }
+
+    @Override
+    public List<Attendance> getAttendanceLastMonthBySid(int s_id) {
+        return attendanceMapper.getAttendanceLastMonthBySid(s_id);
+    }
+
+    @Override
+    public double getOffMinutesByAid(int a_id) {
+        return attendanceMapper.getOffMinutesByAid(a_id);
+    }
 }

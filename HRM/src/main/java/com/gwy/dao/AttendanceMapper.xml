@@ -79,6 +79,20 @@
         </where> ) s
         WHERE rn between #{begin} and #{end}
     </select>
+    <select id="getCountLastMonthBySid" resultType="java.lang.Integer">
+        SELECT count(*) FROM HRM_ATTENDANCE WHERE S_ID=#{s_id}
+        and A_STATE in (1,2,3,4,5,6)
+        and to_char(add_months(sysdate,-1),'yyyy-mm')=to_char(A_DATE,'yyyy-mm')
+    </select>
+    <select id="getAttendanceLastMonthBySid" resultMap="attendanceMap1">
+        SELECT * FROM HRM_ATTENDANCE WHERE S_ID=#{s_id}
+        and A_STATE in (2,5,8)
+        and to_char(add_months(sysdate,-1),'yyyy-mm')=to_char(A_DATE,'yyyy-mm')
+    </select>
+    <select id="getOffMinutesByAid" resultType="java.lang.Double">
+        SELECT  ROUND(TO_NUMBER(to_date(to_char(OFF_TIME,'hh24:mi:ss'),'hh24:mi:ss')-TO_DATE('18:00:00','hh24:mi:ss'))*24*60)
+        AS minutes FROM HRM_ATTENDANCE WHERE A_ID=#{a_id}
+    </select>
     <resultMap id="attendanceMap" type="com.gwy.model.Attendance">
         <id property="a_id" column="A_ID"/>
         <result property="a_date" column="A_DATE"/>

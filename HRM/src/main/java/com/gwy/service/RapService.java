@@ -19,4 +19,6 @@ public interface RapService {
     int getCountDayByDidJid(int d_id, int j_id);
 
     List<Rap> queryCurrentPageStaffDayByDidJid(int d_id, int j_id, int begin, int end);
+
+    List<Rap> getRapLastMonthBySid(int s_id);
 }

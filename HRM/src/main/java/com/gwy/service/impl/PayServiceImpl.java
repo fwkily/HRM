@@ -30,4 +30,9 @@ public class PayServiceImpl implements PayService{
     public List<Pay> queryCurrentPagePayByDidJid(int d_id, int j_id, int begin, int end) {
         return payMapper.queryCurrentPagePayByDidJid(d_id,j_id,begin,end);
     }
+
+    @Override
+    public int addPay(Pay pay) {
+        return payMapper.addPay(pay);
+    }
 }

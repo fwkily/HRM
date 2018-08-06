@@ -46,6 +46,10 @@
         </where> ) s
         WHERE rn between #{begin} and #{end}
     </select>
+    <select id="getRapLastMonthBySid" resultMap="rapMap1">
+        SELECT * FROM HRM_RAP WHERE S_ID=#{s_id}
+        and to_char(add_months(sysdate,-1),'yyyy-mm')=to_char(RA_DATE,'yyyy-mm')
+    </select>
 
     <resultMap id="rapMap" type="com.gwy.model.Rap">
         <id property="ra_id" column="RA_ID"/>

@@ -23,6 +23,17 @@ public class Pay implements Serializable{
     public Pay() {
     }
 
+    public Pay(Staff staff, double p_base, double p_performance, double p_overtime, double p_rap, double p_ss, double p_pay, int p_state) {
+        this.staff = staff;
+        this.p_base = p_base;
+        this.p_performance = p_performance;
+        this.p_overtime = p_overtime;
+        this.p_rap = p_rap;
+        this.p_ss = p_ss;
+        this.p_pay = p_pay;
+        this.p_state = p_state;
+    }
+
     public int getP_id() {
         return p_id;
     }

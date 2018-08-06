@@ -20,4 +20,6 @@ public interface RapMapper {
     int getCountDayByDidJid(@Param("d_id")int d_id, @Param("j_id")int j_id);
 
     List<Rap> queryCurrentPageStaffDayByDidJid(@Param("d_id")int d_id,@Param("j_id") int j_id,@Param("begin") int begin,@Param("end") int end);
+
+    List<Rap> getRapLastMonthBySid(int s_id);
 }

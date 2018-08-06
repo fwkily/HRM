@@ -40,4 +40,9 @@ public class RapServiceImpl implements RapService{
     public List<Rap> queryCurrentPageStaffDayByDidJid(int d_id, int j_id, int begin, int end) {
         return rapMapper.queryCurrentPageStaffDayByDidJid(d_id,j_id,begin,end);
     }
+
+    @Override
+    public List<Rap> getRapLastMonthBySid(int s_id) {
+        return rapMapper.getRapLastMonthBySid(s_id);
+    }
 }

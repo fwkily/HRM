@@ -518,10 +518,10 @@ public class AdminController {
         response.setContentType("text/html;charset=utf-8");
         Calendar calendar=Calendar.getInstance();
         int day=calendar.get(calendar.DAY_OF_MONTH);
-        if (day!=1){
+        /*if (day!=1){
             response.getWriter().print("每月1号才可以结算上个月工资");
             return;
-        }
+        }*/
         int count = payService.getCountMonthPay();
         if (count!=0){
             response.getWriter().print("该月已经结算上个月工资");
@@ -529,9 +529,68 @@ public class AdminController {
         }
         List<Staff> staffs = staffService.getStaffBySstate(0);//结算试用期工资
         for (Staff staff:staffs) {
-            Pay pay = new Pay();
-
+            double p_base = 0.0;//试用期8折
+            double p_performance = staff.getJob().getJ_salary()*0.3;//绩效工资*0.3
+            double p_overtime = 0.0;//加班费
+            double overtime = 0.0;//加班费
+            double p_rap = 0.0;//奖惩
+            double p_ss = staff.getJob().getJ_salary()*(-0.25);//社保扣0.25
+            double p_pay = 0.0;//
+            int count1 = attendanceService.getCountLastMonthBySid(staff.getS_id());//正常上班1，加班2，早退3，迟到4 ，迟到加班5，迟到早退 6都算正常上班天数
+            if(count1<22){
+                p_base=(staff.getJob().getJ_salary()*0.8)/22*count1;//按实际按天数算工资
+            }else if (count1==22){
+                p_base=staff.getJob().getJ_salary()*0.8;//工资8折
+            }else{
+                p_base=staff.getJob().getJ_salary()*0.8;//工资8折
+                overtime=8*60*(count1-22);//多出上班天数算加班每天8小时
+            }
+            List<Attendance> attendances = attendanceService.getAttendanceLastMonthBySid(staff.getS_id());//获取上个月加班的考勤 加班2，迟到加班5，旷工加班8
+            for (Attendance attendance:attendances) {
+                double off_Minutes = attendanceService.getOffMinutesByAid(attendance.getA_id());//每一条加班记录的加班时间
+                overtime+=off_Minutes;//加上每一条加班记录的加班时间
+            }
+            p_overtime=overtime/60*50;//加班费每小时50
+            List<Rap> raps = rapService.getRapLastMonthBySid(staff.getS_id());
+            for (Rap rap:raps) {
+                p_rap+=rap.getRa_money();//加上每一条奖惩记录
+            }
+            p_pay=p_base+p_performance+p_overtime+p_rap+p_ss;
+            Pay pay = new Pay(staff,p_base,p_performance,p_overtime,p_rap,p_ss,p_pay,0);
+            payService.addPay(pay);
         }
-        response.getWriter().print("培训发布成功");
+        List<Staff> staffs1 = staffService.getStaffBySstate(0);//结算正式员工工资
+        for (Staff staff:staffs1) {
+            double p_base = 0.0;//
+            double p_performance = staff.getJob().getJ_salary()*0.3;//绩效工资*0.3
+            double p_overtime = 0.0;//加班费
+            double overtime = 0.0;//加班费
+            double p_rap = 0.0;//奖惩
+            double p_ss = staff.getJob().getJ_salary()*(-0.25);//社保扣0.25
+            double p_pay = 0.0;//
+            int count1 = attendanceService.getCountLastMonthBySid(staff.getS_id());//正常上班1，加班2，早退3，迟到4 ，迟到加班5，迟到早退 6都算正常上班天数
+            if(count1<22){
+                p_base=staff.getJob().getJ_salary()/22*count1;//按实际按天数算工资
+            }else if (count1==22){
+                p_base=staff.getJob().getJ_salary();//工资8折
+            }else{
+                p_base=staff.getJob().getJ_salary();//工资8折
+                overtime=8*60*(count1-22);//多出上班天数算加班每天8小时
+            }
+            List<Attendance> attendances = attendanceService.getAttendanceLastMonthBySid(staff.getS_id());//获取上个月加班的考勤 加班2，迟到加班5，旷工加班8
+            for (Attendance attendance:attendances) {
+                double off_Minutes = attendanceService.getOffMinutesByAid(attendance.getA_id());//每一条加班记录的加班时间
+                overtime+=off_Minutes;//加上每一条加班记录的加班时间
+            }
+            p_overtime=overtime/60*50;//加班费每小时50
+            List<Rap> raps = rapService.getRapLastMonthBySid(staff.getS_id());
+            for (Rap rap:raps) {
+                p_rap+=rap.getRa_money();//加上每一条奖惩记录
+            }
+            p_pay=p_base+p_performance+p_overtime+p_rap+p_ss;
+            Pay pay = new Pay(staff,p_base,p_performance,p_overtime,p_rap,p_ss,p_pay,0);
+            payService.addPay(pay);
+        }
+        response.getWriter().print("结算上月薪资成功");
     }
 }

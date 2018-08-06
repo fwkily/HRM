@@ -13,7 +13,7 @@ public class Attendance implements Serializable{
     private Date a_date;//当前日期
     private Date on_time;//上班
     private Date off_time;//下班
-    private int a_state;//状态默认0，正常上班1，加班2，早退3，迟到4 ，迟到加班5，迟到早退 6 旷工7旷工加班
+    private int a_state;//状态默认0，正常上班1，加班2，早退3，迟到4 ，迟到加班5，迟到早退 6 旷工7旷工加班8
 
     public Attendance() {
     }

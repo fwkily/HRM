@@ -113,7 +113,7 @@
         </div>
         <div id="d12">
             <a href="admin" style="color: red">员工管理&emsp;</a>
-            <a href="myResume" >薪资管理&emsp;</a>
+            <a href="pay" >薪资管理&emsp;</a>
             <a href="organizationalManagement" >组织管理&emsp;</a>
             <a href="attendanceInformation">考勤管理&emsp;</a>
             <a href="cultivate">培训管理&emsp;</a>

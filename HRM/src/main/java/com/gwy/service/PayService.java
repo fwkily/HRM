@@ -15,4 +15,6 @@ public interface PayService {
     int getPayByDidJid(int d_id, int j_id);
 
     List<Pay> queryCurrentPagePayByDidJid(int d_id, int j_id, int begin, int end);
+
+    int addPay(Pay pay);
 }

@@ -32,4 +32,10 @@ public interface AttendanceMapper {
     int getCountDayByDidJid(@Param("d_id")int d_id, @Param("j_id")int j_id);
 
     List<Attendance> queryCurrentPageStaffDayByDidJid(@Param("d_id")int d_id,@Param("j_id") int j_id,@Param("begin") int begin,@Param("end") int end);
+
+    int getCountLastMonthBySid(int s_id);
+
+    List<Attendance> getAttendanceLastMonthBySid(int s_id);
+
+    double getOffMinutesByAid(int a_id);
 }
